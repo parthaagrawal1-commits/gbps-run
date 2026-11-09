@@ -699,6 +699,7 @@ def build_live(out="site-live"):
     open(os.path.join(out, "sitemap.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>{LIVE_ROOT}/</loc><lastmod>{today}</lastmod><priority>1.0</priority></url>\n</urlset>\n')
     open(os.path.join(out, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {LIVE_ROOT}/sitemap.xml\n")
     shutil.copy(os.path.join(OUT, "og.png"), os.path.join(out, "og.png"))
+    open(os.path.join(out, "5e7b003d7a8edabb44f639805da74ce8.txt"), "w").write("5e7b003d7a8edabb44f639805da74ce8")
     print(f"built gbps.live → {out}/")
 
 def main():
@@ -720,6 +721,7 @@ def main():
     open(os.path.join(OUT, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nDisallow: /embed/\nSitemap: {ROOT}/sitemap.xml\n")
     open(os.path.join(OUT, ".htaccess"), "w").write(HTACCESS)
     og_image(os.path.join(OUT, "og.png"))
+    open(os.path.join(OUT, "5e7b003d7a8edabb44f639805da74ce8.txt"), "w").write("5e7b003d7a8edabb44f639805da74ce8")  # IndexNow key (Bing/Yandex instant indexing)
     print(f"built {len(urls)} pages → {OUT}/")
     build_live()
 
