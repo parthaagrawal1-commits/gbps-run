@@ -1,0 +1,6 @@
+_src/shot_*.png
+_src/crop*.png
+_src/site/
+_src/__pycache__/
+*.zip
+.DS_Store

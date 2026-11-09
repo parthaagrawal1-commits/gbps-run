@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /embed/
+Sitemap: https://gbps.run/sitemap.xml
