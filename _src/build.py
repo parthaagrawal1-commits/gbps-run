@@ -8,7 +8,7 @@ OUT = "site"
 TEMPLATE = open("template.html", encoding="utf-8").read()
 ANALYTICS = {
     "gbps.run": """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0968f4ef414b4594b164ff29299ca51e"}'></script>""",
-    "gbps.live": "",  # paste the gbps.live beacon here
+    "gbps.live": """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8f2b49e14d4d460abb7c3d0258179561"}'></script>""",
 }
 
 # ----------------------------------------------------------------------------- UI strings
