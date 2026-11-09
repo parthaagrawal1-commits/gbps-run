@@ -6,7 +6,10 @@ import json, os, re, shutil, html, datetime
 ROOT = "https://gbps.run"
 OUT = "site"
 TEMPLATE = open("template.html", encoding="utf-8").read()
-ANALYTICS = "<!-- Analytics: paste your Cloudflare Web Analytics or Plausible snippet here -->"
+ANALYTICS = {
+    "gbps.run": """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0968f4ef414b4594b164ff29299ca51e"}'></script>""",
+    "gbps.live": "",  # paste the gbps.live beacon here
+}
 
 # ----------------------------------------------------------------------------- UI strings
 STR = {}
@@ -593,7 +596,7 @@ def render(p, embed=False):
         "{{LANG_SWITCH}}": lang_switch(p), "{{H1}}": p["h1"], "{{INTRO}}": p["intro"], "{{EXTRA}}": OUTAGE_EXTRA if p["mode"] == "outage" else (LIVE_EXTRA if p["mode"] == "live" else ""),
         "{{FAQ_HEADING}}": {"en": "Understanding your results", "es": "Entiende tus resultados", "pt": "Entenda seus resultados", "hi": "अपने रिज़ल्ट समझें"}[p["lang"]] if not p["slug"] else {"en": "Questions about this test", "es": "Preguntas sobre este test", "pt": "Perguntas sobre este teste", "hi": "इस टेस्ट के बारे में सवाल"}[p["lang"]],
         "{{FAQ_HTML}}": faq_html(p["faqs"]), "{{FAQ_JSON}}": faq_json(p["faqs"]), "{{NAV}}": nav_for(p["lang"]),
-        "{{PLAN_PRESET}}": str(p["plan"] or 0), "{{MODE}}": p["mode"], "{{L_JSON}}": json.dumps(S, ensure_ascii=False), "{{ANALYTICS}}": ANALYTICS,
+        "{{PLAN_PRESET}}": str(p["plan"] or 0), "{{MODE}}": p["mode"], "{{L_JSON}}": json.dumps(S, ensure_ascii=False), "{{ANALYTICS}}": ANALYTICS["gbps.run"],
     }
     for k, v in subs.items(): out = out.replace(k, v)
     out = re.sub(r"\{\{t:(\w+)\}\}", lambda m: html.escape(str(S[m.group(1)])), out)
@@ -684,7 +687,7 @@ Header set Referrer-Policy "strict-origin-when-cross-origin"
 def build_live(out="site-live"):
     if os.path.exists(out): shutil.rmtree(out)
     os.makedirs(out)
-    html_out = render(LIVE_PAGE)
+    html_out = render(LIVE_PAGE).replace(ANALYTICS["gbps.run"], ANALYTICS["gbps.live"])
     html_out = html_out.replace(f'href="{ROOT}/"', 'href="https://gbps.live/"').replace('content="https://gbps.run/"', 'content="https://gbps.live/"')
     html_out = html_out.replace('<link rel="canonical" href="https://gbps.run/">', '<link rel="canonical" href="https://gbps.live/">')
     html_out = html_out.replace('"url":"https://gbps.run/","inLanguage"', '"url":"https://gbps.live/","inLanguage"')
