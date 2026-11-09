@@ -11,6 +11,7 @@ ANALYTICS = "<!-- Analytics: paste your Cloudflare Web Analytics or Plausible sn
 # ----------------------------------------------------------------------------- UI strings
 STR = {}
 STR["en"] = dict(
+    offline='offline', live_empty='Monitoring starts with the first test. Keep this tab open and the chart fills in through the day.', live_summary='<b>Last 24 h:</b> {uptime}% uptime · {n} checks · {drops} drops · download min {min} / avg {avg} / max {max} Mbps · last check {last}',
     settings="Settings", theme="Toggle dark or light theme", gauge_label="Speed gauge", phase_idle="Tap Start to run the test", start="Start test", stop="Stop",
     kbd="Press Space to start · ~25 seconds · no ads, no sign-up",
     download="Download", upload="Upload", ping="Ping", jitter="Jitter", loaded="Ping under load", loaded_sub="download / upload", bloat="Bufferbloat", bloat_sub="lag when busy",
@@ -69,6 +70,7 @@ STR["en"] = dict(
 )
 
 STR["es"] = dict(
+    offline='sin conexión', live_empty='El monitoreo empieza con el primer test. Deja esta pestaña abierta y la gráfica se irá llenando durante el día.', live_summary='<b>Últimas 24 h:</b> {uptime}% disponible · {n} comprobaciones · {drops} caídas · descarga mín {min} / media {avg} / máx {max} Mbps · última {last}',
     settings="Ajustes", theme="Cambiar tema claro u oscuro", gauge_label="Medidor de velocidad", phase_idle="Pulsa Iniciar para hacer la prueba", start="Iniciar prueba", stop="Detener",
     kbd="Pulsa Espacio para iniciar · ~25 segundos · sin anuncios, sin registro",
     download="Descarga", upload="Subida", ping="Ping", jitter="Jitter", loaded="Ping con carga", loaded_sub="descarga / subida", bloat="Bufferbloat", bloat_sub="retraso cuando hay tráfico",
@@ -126,6 +128,7 @@ STR["es"] = dict(
 )
 
 STR["pt"] = dict(
+    offline='offline', live_empty='O monitoramento começa com o primeiro teste. Deixe esta aba aberta e o gráfico vai se preenchendo ao longo do dia.', live_summary='<b>Últimas 24 h:</b> {uptime}% no ar · {n} verificações · {drops} quedas · download mín {min} / média {avg} / máx {max} Mbps · última {last}',
     settings="Configurações", theme="Alternar tema claro ou escuro", gauge_label="Medidor de velocidade", phase_idle="Toque em Iniciar para fazer o teste", start="Iniciar teste", stop="Parar",
     kbd="Pressione Espaço para iniciar · ~25 segundos · sem anúncios, sem cadastro",
     download="Download", upload="Upload", ping="Ping", jitter="Jitter", loaded="Ping sob carga", loaded_sub="download / upload", bloat="Bufferbloat", bloat_sub="atraso com tráfego",
@@ -182,8 +185,67 @@ STR["pt"] = dict(
     out_up="Sua conexão está no ar: {ping} ms até o servidor mais próximo. Se um serviço específico está falhando, o problema provavelmente é do lado deles.", out_slow="Você está online, mas respondendo devagar ({ping} ms). Faça o teste completo abaixo para entender.",
 )
 
-OG_LOCALE = {"en": "en_US", "es": "es_ES", "pt": "pt_BR"}
-LANG_NAMES = {"en": "English", "es": "Español", "pt": "Português"}
+
+STR["hi"] = dict(
+    offline='ऑफ़लाइन', live_empty='पहले टेस्ट के साथ मॉनिटरिंग शुरू होगी। यह टैब खुला रखें, दिन भर चार्ट भरता जाएगा।', live_summary='<b>पिछले 24 घंटे:</b> {uptime}% अपटाइम · {n} जाँच · {drops} ड्रॉप · डाउनलोड न्यूनतम {min} / औसत {avg} / अधिकतम {max} Mbps · आख़िरी जाँच {last}',
+    settings="सेटिंग्स", theme="डार्क या लाइट थीम बदलें", gauge_label="स्पीड मीटर", phase_idle="टेस्ट शुरू करने के लिए Start दबाएँ", start="टेस्ट शुरू करें", stop="रोकें",
+    kbd="Space दबाकर शुरू करें · ~25 सेकंड · कोई विज्ञापन नहीं, कोई साइन-अप नहीं",
+    download="डाउनलोड", upload="अपलोड", ping="पिंग", jitter="जिटर", loaded="लोड के साथ पिंग", loaded_sub="डाउनलोड / अपलोड", bloat="बफरब्लोट", bloat_sub="ट्रैफ़िक के समय लैग",
+    consistency="स्थिरता", cons_sub="स्पीड कितनी स्थिर है", loss="पैकेट लॉस",
+    verdicts_h="आपका कनेक्शन क्या-क्या संभाल सकता है", verdicts_sub="इस टेस्ट के आधार पर",
+    plan_h="क्या आपको वही स्पीड मिल रही है जिसका आप भुगतान करते हैं?", plan_label="मेरा प्लान है", plan_unit="Mbps डाउनलोड", wired="केबल (LAN)",
+    dl_h="इस स्पीड पर चीज़ों में कितना समय लगेगा", share_h="यह रिज़ल्ट शेयर करें", copy_link="रिज़ल्ट लिंक कॉपी करें", copy_summary="सारांश कॉपी करें", dl_image="रिज़ल्ट इमेज डाउनलोड करें", share_btn="शेयर करें…", again="फिर से टेस्ट करें",
+    hist_h="आपका इतिहास", hist_sub="सिर्फ़ इसी डिवाइस पर सेव", monitor="हर", off="बंद", csv="CSV कॉपी करें", clear="इतिहास मिटाएँ",
+    when="कब", down_s="डाउन", up_s="अप", loaded_s="लोड पर", bloat_s="ब्लोट", server="सर्वर",
+    duration="अवधि", quick="तेज़", standard="सामान्य", thorough="पूरा", units="इकाई", test_upload="अपलोड टेस्ट करें", autostart="खोलते ही शुरू करें", show_ip="मेरा IP दिखाएँ",
+    settings_note="टेस्ट डेटा Cloudflare के ग्लोबल नेटवर्क (speed.cloudflare.com) से आदान-प्रदान होता है, इसलिए सर्वर आमतौर पर आपसे कुछ सौ किलोमीटर के भीतर होता है। टेस्ट के रैंडम बाइट्स के अलावा आपका कोई डेटा कहीं नहीं भेजा जाता।",
+    more_h="और टेस्ट", embed_h="यह टेस्ट अपनी वेबसाइट पर लगाएँ", embed_p="मुफ़्त में एम्बेड करें। जहाँ टेस्ट दिखाना हो वहाँ यह पेस्ट करें:",
+    footer="मुफ़्त · कोई विज्ञापन या ट्रैकिंग नहीं · रिज़ल्ट आपके डिवाइस पर ही रहते हैं", about="परिचय", privacy="प्राइवेसी",
+    ph_server="नज़दीकी सर्वर खोजा जा रहा है…", ph_ping="पिंग मापा जा रहा है…", ph_down="डाउनलोड टेस्ट हो रहा है…", ph_up="अपलोड टेस्ट हो रहा है…", ph_done="पूरा · {note} कनेक्शन", ph_stopped="टेस्ट रोका गया", ph_failed="टेस्ट फेल हो गया",
+    err_offline="लगता है आप ऑफ़लाइन हैं। कनेक्शन जाँचें और फिर कोशिश करें।",
+    err_server="टेस्ट सर्वर तक पहुँच नहीं हो पाई। जाँचें कि इंटरनेट चल रहा है और फिर कोशिश करें।",
+    ping_n=["बेहतरीन", "गेमिंग के लिए शानदार", "ज़्यादातर कामों के लिए ठीक", "धीमा"],
+    speed_n=["बहुत ही तेज़", "बहुत तेज़", "तेज़", "अच्छा", "बेसिक", "धीमा"],
+    jit_n=["बहुत स्थिर", "स्थिर", "अस्थिर"], loss_n=["कोई लॉस नहीं", "कुछ पैकेट खोए"], cons_n=["एकदम स्थिर", "स्थिर", "उतार-चढ़ाव"],
+    not_tested="टेस्ट नहीं हुआ", up_not_tested="अपलोड टेस्ट नहीं हुआ।", peak="अधिकतम",
+    bloat_none="ट्रैफ़िक में भी कोई लैग नहीं", bloat_notes=["", "ट्रैफ़िक में +{d} ms", "ट्रैफ़िक में +{d} ms", "+{d} ms – कॉल अटक सकती हैं", "+{d} ms – साफ़ लैग", "+{d} ms – गंभीर लैग"],
+    bloat_relay="रिले/VPN के ज़रिए मापा गया — यह आपके राउटर की समस्या नहीं",
+    great="बढ़िया", ok="ठीक", weak="कमज़ोर",
+    v=dict(stream=dict(t="4K स्ट्रीमिंग (Netflix, YouTube, Hotstar)", a="लगभग {n} 4K स्ट्रीम एक साथ।", b="HD पर गिर सकता है या बफर हो सकता है।"),
+           calls=dict(t="HD वीडियो कॉल (Zoom, Teams, Google Meet)", a="दोनों तरफ़ साफ़ वीडियो।", b="दूसरों को आपका वीडियो धुंधला दिख सकता है।", c="ट्रैफ़िक के समय कॉल अटक सकती हैं।"),
+           gaming=dict(t="ऑनलाइन गेमिंग (BGMI, Free Fire, PS5, PC)", a="कम लैग, तब भी जब दूसरे डाउनलोड कर रहे हों।", b="जब कोई और डाउनलोड करे तो लैग बढ़ता है।", c="खेलने लायक, पर कॉम्पिटिटिव लेवल का नहीं।"),
+           cloud=dict(t="क्लाउड गेमिंग (GeForce Now, Xbox Cloud)", a="4K क्लाउड गेमिंग के लिए तैयार।", b="1080p चलना चाहिए; 4K अटक सकता है।"),
+           wfh=dict(t="वर्क फ्रॉम होम (VPN, स्क्रीन शेयर)", a="स्क्रीन शेयर और फ़ाइल सिंक स्मूद।", b="स्क्रीन शेयर धुंधला दिख सकता है; बड़े अपलोड धीमे होंगे।"),
+           backup=dict(t="वीडियो अपलोड / क्लाउड बैकअप", a="5 GB का वीडियो ~{t} में अपलोड होगा।"),
+           house=dict(t="बड़ा परिवार (10+ डिवाइस)", a="सब एक साथ स्ट्रीम, गेम और काम कर सकते हैं।", b="ठीक है, जब तक कई लोग एक साथ डाउनलोड न करें।", c="पीक समय पर भीड़ महसूस होगी।"),
+           cams=dict(t="स्मार्ट होम और CCTV कैमरे", a="कई कैमरे क्लाउड पर स्ट्रीम कर सकते हैं।", b="क्लाउड कैमरे कम रखें या क्वालिटी घटाएँ।")),
+    dl=dict(movie4k="4K फ़िल्म (15 GB)", game="100 GB गेम", phone="फ़ोन अपडेट (7 GB)", photos="1,000 फ़ोटो (4 GB)", album="एल्बम (100 MB)", moviehd="HD फ़िल्म (4 GB)", page="वेब पेज (3 MB)", backup="50 GB बैकअप (अपलोड)"),
+    plan=dict(p90="आपको अपने {plan} Mbps प्लान का {pct}% मिल रहा है। इससे बेहतर नहीं हो सकता।", p70="आपको अपने {plan} Mbps प्लान का {pct}% मिल रहा है।", p70w="Wi‑Fi पर आपको अपने {plan} Mbps प्लान का {pct}% मिल रहा है, जो सामान्य है।",
+              p40="आपको अपने {plan} Mbps प्लान का {pct}% मिल रहा है। जाँच करने लायक है।", p40w="आपको अपने {plan} Mbps प्लान का {pct}% मिल रहा है। शायद Wi‑Fi ही रुकावट है।",
+              p0="आपको अपने {plan} Mbps प्लान का सिर्फ़ {pct}% मिल रहा है। बार-बार हो तो प्रोवाइडर से बात करें।", p0w="आपको अपने {plan} Mbps प्लान का सिर्फ़ {pct}% मिल रहा है। प्रोवाइडर को कॉल करने से पहले LAN केबल से टेस्ट करें।",
+              enter="अपने प्लान की स्पीड डालें और देखें कि वह मिल रही है या नहीं।",
+              a_room="राउटर वाले कमरे में टेस्ट करें; दीवारें Wi‑Fi स्पीड तेज़ी से घटाती हैं।", a_band="पक्का करें कि डिवाइस 5 GHz या 6 GHz बैंड पर है, 2.4 GHz पर नहीं।", a_wifi6="500 Mbps+ के लिए Wi‑Fi 6/6E/7 राउटर (160 MHz चैनल) और उसे सपोर्ट करने वाला डिवाइस चाहिए।",
+              a_cable="दूसरा Ethernet केबल (Cat 5e या बेहतर) और दूसरा पोर्ट आज़माएँ।", a_restart="पहले मॉडम, फिर राउटर रीस्टार्ट करें और दोबारा टेस्ट करें।", a_quiet="शांत समय पर टेस्ट करें; फिर भी कम हो तो प्रोवाइडर से सिग्नल जाँचने को कहें।",
+              a_gig="गीगाबिट प्लान अक्सर 1.1–1.2 Gbps देते हैं; एक गीगाबिट Ethernet पोर्ट अधिकतम ~940 Mbps देता है।",
+              a_bloat="बफरब्लोट ग्रेड {g}: ट्रैफ़िक के समय लैग रोकने के लिए राउटर में SQM / \"Smart Queue\" या QoS चालू करें।",
+              a_jitter="जिटर ज़्यादा है: राउटर के पास जाएँ या पड़ोसी नेटवर्क के इंटरफ़ेरेंस की जाँच करें (चैनल बदलें)।",
+              a_loss="पैकेट लॉस मिला: केबल और कनेक्शन जाँचें; टेस्ट कुछ बार दोहराएँ।",
+              a_upload="अपलोड, डाउनलोड से बहुत कम है। केबल/4G प्लान में यह सामान्य है; ज़रूरत हो तो फ़ाइबर में अपलोड बराबर मिलता है।",
+              nothing="कुछ ठीक करने की ज़रूरत नहीं। मज़े करें।"),
+    network="नेटवर्क", protocol="प्रोटोकॉल", show_in_settings="सेटिंग्स में देखें",
+    relay_notice="लगता है <b>iCloud Private Relay</b> (या VPN) चालू है। आपका ट्रैफ़िक एक रिले नेटवर्क से जा रहा है जो स्पीड सीमित करता है और लेटेंसी बढ़ाता है — यह इस ब्राउज़र के <em>हर</em> स्पीड टेस्ट पर लागू होता है। असली स्पीड के लिए: Settings → आपका नाम → iCloud → Private Relay → बंद, या किसी दूसरे ब्राउज़र में टेस्ट करें।",
+    relay_advice="iCloud Private Relay / VPN मिला: रिज़ल्ट रिले के हैं, आपके कनेक्शन के नहीं। असली लाइन टेस्ट करने के लिए इसे बंद करें।",
+    share_text="मेरा इंटरनेट स्पीड टेस्ट (gbps.run)\n↓ {down} Mbps  ↑ {up} Mbps\nपिंग {ping} ms · जिटर {jitter} ms · बफरब्लोट {bloat}\nसर्वर: {server}{net}\n{url}",
+    share_title="मेरी इंटरनेट स्पीड", copied="कॉपी हो गया", copied_link="लिंक कॉपी हो गया — जो खोलेगा उसे आपका रिज़ल्ट दिखेगा", copy_fail="कॉपी नहीं हो सका — टेक्स्ट सिलेक्ट करें", cleared="इतिहास मिटा दिया", csv_copied="CSV कॉपी हो गया",
+    img_title="इंटरनेट स्पीड टेस्ट", shared_h="किसी ने आपके साथ अपना रिज़ल्ट शेयर किया:", shared_cta="अपना रिज़ल्ट तुलना के लिए टेस्ट करें।",
+    no_tests="अभी कोई टेस्ट नहीं। आपके रिज़ल्ट यहाँ दिखेंगे।", avg="औसत", mon_status="जब तक यह टैब खुला है, हर {min} मिनट पर एक क्विक टेस्ट चलेगा।",
+    fallback_server="वैकल्पिक सर्वर", fallback_note="वैकल्पिक सर्वर (सिर्फ़ डाउनलोड) इस्तेमाल हुआ",
+    out_checking="आपका कनेक्शन जाँचा जा रहा है…", out_down="आपका कनेक्शन अभी इंटरनेट तक नहीं पहुँच पा रहा। अगर घर के दूसरे डिवाइस भी ऑफ़लाइन हैं, तो शायद प्रोवाइडर की तरफ़ से आउटेज है।",
+    out_up="आपका कनेक्शन चालू है: नज़दीकी सर्वर तक {ping} ms। अगर कोई खास ऐप/सर्विस नहीं चल रही, तो समस्या शायद उनकी तरफ़ है।", out_slow="आप ऑनलाइन हैं पर रिस्पॉन्स धीमा है ({ping} ms)। नीचे पूरा टेस्ट चलाकर देखें।",
+)
+
+OG_LOCALE = {"en": "en_US", "es": "es_ES", "pt": "pt_BR", "hi": "hi_IN"}
+LANG_NAMES = {"en": "English", "es": "Español", "pt": "Português", "hi": "हिन्दी"}
 
 # ----------------------------------------------------------------------------- FAQ content
 def faq_html(faqs):
@@ -215,6 +277,14 @@ GENERIC_FAQ = {
     ("Por que cada teste de velocidade dá um número diferente?", "Cada teste usa servidores diferentes, abre um número diferente de conexões e calcula a média de outro jeito. Testes de conexão única costumam dar baixo em planos rápidos. VPNs e o iCloud Private Relay limitam todos os testes naquele navegador."),
     ("O que significam ping e jitter?", "Ping é o tempo de ida e volta até o servidor. Abaixo de 20 ms é excelente, abaixo de 50 ms é ótimo para jogos e acima de 100 ms parece lento. Jitter é o quanto o ping varia; jitter baixo mantém chamadas e jogos fluidos."),
     ("Este teste é preciso?", "Ele abre até oito conexões em paralelo com o data center da Cloudflare mais próximo, ignora os dois primeiros segundos de aceleração e calcula a média do estado estável. É o mesmo método dos testes tipo Ookla e mede corretamente em planos gigabit."),
+ ],
+ "hi": [
+    ("अच्छी इंटरनेट स्पीड कितनी होती है?", "एक व्यक्ति के लिए 25–50 Mbps डाउनलोड 4K स्ट्रीमिंग और वीडियो कॉल के लिए काफ़ी है। जिस घर में कई लोग स्ट्रीम, गेम और वर्क फ्रॉम होम करते हैं, वहाँ 100–300 Mbps आरामदायक है। अपलोड जितना लोग सोचते हैं उससे ज़्यादा मायने रखता है: 10 Mbps या ज़्यादा से वीडियो कॉल साफ़ रहती हैं।"),
+    ("मेरा Wi‑Fi मेरे प्लान से धीमा क्यों है?", "दीवारें और दूरी सिग्नल घटाती हैं, 2.4 GHz बैंड धीमा और भीड़ वाला है, और पुराने राउटर/डिवाइस लिंक को सीमित करते हैं। राउटर वाले कमरे में टेस्ट करें, 5 GHz या 6 GHz बैंड इस्तेमाल करें, और LAN केबल से तुलना करें ताकि पता चले कि रुकावट Wi‑Fi है या प्रोवाइडर।"),
+    ("बफरब्लोट क्या है?", "जब कनेक्शन व्यस्त होता है (जैसे बड़े डाउनलोड के समय) तो पिंग बढ़ जाता है — इसी को बफरब्लोट कहते हैं। इसी वजह से किसी के बैकअप शुरू करते ही वीडियो कॉल अटक जाती है। हम लाइन लोड करके पिंग मापते हैं और बढ़ोतरी को ग्रेड देते हैं: A मतलब लगभग कोई बदलाव नहीं, F मतलब सैकड़ों मिलीसेकंड। SQM या \"Smart Queue\" वाले राउटर इसे ठीक करते हैं।"),
+    ("अलग-अलग स्पीड टेस्ट अलग नंबर क्यों देते हैं?", "हर टेस्ट अलग सर्वर, अलग संख्या में कनेक्शन और अलग औसत तरीका इस्तेमाल करता है। सिंगल-कनेक्शन टेस्ट तेज़ प्लान पर कम दिखाते हैं। VPN और iCloud Private Relay उस ब्राउज़र के हर टेस्ट को सीमित करते हैं। एक नंबर की जगह कुछ बार टेस्ट करके ट्रेंड देखें।"),
+    ("पिंग और जिटर का क्या मतलब है?", "पिंग सर्वर तक आने-जाने का समय है। 20 ms से कम बेहतरीन, 50 ms से कम गेमिंग के लिए शानदार, और 100 ms+ धीमा लगता है। जिटर बताता है कि पिंग कितना बदलता है; कम जिटर से कॉल और गेम स्मूद रहते हैं।"),
+    ("यह टेस्ट कितना सटीक है?", "यह Cloudflare के नज़दीकी डेटा सेंटर (भारत में मुंबई, दिल्ली, चेन्नई, बेंगलुरु, हैदराबाद, कोलकाता आदि) से आठ तक समानांतर कनेक्शन खोलता है, शुरुआती दो सेकंड छोड़ता है और स्थिर स्पीड का औसत लेता है। यही तरीका Ookla जैसे टेस्ट इस्तेमाल करते हैं और यह गीगाबिट प्लान पर भी सही पढ़ता है।"),
  ],
 }
 
@@ -430,6 +500,56 @@ page("pt", "teste-velocidade-upload", "Upload", "Teste de velocidade de upload �
      [("Qual velocidade de upload eu preciso?", "Videochamadas: 3–5 Mbps por chamada em HD. Streaming na Twitch/YouTube: 6–10 Mbps para 1080p. Backups na nuvem: quanto mais melhor — com 20 Mbps, 5 GB levam uns 35 minutos; com 200 Mbps, menos de 4."),
       ("Por que meu upload é bem menor que o download?", "Cabo e muitos serviços 5G são assimétricos por design. Fibra é simétrica. Se o upload importa para você, esse é o principal motivo para mudar para fibra.")], alt="upload-speed-test")
 
+
+# India (English queries dominate Indian search; Hindi pages for Hindi-first users)
+page("en", "jio-speed-test", "Jio", "Jio Speed Test – JioFiber, AirFiber & Jio 5G | gbps.run",
+     "Independent speed test for JioFiber, Jio AirFiber and Jio 5G. Check download, upload, ping, jitter and bufferbloat and compare with your 30, 100, 300 Mbps or 1 Gbps plan.",
+     "Jio speed test", "For JioFiber, Jio AirFiber and Jio True 5G users. Enter your plan after the test to see the percentage delivered — and whether the gap is Wi‑Fi or the line.",
+     [("What speeds should JioFiber deliver?", "JioFiber plans run from 30 Mbps up to 1 Gbps and are symmetrical on most tiers, so upload should be close to download. Wired tests at 85–95% of the plan are normal; Wi‑Fi over the Jio router is often lower in distant rooms."),
+      ("Why is my Jio 5G speed test slow?", "5G speed depends on which band you're on and how busy the tower is. Jio True 5G on the n78 band commonly delivers 200–800 Mbps; the low-band n28 is much slower. Try near a window, and turn off Wi‑Fi before testing."),
+      ("Jio AirFiber is slow in the evening — normal?", "AirFiber is fixed wireless on 5G, so it shares the tower with phones and slows at peak hours. Use monitor mode on this page to log a full day and see the pattern."),
+      ("Is this the official Jio speed test?", NOT_AFFIL)])
+page("en", "airtel-speed-test", "Airtel", "Airtel Speed Test – Xstream Fiber, Airtel 5G Plus | gbps.run",
+     "Independent speed test for Airtel Xstream Fiber and Airtel 5G Plus. Download, upload, ping, jitter and bufferbloat, with your plan percentage.",
+     "Airtel speed test", "For Airtel Xstream Fiber and Airtel 5G Plus users. Run the test, enter your plan and see what you're really getting.",
+     [("What speeds should Airtel Xstream Fiber give?", "Xstream Fiber plans are typically 40, 100, 200, 300 Mbps and 1 Gbps, usually symmetrical. A wired test at 85–95% of the plan is normal; the 1 Gbps plan shows ~900–940 Mbps on a gigabit port."),
+      ("Why is my Airtel 5G Plus speed test low?", "Airtel 5G Plus uses the n78 band for high speed; if your phone falls back to 4G or low-band 5G the speed drops sharply. Test with Wi‑Fi off, near a window, and compare times of day."),
+      ("Is this the official Airtel speed test?", NOT_AFFIL)])
+
+page("hi", "", "स्पीड टेस्ट", "gbps.run – मुफ़्त इंटरनेट स्पीड टेस्ट (डाउनलोड, अपलोड, पिंग, बफरब्लोट)",
+     "मुफ़्त, बिना विज्ञापन वाला इंटरनेट स्पीड टेस्ट। डाउनलोड, अपलोड, पिंग, जिटर और बफरब्लोट मापता है और साफ़ भाषा में बताता है कि आपका कनेक्शन 4K, गेमिंग, वीडियो कॉल और वर्क फ्रॉम होम के लिए ठीक है या नहीं।",
+     "इंटरनेट स्पीड टेस्ट", "लगभग 25 सेकंड में डाउनलोड, अपलोड, पिंग, जिटर और बफरब्लोट — फिर साफ़ भाषा में बताया जाएगा कि आपका कनेक्शन असल में क्या-क्या संभाल सकता है। कोई विज्ञापन नहीं, कोई साइन-अप नहीं।", GENERIC_FAQ["hi"], alt="")
+page("hi", "wifi-speed-test", "Wi‑Fi", "Wi‑Fi स्पीड टेस्ट – आपका Wi‑Fi असल में कितना तेज़ है? | gbps.run",
+     "फ़ोन या लैपटॉप से अपने Wi‑Fi की स्पीड जाँचें। डाउनलोड, अपलोड, पिंग और बफरब्लोट, प्लान से तुलना, और Wi‑Fi केबल से धीमा क्यों होता है।",
+     "Wi‑Fi स्पीड टेस्ट", "पहले अपने फ़ोन या लैपटॉप से Wi‑Fi पर टेस्ट करें, फिर राउटर के पास जाकर दोबारा। दोनों का अंतर ही वह स्पीड है जो दीवारें, दूरी और राउटर खा रहे हैं।",
+     [("Wi‑Fi मेरे प्लान से धीमा क्यों है?", "हर दीवार और हर मीटर दूरी सिग्नल घटाती है; 2.4 GHz धीमा और भीड़ वाला है; पुराने राउटर और डिवाइस लिंक सीमित करते हैं। राउटर के पास प्लान का 50–90% और दूर के कमरों में उससे बहुत कम मिलना सामान्य है।"),
+      ("Wi‑Fi तेज़ कैसे करें?", "राउटर ऊँचाई पर और खुली जगह रखें, पास के डिवाइस 5 GHz या 6 GHz बैंड पर रखें, Wi‑Fi 6/6E/7 राउटर में 160 MHz चैनल चालू करें, फ़र्मवेयर अपडेट करें, और दूर के कमरों के लिए LAN से जुड़ा एक्सेस पॉइंट या मेश नोड लगाएँ।"),
+      ("क्या LAN केबल से भी टेस्ट करूँ?", "हाँ। अगर केबल पर स्पीड प्लान के पास है और Wi‑Fi बहुत कम, तो समस्या आपके घर में है (राउटर, जगह, बैंड)। अगर केबल पर भी कम है, तो प्रोवाइडर से बात करें।")], alt="wifi-speed-test")
+page("hi", "ping-test", "पिंग", "पिंग टेस्ट – गेमिंग के लिए लेटेंसी और जिटर (BGMI, Free Fire) | gbps.run",
+     "गेमर्स के लिए मुफ़्त पिंग टेस्ट। ब्राउज़र में ही लेटेंसी, जिटर, पैकेट लॉस और लोड के साथ पिंग (बफरब्लोट) मापें — कोई ऐप नहीं।",
+     "गेमिंग के लिए पिंग टेस्ट", "गेमिंग में डाउनलोड स्पीड से ज़्यादा पिंग और जिटर मायने रखते हैं। यह टेस्ट आराम का पिंग, जिटर, पैकेट लॉस और — जो ज़्यादातर टेस्ट नहीं मापते — लाइन व्यस्त होने पर पिंग मापता है।",
+     [("गेमिंग के लिए अच्छा पिंग कितना है?", "20 ms से कम बेहतरीन, 20–50 ms शानदार, 50–100 ms खेलने लायक, 100 ms से ऊपर साफ़ महसूस होता है। 10 ms से कम जिटर मूवमेंट स्मूद रखता है।"),
+      ("जब कोई और स्ट्रीम करता है तो मेरा गेम लैग क्यों करता है?", "यही बफरब्लोट है — ट्रैफ़िक में पिंग उछलता है। बफरब्लोट ग्रेड देखें; C या उससे खराब हो तो राउटर में SQM/QoS चालू करें।"),
+      ("क्या यह गेम सर्वर तक का पिंग है?", "नहीं — यह नज़दीकी Cloudflare डेटा सेंटर तक है, जो आपके कनेक्शन की बेसलाइन का अच्छा अंदाज़ा है। गेम सर्वर इसके ऊपर दूरी जोड़ते हैं।")], alt="ping-test")
+page("hi", "bufferbloat-test", "बफरब्लोट", "बफरब्लोट टेस्ट – ट्रैफ़िक के समय क्या आपका कनेक्शन लैग करता है? | gbps.run",
+     "मुफ़्त बफरब्लोट टेस्ट। लोड के साथ पिंग मापकर A+ से F तक ग्रेड देता है। जानें कि तेज़ प्लान पर भी वीडियो कॉल क्यों अटकती हैं और गेम लैग क्यों करते हैं।",
+     "बफरब्लोट टेस्ट", "तेज़ डाउनलोड स्पीड लैग नहीं रोकती। बफरब्लोट वह पिंग-उछाल है जो घर में कोई कुछ डाउनलोड करे तो आता है — और यह कॉल और गेम बिगाड़ देता है। यह टेस्ट आपकी लाइन लोड करके ठीक यही मापता है।",
+     [("बफरब्लोट क्या है?", "जब कनेक्शन भर जाता है, राउटर और मॉडम पैकेट गिराने के बजाय कतार में लगा देते हैं, और सब कुछ इंतज़ार करता है। आराम में 15 ms का पिंग लोड में 300 ms+ हो सकता है।"),
+      ("ग्रेड कैसे तय होता है?", "हम आराम का पिंग मापते हैं, फिर डाउनलोड और अपलोड के दौरान भी पिंग मापते रहते हैं। बढ़ोतरी का ग्रेड: A+ 5 ms से कम, A 30 से कम, B 60 से कम, C 200 से कम, D 400 से कम, F उससे ऊपर।"),
+      ("इसे कैसे ठीक करें?", "राउटर में SQM, Smart Queue Management, fq_codel या CAKE चालू करें (OpenWrt, कई ASUS, Ubiquiti, Firewalla, eero आदि में होता है)। लिमिट असली स्पीड के ~90% पर रखें। ग्रेड आमतौर पर D/F से A हो जाता है।")], alt="bufferbloat-test")
+page("hi", "jio-speed-test", "Jio", "Jio स्पीड टेस्ट – JioFiber, AirFiber और Jio 5G | gbps.run",
+     "JioFiber, Jio AirFiber और Jio 5G के लिए स्वतंत्र स्पीड टेस्ट। डाउनलोड, अपलोड, पिंग, जिटर और बफरब्लोट जाँचें और अपने प्लान से तुलना करें।",
+     "Jio स्पीड टेस्ट", "JioFiber, Jio AirFiber और Jio True 5G यूज़र्स के लिए। टेस्ट के बाद अपना प्लान डालें और देखें कि कितना प्रतिशत मिल रहा है — और कमी Wi‑Fi की है या लाइन की।",
+     [("JioFiber में कितनी स्पीड मिलनी चाहिए?", "JioFiber प्लान 30 Mbps से 1 Gbps तक हैं और ज़्यादातर में अपलोड-डाउनलोड बराबर होते हैं। LAN केबल पर प्लान का 85–95% सामान्य है; Jio राउटर के Wi‑Fi पर दूर के कमरों में कम मिलना आम है।"),
+      ("मेरा Jio 5G स्पीड टेस्ट धीमा क्यों है?", "5G स्पीड इस पर निर्भर है कि आप किस बैंड पर हैं और टावर कितना व्यस्त है। n78 बैंड पर Jio True 5G आमतौर पर 200–800 Mbps देता है; n28 लो-बैंड बहुत धीमा है। खिड़की के पास और Wi‑Fi बंद करके टेस्ट करें।"),
+      ("क्या यह Jio का आधिकारिक टेस्ट है?", "नहीं। gbps.run स्वतंत्र है, बिना विज्ञापन का है और किसी प्रोवाइडर से जुड़ा नहीं है।")], alt="jio-speed-test")
+page("hi", "airtel-speed-test", "Airtel", "Airtel स्पीड टेस्ट – Xstream Fiber और Airtel 5G Plus | gbps.run",
+     "Airtel Xstream Fiber और Airtel 5G Plus के लिए स्वतंत्र स्पीड टेस्ट। डाउनलोड, अपलोड, पिंग, जिटर और बफरब्लोट, आपके प्लान के प्रतिशत के साथ।",
+     "Airtel स्पीड टेस्ट", "Airtel Xstream Fiber और Airtel 5G Plus यूज़र्स के लिए। टेस्ट करें, अपना प्लान डालें और देखें कि असल में क्या मिल रहा है।",
+     [("Airtel Xstream Fiber में कितनी स्पीड मिलनी चाहिए?", "Xstream Fiber प्लान आमतौर पर 40, 100, 200, 300 Mbps और 1 Gbps के होते हैं, ज़्यादातर सिमेट्रिकल। LAN पर प्लान का 85–95% सामान्य है; 1 Gbps प्लान गीगाबिट पोर्ट पर ~900–940 Mbps दिखाता है।"),
+      ("मेरा Airtel 5G Plus टेस्ट कम क्यों है?", "Airtel 5G Plus तेज़ स्पीड के लिए n78 बैंड इस्तेमाल करता है; फ़ोन 4G या लो-बैंड 5G पर चला जाए तो स्पीड तेज़ी से गिरती है। Wi‑Fi बंद करके, खिड़की के पास, और दिन के अलग समय पर टेस्ट करें।"),
+      ("क्या यह Airtel का आधिकारिक टेस्ट है?", "नहीं। gbps.run स्वतंत्र है और किसी प्रोवाइडर से जुड़ा नहीं है।")], alt="airtel-speed-test")
+
 # ----------------------------------------------------------------------------- Rendering helpers
 def url_of(p):
     base = ROOT if p["lang"] == "en" else f"{ROOT}/{p['lang']}"
@@ -443,7 +563,7 @@ for p in P: BY_LANG.setdefault(p["lang"], []).append(p)
 EN_BY_SLUG = {p["slug"]: p for p in BY_LANG["en"]}
 
 def nav_for(lang):
-    return "".join(f'<a href="{path_of(p)}">{html.escape(p["nav"])}</a>' for p in BY_LANG[lang])
+    return "".join(f'<a href="{path_of(p)}">{html.escape(p["nav"])}</a>' for p in BY_LANG[lang]) + '<a href="https://gbps.live/">Live monitor ↗</a>'
 
 def hreflang_for(p):
     # group: an en page and its translations (alt points at the en slug)
@@ -463,14 +583,15 @@ def lang_switch(p):
     return " ".join(f'<a class="iconbtn lang" href="{path_of(q)}" hreflang="{q["lang"]}">{LANG_NAMES[q["lang"]]}</a>' for q in others)
 
 OUTAGE_EXTRA = '<div id="outageStatus" class="status" role="status" aria-live="polite">…</div>'
+LIVE_EXTRA = '<div id="liveBox" class="status" role="status" aria-live="polite">…</div>'
 
 def render(p, embed=False):
     S = STR[p["lang"]]; url = url_of(p); out = TEMPLATE
     subs = {
         "{{LANG}}": p["lang"], "{{OG_LOCALE}}": OG_LOCALE[p["lang"]], "{{TITLE}}": html.escape(p["title"]), "{{TITLE_JSON}}": json.dumps(p["title"], ensure_ascii=False),
         "{{DESC}}": html.escape(p["desc"]), "{{URL}}": url, "{{HREFLANG}}": hreflang_for(p), "{{HOME}}": "/" if p["lang"] == "en" else f"/{p['lang']}/",
-        "{{LANG_SWITCH}}": lang_switch(p), "{{H1}}": p["h1"], "{{INTRO}}": p["intro"], "{{EXTRA}}": OUTAGE_EXTRA if p["mode"] == "outage" else "",
-        "{{FAQ_HEADING}}": {"en": "Understanding your results", "es": "Entiende tus resultados", "pt": "Entenda seus resultados"}[p["lang"]] if not p["slug"] else {"en": "Questions about this test", "es": "Preguntas sobre este test", "pt": "Perguntas sobre este teste"}[p["lang"]],
+        "{{LANG_SWITCH}}": lang_switch(p), "{{H1}}": p["h1"], "{{INTRO}}": p["intro"], "{{EXTRA}}": OUTAGE_EXTRA if p["mode"] == "outage" else (LIVE_EXTRA if p["mode"] == "live" else ""),
+        "{{FAQ_HEADING}}": {"en": "Understanding your results", "es": "Entiende tus resultados", "pt": "Entenda seus resultados", "hi": "अपने रिज़ल्ट समझें"}[p["lang"]] if not p["slug"] else {"en": "Questions about this test", "es": "Preguntas sobre este test", "pt": "Perguntas sobre este teste", "hi": "इस टेस्ट के बारे में सवाल"}[p["lang"]],
         "{{FAQ_HTML}}": faq_html(p["faqs"]), "{{FAQ_JSON}}": faq_json(p["faqs"]), "{{NAV}}": nav_for(p["lang"]),
         "{{PLAN_PRESET}}": str(p["plan"] or 0), "{{MODE}}": p["mode"], "{{L_JSON}}": json.dumps(S, ensure_ascii=False), "{{ANALYTICS}}": ANALYTICS,
     }
@@ -512,6 +633,7 @@ ErrorDocument 404 /404.html
 # Source files live in _src/ (git) – never serve them
 RedirectMatch 404 ^/_src(/|$)
 RedirectMatch 404 ^/[.]git(/|$)
+RedirectMatch 404 ^/README[.]md$
 <IfModule mod_deflate.c>
 AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml
 </IfModule>
@@ -527,6 +649,57 @@ Header set Referrer-Policy "strict-origin-when-cross-origin"
 Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 </IfModule>
 """
+
+
+# ----------------------------------------------------------------------------- gbps.live (separate site: live connection monitor)
+LIVE_ROOT = "https://gbps.live"
+LIVE_PAGE = dict(lang="en", slug="", nav="Live monitor", mode="live", plan=0, alt=None,
+    title="gbps.live – Live Internet Monitor: Is My Internet Dropping?",
+    desc="Leave this tab open and gbps.live tests your connection every 5 minutes, charts the day, and logs every drop — download, upload, ping and bufferbloat over time. Free, no account.",
+    h1="Live internet monitor",
+    intro="Leave this tab open. Your connection is tested every 5 minutes and every drop is logged, so when the internet \"feels slow in the evening\" you have the chart to prove it. One-off test? Use <a href='https://gbps.run/'>gbps.run</a>.",
+    faqs=[("How does the live monitor work?", "It runs a quick 6-second test (ping, download, upload) at the interval you choose while the tab is open, keeps the results on your device, and summarises uptime, drops and the speed range for the last 24 hours. Nothing is sent to a server."),
+          ("What counts as a drop?", "A check that fails entirely, or whose download speed is below half of your typical speed for the day. Both show in the table so you can see when they happened."),
+          ("Does it work when the laptop is asleep or the tab is in the background?", "Browsers pause background tabs, so keep it in a visible window (a second monitor or a spare phone on the charger works well). Checks skip while the tab is hidden rather than recording false drops."),
+          ("Can I use this as evidence with my provider?", "Yes — Copy as CSV exports every check with timestamps. A day of logged evening slowdowns or repeated drops is far more persuasive than one bad speed test."),
+          ("How much data does it use?", "Roughly 20–60 MB per check on a fast connection, so about 300 MB–1 GB per hour at 5-minute intervals. Use a longer interval on metered connections.")])
+
+LIVE_HTACCESS = """RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^gbps[.]live$ [NC]
+RewriteRule ^ https://gbps.live%{REQUEST_URI} [L,R=301]
+# Only the monitor lives here; everything else is on gbps.run
+RewriteCond %{REQUEST_URI} !^/(index\\.html)?$
+RewriteCond %{REQUEST_URI} !^/(og[.]png|robots[.]txt|sitemap[.]xml)$
+RewriteRule ^(.*)$ https://gbps.run/$1 [L,R=301]
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml
+</IfModule>
+<IfModule mod_headers.c>
+Header set X-Content-Type-Options "nosniff"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+"""
+
+def build_live(out="site-live"):
+    if os.path.exists(out): shutil.rmtree(out)
+    os.makedirs(out)
+    html_out = render(LIVE_PAGE)
+    html_out = html_out.replace(f'href="{ROOT}/"', 'href="https://gbps.live/"').replace('content="https://gbps.run/"', 'content="https://gbps.live/"')
+    html_out = html_out.replace('<link rel="canonical" href="https://gbps.run/">', '<link rel="canonical" href="https://gbps.live/">')
+    html_out = html_out.replace('"url":"https://gbps.run/","inLanguage"', '"url":"https://gbps.live/","inLanguage"')
+    html_out = html_out.replace('"name":"gbps.run Internet Speed Test","url":"https://gbps.run/"', '"name":"gbps.live Live Internet Monitor","url":"https://gbps.live/"')
+    html_out = html_out.replace('class="logo" href="/"', 'class="logo" href="https://gbps.live/"').replace('href="/"', 'href="https://gbps.run/"').replace('href="/', 'href="https://gbps.run/')
+    html_out = html_out.replace('<a href="https://gbps.live/">Live monitor ↗</a>', '')
+    html_out = html_out.replace('>gbps.run\n    </a>', '>gbps.live\n    </a>').replace("      gbps.run\n    </a>", "      gbps.live\n    </a>")
+    html_out = html_out.replace('<footer>gbps.run ·', '<footer>gbps.live · a <a href="https://gbps.run/">gbps.run</a> tool ·')
+    open(os.path.join(out, "index.html"), "w", encoding="utf-8").write(html_out)
+    open(os.path.join(out, ".htaccess"), "w").write(LIVE_HTACCESS)
+    today = datetime.date.today().isoformat()
+    open(os.path.join(out, "sitemap.xml"), "w").write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>{LIVE_ROOT}/</loc><lastmod>{today}</lastmod><priority>1.0</priority></url>\n</urlset>\n')
+    open(os.path.join(out, "robots.txt"), "w").write(f"User-agent: *\nAllow: /\nSitemap: {LIVE_ROOT}/sitemap.xml\n")
+    shutil.copy(os.path.join(OUT, "og.png"), os.path.join(out, "og.png"))
+    print(f"built gbps.live → {out}/")
 
 def main():
     if os.path.exists(OUT): shutil.rmtree(OUT)
@@ -548,6 +721,7 @@ def main():
     open(os.path.join(OUT, ".htaccess"), "w").write(HTACCESS)
     og_image(os.path.join(OUT, "og.png"))
     print(f"built {len(urls)} pages → {OUT}/")
+    build_live()
 
 if __name__ == "__main__":
     main()

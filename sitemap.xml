@@ -39,6 +39,14 @@
   <url><loc>https://gbps.run/pt/teste-de-ping/</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
   <url><loc>https://gbps.run/pt/teste-bufferbloat/</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
   <url><loc>https://gbps.run/pt/teste-velocidade-upload/</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://gbps.run/jio-speed-test/</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://gbps.run/airtel-speed-test/</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://gbps.run/hi/</loc><lastmod>2026-11-08</lastmod><priority>1.0</priority></url>
+  <url><loc>https://gbps.run/hi/wifi-speed-test/</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://gbps.run/hi/ping-test/</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://gbps.run/hi/bufferbloat-test/</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://gbps.run/hi/jio-speed-test/</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://gbps.run/hi/airtel-speed-test/</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
   <url><loc>https://gbps.run/about/</loc><lastmod>2026-11-08</lastmod><priority>0.3</priority></url>
   <url><loc>https://gbps.run/privacy/</loc><lastmod>2026-11-08</lastmod><priority>0.3</priority></url>
 </urlset>

@@ -287,6 +287,7 @@ const store = {
 /* ---------- settings ---------- */
 const settings = Object.assign({ dur: 10, unit: 'mbps', up: true, auto: false, ip: false, theme: 'dark', plan: '', conn: 'wifi', mon: 0 }, store.get('ts_settings', {}));
 if (!settings.plan && PLAN_PRESET) settings.plan = PLAN_PRESET;
+if (MODE === 'live' && !settings.liveInit) { settings.liveInit = true; settings.mon = settings.mon || 5; settings.auto = true; }
 function saveSettings() { store.set('ts_settings', settings); }
 function applySettingsUI() {
   $('durSel').value = settings.dur; $('unitSel').value = settings.unit; $('upChk').checked = settings.up; $('autoChk').checked = settings.auto; $('ipChk').checked = settings.ip;
@@ -464,7 +465,7 @@ async function runTest(quick = false) {
   } catch (e) {
     const stopped = e.message === '__stop';
     setPhase(stopped ? L.ph_stopped : L.ph_failed);
-    if (!stopped) { $('errBox').textContent = e.message; $('errBox').classList.remove('hidden'); }
+    if (!stopped) { $('errBox').textContent = e.message; $('errBox').classList.remove('hidden'); if (quick) addHistory({ when: Date.now(), down: 0, up: null, ping: 0, loadedMax: null, bloat: '—', server: L.offline, fail: true }); }
   } finally { showLive(false); running = false; startBtn.textContent = '▶ ' + L.start; startBtn.classList.remove('stop'); }
 }
 startBtn.onclick = () => runTest();
@@ -490,7 +491,7 @@ function showResults(r) {
   $('dlGrid').innerHTML = items.map(([k, b]) => { const sp = b < 0 ? r.up : r.down; const s = sp ? Math.abs(b) * 8 / (sp * 1e6) : NaN; return `<div class="dl"><div class="k">${esc(k)}</div><div class="v">${humanTime(s)}</div></div>`; }).join('');
   $('dlCard').classList.remove('hidden');
   $('shareText').textContent = shareText(r); $('shareCard').classList.remove('hidden');
-  setTimeout(() => $('verdictCard').scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+  if (MODE !== 'live') setTimeout(() => $('verdictCard').scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
 }
 function shareUrl(r) { const p = [fmt(r.down, 1), r.up != null ? fmt(r.up, 1) : '', fmt(r.ping, 0), fmt(r.jitter, 0), r.bloat || ''].join(','); return `${location.origin}${location.pathname}#r=${encodeURIComponent(p)}`; }
 function shareText(r) { return tpl(L.share_text, { down: fmt(r.down, 1), up: r.up != null ? fmt(r.up, 1) : '—', ping: fmt(r.ping, 0), jitter: fmt(r.jitter, 0), bloat: r.bloat, server: r.server, net: r.isp ? ` · ${r.relay ? L.network : 'ISP'}: ${r.isp}` : '', url: shareUrl(r) }); }
@@ -545,10 +546,10 @@ function renderPlan() {
 
 /* ---------- history ---------- */
 let history = (store.get('ts_history', []) || []).map(h => ({ ...h, server: String(h.server || '').replace(/\s*\(?\[object Object\]\)?/g, '').trim() }));
-function addHistory(r) { history.push({ when: r.when, down: +r.down.toFixed(1), up: r.up == null ? null : +r.up.toFixed(1), ping: +r.ping.toFixed(0), loaded: r.loadedMax ? +r.loadedMax.toFixed(0) : null, bloat: r.bloat, server: r.server }); if (history.length > 200) history = history.slice(-200); store.set('ts_history', history); renderHistory(); }
+function addHistory(r) { history.push({ when: r.when, down: +(+r.down).toFixed(1), up: r.up == null ? null : +r.up.toFixed(1), ping: +(+r.ping).toFixed(0), loaded: r.loadedMax ? +r.loadedMax.toFixed(0) : null, bloat: r.bloat, server: r.server, fail: !!r.fail }); if (history.length > 200) history = history.slice(-200); store.set('ts_history', history); renderHistory(); renderLive(); }
 function renderHistory() {
   const tb = $('histTable').querySelector('tbody'); const rows = [...history].reverse().slice(0, 30);
-  tb.innerHTML = rows.map(h => `<tr><td>${new Date(h.when).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</td><td class="num">${fmt(h.down, 1)}</td><td class="num">${h.up == null ? '—' : fmt(h.up, 1)}</td><td class="num">${h.ping}</td><td class="num">${h.loaded ?? '—'}</td><td>${h.bloat || '—'}</td><td>${esc(h.server || '')}</td></tr>`).join('') || `<tr><td colspan="7" style="color:var(--muted)">${L.no_tests}</td></tr>`;
+  tb.innerHTML = rows.map(h => h.fail ? `<tr><td>${new Date(h.when).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</td><td colspan="6" style="color:var(--bad)">${L.offline}</td></tr>` : `<tr><td>${new Date(h.when).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</td><td class="num">${fmt(h.down, 1)}</td><td class="num">${h.up == null ? '—' : fmt(h.up, 1)}</td><td class="num">${h.ping}</td><td class="num">${h.loaded ?? '—'}</td><td>${h.bloat || '—'}</td><td>${esc(h.server || '')}</td></tr>`).join('') || `<tr><td colspan="7" style="color:var(--muted)">${L.no_tests}</td></tr>`;
   const c = $('chart'); const pts = history.slice(-40); if (!pts.length) { c.innerHTML = ''; return; }
   const max = Math.max(...pts.map(p => Math.max(p.down, p.up || 0))) * 1.1 || 1; const w = 600, h = 140, pad = 24; const bw = (w - pad * 2) / pts.length;
   let s = `<line x1="${pad}" y1="${h - 20}" x2="${w - pad}" y2="${h - 20}" stroke="var(--line)"/>`;
@@ -558,8 +559,16 @@ function renderHistory() {
   s += `<text x="${pad}" y="${h - 6}" font-size="11" fill="var(--muted)">■ ${L.download.toLowerCase()}</text><text x="${pad + 110}" y="${h - 6}" font-size="11" fill="var(--accent2)">■ ${L.upload.toLowerCase()}</text>`;
   c.innerHTML = s;
 }
-renderHistory();
-$('clearBtn').onclick = () => { history = []; store.set('ts_history', history); renderHistory(); toast(L.cleared); };
+function renderLive() {
+  const box = $('liveBox'); if (!box) return; const cut = Date.now() - 864e5; const pts = history.filter(h => h.when >= cut);
+  if (!pts.length) { box.innerHTML = L.live_empty; return; }
+  const ok = pts.filter(h => !h.fail && h.down > 0); const med = median(ok.map(h => h.down)) || 0; const drops = pts.filter(h => h.fail || h.down < med * 0.5).length;
+  const uptime = Math.round((1 - drops / pts.length) * 100); const last = pts[pts.length - 1];
+  box.className = 'status notice ' + (uptime >= 99 ? 'good' : uptime >= 90 ? '' : 'bad');
+  box.innerHTML = tpl(L.live_summary, { uptime, n: pts.length, drops, min: fmt(Math.min(...ok.map(h => h.down)), 0), avg: fmt(mean(ok.map(h => h.down)), 0), max: fmt(Math.max(...ok.map(h => h.down)), 0), last: new Date(last.when).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) });
+}
+renderHistory(); renderLive();
+$('clearBtn').onclick = () => { history = []; store.set('ts_history', history); renderHistory(); renderLive(); toast(L.cleared); };
 $('csvBtn').onclick = () => copy('time,download_mbps,upload_mbps,ping_ms,loaded_ping_ms,bufferbloat,server\n' + history.map(h => [new Date(h.when).toISOString(), h.down, h.up ?? '', h.ping, h.loaded ?? '', h.bloat, '"' + (h.server || '') + '"'].join(',')).join('\n'), L.csv_copied);
 
 /* ---------- monitor mode ---------- */
@@ -580,6 +589,7 @@ async function outageCheck() {
 
 /* ---------- boot ---------- */
 renderUnits(); showShared();
+if (MODE === 'live') { const hc = $('historyCard'); hc.parentNode.insertBefore(hc, $('verdictCard')); }
 if (MODE === 'outage') outageCheck();
 if (settings.auto || /[?&]auto=1/.test(location.search)) setTimeout(() => runTest(), 400);
 })();
