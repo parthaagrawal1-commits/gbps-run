@@ -269,8 +269,9 @@ def main():
     open(os.path.join(OUT, ".htaccess"), "w").write("""# gbps.run – Hostinger/Apache config
 RewriteEngine On
 # Force HTTPS + no-www
+# Any other hostname (www, hostingersite.com preview, etc.) → the canonical domain
 RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} ^www\\. [NC]
+RewriteCond %{HTTP_HOST} !^gbps\\.run$ [NC]
 RewriteRule ^ https://gbps.run%{REQUEST_URI} [L,R=301]
 ErrorDocument 404 /404.html
 # Source files live in _src/ (git) – never serve them
