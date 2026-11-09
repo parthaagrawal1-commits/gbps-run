@@ -78,6 +78,7 @@ h1.pageh1{font-size:clamp(18px,4.5vw,24px);margin:0 0 6px;letter-spacing:-.02em;
 .g-poor{background:rgba(255,107,107,.18);color:var(--bad)}
 .meta{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;font-size:13px;color:var(--muted);margin-top:12px}
 .meta b{color:var(--text);font-weight:600}
+.notice{flex-basis:100%;text-align:left;background:rgba(255,200,87,.12);border:1px solid rgba(255,200,87,.5);color:var(--text);border-radius:12px;padding:10px 12px;font-size:13px;margin-top:6px}
 section.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-top:14px;box-shadow:var(--shadow)}
 h2{font-size:17px;margin:0 0 10px;letter-spacing:-.01em}
 h2 small{font-weight:500;color:var(--muted);font-size:13px;margin-left:6px}
@@ -457,12 +458,13 @@ document.addEventListener('keydown', e => { if (e.code === 'Space' && !/input|se
 
 function renderMeta() {
   if (!info) return; const parts = [];
-  if (info.isp) parts.push(`<span>ISP <b>${esc(info.isp)}</b></span>`);
+  const relay = /cloudflare|apple|icloud/i.test(info.isp || '');
+  if (info.isp) parts.push(`<span>${relay ? 'Network' : 'ISP'} <b>${esc(info.isp)}</b></span>`);
   if (info.colo) parts.push(`<span>Server <b>${esc(info.city ? info.city + ' ' : '')}${esc(info.colo)}</b></span>`);
   if (info.proto) parts.push(`<span>Protocol <b>${esc(info.proto)}</b></span>`);
   if (info.ip) parts.push(`<span>IP <b>${settings.ip ? esc(info.ip) : '••••• (show in settings)'}</b></span>`);
   const nc = navigator.connection; if (nc && nc.type && nc.type !== 'unknown') parts.push(`<span>Link <b>${esc(nc.type)}</b></span>`);
-  $('meta').innerHTML = parts.join('');
+  $('meta').innerHTML = parts.join('') + (relay ? `<div class="notice">Looks like <b>iCloud Private Relay</b> (or a VPN) is on. Your traffic is going through Apple's relay network, which caps speed and adds latency — this is true for <em>every</em> speed test in this browser, not just this one. For your real speed: System Settings → your name → iCloud → Private Relay → off, or test in a non-Safari browser.</div>` : '');
 }
 function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 
@@ -513,6 +515,7 @@ function renderPlan() {
     if (pct < 70 && !wifi) { adv.push('Try a different Ethernet cable (Cat 5e or better) and port.'); adv.push('Restart the modem, then the router, and test again.'); adv.push('Test at a quiet time; if it is still low, ask your provider to check signal levels.'); }
     if (plan >= 1000 && pct >= 85) adv.push('Gigabit plans are often provisioned around 1.1–1.2 Gbps; a single gigabit Ethernet port tops out near 940 Mbps.');
   } else { $('planFill').style.width = '0%'; $('planText').textContent = 'Enter your plan speed to see whether you\'re getting it.'; }
+  if (/cloudflare|apple|icloud/i.test(r.isp || '')) adv.push('iCloud Private Relay / VPN detected: results reflect the relay, not your home connection. Turn it off to test the real line.');
   if (r.bloatD >= 60) adv.push(`Bufferbloat grade ${r.bloat}: enable SQM / "Smart Queue" or QoS on your router to stop lag when the line is busy.`);
   if (r.jitter > 30) adv.push('High jitter: move closer to the router, or check for interference from neighbours\' networks (change the channel).');
   if (r.loss > 0) adv.push('Packet loss detected: check cables and the coax connection; repeat the test a few times.');
