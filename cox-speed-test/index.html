@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cox Speed Test – Check Your Real Internet Speed | gbps.run</title>
 <meta name="description" content="Independent speed test for Cox internet. Measure download, upload, ping and bufferbloat and compare against your Cox plan.">
+<meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://gbps.run/cox-speed-test/">
+
 <meta name="theme-color" content="#0b0f17">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Cox Speed Test – Check Your Real Internet Speed | gbps.run">
 <meta property="og:site_name" content="gbps.run">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Cox Speed Test – Check Your Real Internet Speed | gbps.run">
+<meta property="og:description" content="Independent speed test for Cox internet. Measure download, upload, ping and bufferbloat and compare against your Cox plan.">
+<meta property="og:url" content="https://gbps.run/cox-speed-test/">
 <meta property="og:image" content="https://gbps.run/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:description" content="Independent speed test for Cox internet. Measure download, upload, ping and bufferbloat and compare against your Cox plan.">
-<meta property="og:url" content="https://gbps.run/cox-speed-test/">
+<meta property="og:image:alt" content="gbps.run internet speed test">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://gbps.run/og.png">
-<link rel="manifest" href='data:application/manifest+json,{"name":"gbps.run speed test","short_name":"gbps.run","start_url":"./","display":"standalone","background_color":"%230b0f17","theme_color":"%230b0f17","icons":[]}'>
+<link rel="manifest" href='data:application/manifest+json,{"name":"gbps.run speed test","short_name":"gbps.run","start_url":"/","display":"standalone","background_color":"%230b0f17","theme_color":"%230b0f17","icons":[]}'>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230b0f17'/%3E%3Cpath d='M14 40a20 20 0 0 1 36 0' stroke='%233ee6a5' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3Cpath d='M32 40 44 24' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://speed.cloudflare.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +30,8 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"WebApplication","name":"gbps.run Internet Speed Test","url":"https://gbps.run/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free internet speed test measuring download, upload, ping, jitter and bufferbloat with real-world verdicts."},
-{"@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "What speeds should Cox deliver?", "acceptedAnswer": {"@type": "Answer", "text": "Cox tiers typically run from about 100 Mbps to 2 Gbps download, with uploads of roughly 5\u2013100 Mbps depending on tier and market. Wired tests at 85\u201395% of plan are normal."}},{"@type": "Question", "name": "Why is Cox upload so low?", "acceptedAnswer": {"@type": "Answer", "text": "Cable upload capacity is limited by design. If you need more, check whether an upgraded tier or fibre is available."}},{"@type": "Question", "name": "Is this affiliated with Cox?", "acceptedAnswer": {"@type": "Answer", "text": "No. gbps.run is independent and ad-free."}}]}]}
+{"@type":"WebPage","name":"Cox Speed Test – Check Your Real Internet Speed | gbps.run","url":"https://gbps.run/cox-speed-test/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"gbps.run","url":"https://gbps.run/"}},
+{"@type":"FAQPage","mainEntity":[{"@type": "Question", "name": "What speeds should Cox deliver?", "acceptedAnswer": {"@type": "Answer", "text": "Cox tiers typically run from about 100 Mbps to 2 Gbps download, with uploads of roughly 5–100 Mbps depending on tier and market. Wired tests at 85–95% of plan are normal."}},{"@type": "Question", "name": "Why is Cox upload so low?", "acceptedAnswer": {"@type": "Answer", "text": "Cable upload capacity is limited by design. If you need more, check whether an upgraded tier or fibre is available."}},{"@type": "Question", "name": "Is this affiliated with Cox?", "acceptedAnswer": {"@type": "Answer", "text": "No. gbps.run is independent and ad-free, and is not affiliated with any provider."}}]}]}
 </script>
 <style>
 :root{
@@ -44,17 +49,14 @@ body{line-height:1.5}
 a{color:var(--accent2)}
 button{font:inherit;cursor:pointer}
 .wrap{max-width:980px;margin:0 auto;padding:16px}
-header{display:flex;align-items:center;justify-content:space-between;padding:10px 0 4px}
+header{display:flex;align-items:center;justify-content:space-between;padding:10px 0 4px;gap:8px}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.02em;color:var(--text);text-decoration:none}
-h1.pageh1{font-size:clamp(18px,4.5vw,24px);margin:0 0 6px;letter-spacing:-.02em;font-weight:800}
-.intro{color:var(--muted);font-size:14px;margin:0 0 8px;max-width:640px;margin-left:auto;margin-right:auto}
-.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.nav a{font-size:13px;border:1px solid var(--line);background:var(--bg2);color:var(--text);text-decoration:none;border-radius:999px;padding:6px 11px}
-.nav a:hover{border-color:var(--accent2)}
 .logo svg{width:30px;height:30px}
-.iconbtn{background:var(--card);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:8px 12px;font-size:14px;font-weight:600}
+.iconbtn{background:var(--card);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:8px 12px;font-size:14px;font-weight:600;text-decoration:none}
 .iconbtn:hover{border-color:var(--accent2)}
 .hero{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:var(--radius);padding:18px 16px 14px;box-shadow:var(--shadow);text-align:center;position:relative;overflow:hidden}
+h1.pageh1{font-size:clamp(18px,4.5vw,24px);margin:0 0 6px;letter-spacing:-.02em;font-weight:800}
+.intro{color:var(--muted);font-size:14px;margin:0 auto 8px;max-width:640px}
 .gauge{position:relative;width:min(320px,86vw);margin:0 auto}
 .gauge svg{width:100%;height:auto;display:block}
 .gauge .big{position:absolute;left:0;right:0;top:54%;transform:translateY(-50%)}
@@ -79,6 +81,9 @@ h1.pageh1{font-size:clamp(18px,4.5vw,24px);margin:0 0 6px;letter-spacing:-.02em;
 .meta{display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:center;font-size:13px;color:var(--muted);margin-top:12px}
 .meta b{color:var(--text);font-weight:600}
 .notice{flex-basis:100%;text-align:left;background:rgba(255,200,87,.12);border:1px solid rgba(255,200,87,.5);color:var(--text);border-radius:12px;padding:10px 12px;font-size:13px;margin-top:6px}
+.notice.info{background:rgba(90,169,255,.12);border-color:rgba(90,169,255,.5)}
+.notice.good{background:rgba(62,230,165,.12);border-color:rgba(62,230,165,.5)}
+.notice.bad{background:rgba(255,107,107,.12);border-color:rgba(255,107,107,.5)}
 section.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin-top:14px;box-shadow:var(--shadow)}
 h2{font-size:17px;margin:0 0 10px;letter-spacing:-.01em}
 h2 small{font-weight:500;color:var(--muted);font-size:13px;margin-left:6px}
@@ -91,7 +96,7 @@ h2 small{font-weight:500;color:var(--muted);font-size:13px;margin-left:6px}
 .verdict .n{font-size:13px;color:var(--muted)}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 input[type=number],select{background:var(--bg2);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;font-size:15px;min-width:120px}
-.btn{background:var(--bg2);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:10px 14px;font-weight:600;font-size:14px}
+.btn{background:var(--bg2);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:10px 14px;font-weight:600;font-size:14px;text-decoration:none;display:inline-block}
 .btn:hover{border-color:var(--accent2)}
 .btn.primary{background:var(--accent2);border-color:var(--accent2);color:#fff}
 .planbar{height:12px;background:var(--bg2);border:1px solid var(--line);border-radius:999px;overflow:hidden;margin-top:10px}
@@ -116,20 +121,25 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:24px 0 40px}
 .dl .v{font-weight:800;font-size:18px;margin-top:2px}
 .pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:13px;background:var(--bg2)}
 .pill input{accent-color:var(--accent)}
-.sr{position:absolute;left:-9999px}
-.spark{display:inline-block;vertical-align:middle;height:24px;width:120px}
 .kbd{font-size:12px;color:var(--muted)}
 .livegraph{height:56px;width:100%;display:block;margin:4px auto 0;max-width:420px}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.nav a{font-size:13px;border:1px solid var(--line);background:var(--bg2);color:var(--text);text-decoration:none;border-radius:999px;padding:6px 11px}
+.nav a:hover{border-color:var(--accent2)}
+.shared{background:rgba(90,169,255,.12);border:1px solid var(--accent2);border-radius:14px;padding:12px 14px;margin:0 0 12px;text-align:left;font-size:14px}
+.status{border-radius:14px;padding:14px;margin:0 0 12px;font-size:15px;font-weight:600;text-align:left;border:1px solid var(--line);background:var(--bg2)}
+.lang{font-size:13px}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
-    <a class="logo" href="/" aria-label="gbps.run home">
+    <a class="logo" href="/" aria-label="gbps.run">
       <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="var(--card)" stroke="var(--line)"/><path d="M14 40a20 20 0 0 1 36 0" stroke="var(--accent)" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M32 40 44 24" stroke="var(--text)" stroke-width="5" stroke-linecap="round"/></svg>
       gbps.run
     </a>
     <div class="row">
+      <a class="iconbtn lang" href="/es/" hreflang="es">Español</a> <a class="iconbtn lang" href="/pt/" hreflang="pt">Português</a>
       <button class="iconbtn" id="settingsBtn" aria-controls="settings" aria-expanded="false">Settings</button>
       <button class="iconbtn" id="themeBtn" aria-label="Toggle dark or light theme">☾</button>
     </div>
@@ -139,6 +149,8 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:24px 0 40px}
     <div class="hero">
       <h1 class="pageh1">Cox speed test</h1>
       <p class="intro">Independent test for Cox customers. Enter your plan after the test to see the percentage delivered, and check the bufferbloat grade if calls or games stutter.</p>
+      
+      <div id="sharedBox" class="shared hidden"></div>
       <div class="gauge" id="gauge" role="img" aria-label="Speed gauge">
         <svg viewBox="0 0 300 165" aria-hidden="true">
           <defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="var(--accent2)"/><stop offset="1" stop-color="var(--accent)"/></linearGradient></defs>
@@ -193,7 +205,8 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:24px 0 40px}
     <section class="card hidden" id="shareCard">
       <h2>Share this result</h2>
       <div class="row">
-        <button class="btn primary" id="copyBtn">Copy summary</button>
+        <button class="btn primary" id="copyBtn">Copy result link</button>
+        <button class="btn" id="copyTxtBtn">Copy summary</button>
         <button class="btn" id="imgBtn">Download result image</button>
         <button class="btn" id="shareBtn">Share…</button>
         <button class="btn" id="againBtn">Test again</button>
@@ -203,7 +216,7 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:24px 0 40px}
 
     <section class="card" id="historyCard">
       <h2>Your history <small>saved on this device only</small></h2>
-      <svg class="chart" id="chart" viewBox="0 0 600 140" preserveAspectRatio="none" aria-label="History chart"></svg>
+      <svg class="chart" id="chart" viewBox="0 0 600 140" preserveAspectRatio="none" aria-label="Your history"></svg>
       <div class="row" style="margin:8px 0">
         <label class="pill">Monitor every
           <select id="monSel"><option value="0">off</option><option value="5">5 min</option><option value="15">15 min</option><option value="30">30 min</option><option value="60">60 min</option></select>
@@ -224,19 +237,19 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:24px 0 40px}
         <label class="pill"><input type="checkbox" id="autoChk"> Auto-start on open</label>
         <label class="pill"><input type="checkbox" id="ipChk"> Show my IP</label>
       </div>
-      <p class="kbd" style="margin-top:10px">Test data is served by Cloudflare's global network (speed.cloudflare.com), so the server is usually within a few hundred miles of you. Nothing about your test is uploaded anywhere except the random test bytes themselves.</p>
+      <p class="kbd" style="margin-top:10px">Test data is exchanged with Cloudflare&#x27;s global network (speed.cloudflare.com), so the server is usually within a few hundred miles of you. Nothing about your test is uploaded anywhere except the random test bytes themselves.</p>
     </section>
 
     <section class="card" id="faq">
       <h2>Questions about this test</h2>
       <details open><summary>What speeds should Cox deliver?</summary><p>Cox tiers typically run from about 100 Mbps to 2 Gbps download, with uploads of roughly 5–100 Mbps depending on tier and market. Wired tests at 85–95% of plan are normal.</p></details>
       <details><summary>Why is Cox upload so low?</summary><p>Cable upload capacity is limited by design. If you need more, check whether an upgraded tier or fibre is available.</p></details>
-      <details><summary>Is this affiliated with Cox?</summary><p>No. gbps.run is independent and ad-free.</p></details>
+      <details><summary>Is this affiliated with Cox?</summary><p>No. gbps.run is independent and ad-free, and is not affiliated with any provider.</p></details>
     </section>
 
     <section class="card" id="more">
       <h2>More tests</h2>
-      <nav class="nav" aria-label="Other speed tests"><a href="/">Speed test</a><a href="/wifi-speed-test/">Wi‑Fi</a><a href="/xfinity-speed-test/">Xfinity</a><a href="/spectrum-speed-test/">Spectrum</a><a href="/att-speed-test/">AT&T</a><a href="/verizon-fios-speed-test/">Verizon Fios</a><a href="/t-mobile-home-internet-speed-test/">T‑Mobile Home</a><a href="/starlink-speed-test/">Starlink</a><a href="/google-fiber-speed-test/">Google Fiber</a><a href="/cox-speed-test/">Cox</a><a href="/quantum-fiber-speed-test/">Quantum Fiber</a><a href="/bufferbloat-test/">Bufferbloat</a><a href="/ping-test/">Ping</a><a href="/upload-speed-test/">Upload</a><a href="/zoom-speed-test/">Video calls</a><a href="/gaming-speed-test/">Gaming</a><a href="/4k-streaming-speed-test/">4K streaming</a><a href="/ethernet-vs-wifi-speed-test/">Wired vs Wi‑Fi</a><a href="/5g-speed-test/">5G / mobile</a><a href="/gigabit-speed-test/">Gigabit</a></nav>
+      <nav class="nav" aria-label="More tests"><a href="/">Speed test</a><a href="/wifi-speed-test/">Wi‑Fi</a><a href="/xfinity-speed-test/">Xfinity</a><a href="/spectrum-speed-test/">Spectrum</a><a href="/att-speed-test/">AT&amp;T</a><a href="/verizon-fios-speed-test/">Verizon Fios</a><a href="/t-mobile-home-internet-speed-test/">T‑Mobile Home</a><a href="/starlink-speed-test/">Starlink</a><a href="/google-fiber-speed-test/">Google Fiber</a><a href="/cox-speed-test/">Cox</a><a href="/quantum-fiber-speed-test/">Quantum Fiber</a><a href="/bufferbloat-test/">Bufferbloat</a><a href="/ping-test/">Ping</a><a href="/upload-speed-test/">Upload</a><a href="/zoom-speed-test/">Video calls</a><a href="/gaming-speed-test/">Gaming</a><a href="/4k-streaming-speed-test/">4K streaming</a><a href="/ethernet-vs-wifi-speed-test/">Wired vs Wi‑Fi</a><a href="/5g-speed-test/">5G / mobile</a><a href="/gigabit-speed-test/">Gigabit</a><a href="/private-relay-speed-test/">Private Relay</a><a href="/is-xfinity-down/">Is Xfinity down?</a><a href="/is-spectrum-down/">Is Spectrum down?</a><a href="/is-att-down/">Is AT&amp;T down?</a><a href="/is-verizon-down/">Is Verizon down?</a><a href="/is-starlink-down/">Is Starlink down?</a><a href="/is-cox-down/">Is Cox down?</a><a href="/is-t-mobile-home-internet-down/">Is T‑Mobile Home Internet down?</a><a href="/is-google-fiber-down/">Is Google Fiber down?</a></nav>
     </section>
 
     <section class="card" id="embed">
@@ -252,13 +265,20 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:24px 0 40px}
 <script>
 (() => {
 'use strict';
+const L = {"settings": "Settings", "theme": "Toggle dark or light theme", "gauge_label": "Speed gauge", "phase_idle": "Tap Start to run the test", "start": "Start test", "stop": "Stop", "kbd": "Press Space to start · ~25 seconds · no ads, no sign-up", "download": "Download", "upload": "Upload", "ping": "Ping", "jitter": "Jitter", "loaded": "Ping under load", "loaded_sub": "download / upload", "bloat": "Bufferbloat", "bloat_sub": "lag when busy", "consistency": "Consistency", "cons_sub": "how steady the speed is", "loss": "Packet loss", "verdicts_h": "What your connection can handle", "verdicts_sub": "based on this test", "plan_h": "Are you getting what you pay for?", "plan_label": "My plan is", "plan_unit": "Mbps download", "wired": "Wired", "dl_h": "How long things take at this speed", "share_h": "Share this result", "copy_link": "Copy result link", "copy_summary": "Copy summary", "dl_image": "Download result image", "share_btn": "Share…", "again": "Test again", "hist_h": "Your history", "hist_sub": "saved on this device only", "monitor": "Monitor every", "off": "off", "csv": "Copy as CSV", "clear": "Clear history", "when": "When", "down_s": "Down", "up_s": "Up", "loaded_s": "Loaded", "bloat_s": "Bloat", "server": "Server", "duration": "Duration", "quick": "Quick", "standard": "Standard", "thorough": "Thorough", "units": "Units", "test_upload": "Test upload", "autostart": "Auto-start on open", "show_ip": "Show my IP", "settings_note": "Test data is exchanged with Cloudflare's global network (speed.cloudflare.com), so the server is usually within a few hundred miles of you. Nothing about your test is uploaded anywhere except the random test bytes themselves.", "more_h": "More tests", "embed_h": "Put this test on your site", "embed_p": "Free to embed. Paste this where you want the test to appear:", "footer": "free · no ads, no tracking · results stay on your device", "about": "about", "privacy": "privacy", "ph_server": "Finding the nearest server…", "ph_ping": "Measuring ping…", "ph_down": "Testing download…", "ph_up": "Testing upload…", "ph_done": "Done · {note} connection", "ph_stopped": "Test stopped", "ph_failed": "Test failed", "err_offline": "You appear to be offline. Check your connection and try again.", "err_server": "Could not reach the test servers. Check that you are online, then try again. (If this page is embedded in a sandbox or a strict corporate network, open it at its own address.)", "ping_n": ["excellent", "great for gaming", "fine for most things", "sluggish"], "speed_n": ["blazing fast", "very fast", "fast", "good", "basic", "slow"], "jit_n": ["very stable", "stable", "unstable"], "loss_n": ["no loss", "some packets lost"], "cons_n": ["rock steady", "steady", "fluctuating"], "not_tested": "not tested", "up_not_tested": "Upload not tested.", "peak": "peak", "bloat_none": "no lag when busy", "bloat_notes": ["", "+{d} ms when busy", "+{d} ms when busy", "+{d} ms – calls may stutter", "+{d} ms – noticeable lag", "+{d} ms – severe lag"], "bloat_relay": "measured through a relay/VPN — not your router", "great": "Great", "ok": "OK", "weak": "Weak", "v": {"stream": {"t": "4K streaming (Netflix, YouTube)", "a": "About {n} simultaneous 4K streams.", "b": "May drop to HD or buffer."}, "calls": {"t": "HD video calls (Zoom, FaceTime, Teams)", "a": "Sharp video, both ways.", "b": "Your video to others may look blocky.", "c": "Calls may freeze when the line is busy."}, "gaming": {"t": "Online gaming (PS5, Xbox, PC)", "a": "Low lag, even while others download.", "b": "Lag spikes when someone else downloads.", "c": "Playable, but not competitive-grade."}, "cloud": {"t": "Cloud gaming (GeForce Now, Xbox Cloud)", "a": "4K cloud gaming ready.", "b": "1080p should work; 4K may stutter."}, "wfh": {"t": "Working from home (VPN, screen share)", "a": "Smooth screen sharing and file syncs.", "b": "Screen sharing may look soft; big uploads are slow."}, "backup": {"t": "Uploading videos / cloud backup", "a": "A 5 GB video uploads in ~{t}."}, "house": {"t": "Busy household (10+ devices)", "a": "Everyone can stream, game and work at once.", "b": "Fine unless several people download at once.", "c": "Will feel crowded at peak times."}, "cams": {"t": "Smart home & security cameras", "a": "Several cameras can stream to the cloud.", "b": "Limit cloud cameras or lower their quality."}}, "dl": {"movie4k": "4K movie (15 GB)", "game": "100 GB game", "phone": "Phone update (7 GB)", "photos": "1,000 photos (4 GB)", "album": "Album (100 MB)", "moviehd": "HD movie (4 GB)", "page": "Web page (3 MB)", "backup": "Backup 50 GB (upload)"}, "plan": {"p90": "You're getting {pct}% of your {plan} Mbps plan. That's as good as it gets.", "p70": "You're getting {pct}% of your {plan} Mbps plan.", "p70w": "You're getting {pct}% of your {plan} Mbps plan over Wi‑Fi, which is normal.", "p40": "You're getting {pct}% of your {plan} Mbps plan. Worth investigating.", "p40w": "You're getting {pct}% of your {plan} Mbps plan. Wi‑Fi is probably the bottleneck.", "p0": "You're only getting {pct}% of your {plan} Mbps plan. Contact your provider if this repeats.", "p0w": "You're only getting {pct}% of your {plan} Mbps plan. Try a wired test before calling your provider.", "enter": "Enter your plan speed to see whether you're getting it.", "a_room": "Test in the same room as the router; walls cut Wi‑Fi speed fast.", "a_band": "Make sure your device is on the 5 GHz or 6 GHz band, not 2.4 GHz.", "a_wifi6": "For 500 Mbps+, you need a Wi‑Fi 6/6E/7 router with 160 MHz channels and a device that supports them.", "a_cable": "Try a different Ethernet cable (Cat 5e or better) and port.", "a_restart": "Restart the modem, then the router, and test again.", "a_quiet": "Test at a quiet time; if it is still low, ask your provider to check signal levels.", "a_gig": "Gigabit plans are often provisioned around 1.1–1.2 Gbps; a single gigabit Ethernet port tops out near 940 Mbps.", "a_bloat": "Bufferbloat grade {g}: enable SQM / \"Smart Queue\" or QoS on your router to stop lag when the line is busy.", "a_jitter": "High jitter: move closer to the router, or check for interference from neighbours' networks (change the channel).", "a_loss": "Packet loss detected: check cables and the coax connection; repeat the test a few times.", "a_upload": "Upload is much lower than download. That's typical for cable plans; fibre plans give equal upload if you need it.", "nothing": "Nothing to fix. Enjoy."}, "network": "Network", "protocol": "Protocol", "show_in_settings": "show in settings", "relay_notice": "Looks like <b>iCloud Private Relay</b> (or a VPN) is on. Your traffic is going through a relay network, which caps speed and adds latency — this is true for <em>every</em> speed test in this browser, not just this one. For your real speed: System Settings → your name → iCloud → Private Relay → off, or test in a non-Safari browser.", "relay_advice": "iCloud Private Relay / VPN detected: results reflect the relay, not your home connection. Turn it off to test the real line.", "share_text": "My internet speed test (gbps.run)\n↓ {down} Mbps  ↑ {up} Mbps\nPing {ping} ms · Jitter {jitter} ms · Bufferbloat {bloat}\nServer: {server}{net}\n{url}", "share_title": "My internet speed", "copied": "Copied", "copied_link": "Link copied — it shows your result to whoever opens it", "copy_fail": "Copy not allowed here — select the text instead", "cleared": "History cleared", "csv_copied": "CSV copied", "img_title": "Internet speed test", "shared_h": "Someone shared their result with you:", "shared_cta": "Run the test to compare yours.", "no_tests": "No tests yet. Your results will appear here.", "avg": "avg", "mon_status": "Running a quick test every {min} min while this tab stays open.", "fallback_server": "fallback server", "fallback_note": "download-only fallback server used", "out_checking": "Checking your connection…", "out_down": "Your connection can't reach the internet right now. If other devices in your home are also offline, it's likely an outage on your provider's side.", "out_up": "Your connection is up: {ping} ms to the nearest server. If a specific service is failing, the problem is probably on their side.", "out_slow": "You're online but slow to respond ({ping} ms). Run the full test below to see what's going on."};
+const MODE = 'test';
+const PLAN_PRESET = 0;
 const CF = 'https://speed.cloudflare.com';
+// Fallback download/ping source if Cloudflare's endpoint is unreachable (CORS-enabled CDN, ~10 MB file). Upload has no fallback.
+const FALLBACK = { ping: 'https://cdn.jsdelivr.net/pyodide/v0.25.1/full/package.json', down: 'https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.asm.wasm' };
 const $ = id => document.getElementById(id);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const median = a => { if (!a.length) return NaN; const s = [...a].sort((x, y) => x - y); const m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
 const mean = a => a.length ? a.reduce((x, y) => x + y, 0) / a.length : NaN;
 const fmt = (v, d = 1) => (v == null || isNaN(v)) ? '—' : (v >= 100 ? Math.round(v) : v.toFixed(d)).toString();
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const tpl = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k] != null ? o[k] : '');
 
 /* ---------- storage ---------- */
 const store = {
@@ -267,8 +287,8 @@ const store = {
 };
 
 /* ---------- settings ---------- */
-const PLAN_PRESET = 0;
 const settings = Object.assign({ dur: 10, unit: 'mbps', up: true, auto: false, ip: false, theme: 'dark', plan: '', conn: 'wifi', mon: 0 }, store.get('ts_settings', {}));
+if (!settings.plan && PLAN_PRESET) settings.plan = PLAN_PRESET;
 function saveSettings() { store.set('ts_settings', settings); }
 function applySettingsUI() {
   $('durSel').value = settings.dur; $('unitSel').value = settings.unit; $('upChk').checked = settings.up; $('autoChk').checked = settings.auto; $('ipChk').checked = settings.ip;
@@ -276,7 +296,6 @@ function applySettingsUI() {
   $('monSel').value = settings.mon;
   document.documentElement.dataset.theme = settings.theme; $('themeBtn').textContent = settings.theme === 'dark' ? '☀' : '☾';
 }
-if (!settings.plan && PLAN_PRESET) settings.plan = PLAN_PRESET;
 applySettingsUI();
 $('durSel').onchange = e => { settings.dur = +e.target.value; saveSettings(); };
 $('unitSel').onchange = e => { settings.unit = e.target.value; saveSettings(); renderUnits(); };
@@ -292,14 +311,14 @@ let toastT; function toast(msg) { const t = $('toast'); t.textContent = msg; t.c
 /* ---------- gauge ---------- */
 const GMAX = 3000;
 function polar(cx, cy, r, deg) { const a = (deg - 180) * Math.PI / 180; return [cx + r * Math.cos(a), cy + r * Math.sin(a)]; }
-function arcPath(frac) { const cx = 150, cy = 150, r = 120; const end = 180 * clamp(frac, 0, 1); const [x1, y1] = polar(cx, cy, r, 0); const [x2, y2] = polar(cx, cy, r, end); const large = end > 180 ? 1 : 0; return `M${x1} ${y1} A${r} ${r} 0 ${large} 1 ${x2} ${y2}`; }
+function arcPath(frac) { const cx = 150, cy = 150, r = 120; const end = 180 * clamp(frac, 0, 1); const [x1, y1] = polar(cx, cy, r, 0); const [x2, y2] = polar(cx, cy, r, end); return `M${x1} ${y1} A${r} ${r} 0 0 1 ${x2} ${y2}`; }
 function vfrac(v) { return v <= 0 ? 0 : Math.log10(v + 1) / Math.log10(GMAX + 1); }
 $('track').setAttribute('d', arcPath(1));
 (function ticks() { const g = $('ticks'); [0, 1, 5, 10, 50, 100, 250, 500, 1000, 3000].forEach(v => { const [x, y] = polar(150, 150, 140, 180 * vfrac(v)); const t = document.createElementNS('http://www.w3.org/2000/svg', 'text'); t.setAttribute('x', x); t.setAttribute('y', y + 3); t.textContent = v >= 1000 ? (v / 1000) + 'k' : v; g.appendChild(t); }); })();
 let gaugeShown = 0, gaugeTarget = 0, gaugeRaf;
 function setGauge(v) { gaugeTarget = v; if (!gaugeRaf) tick(); }
 function tick() { gaugeShown += (gaugeTarget - gaugeShown) * 0.18; const f = vfrac(gaugeShown); $('arc').setAttribute('d', gaugeShown > 0.5 ? arcPath(f) : ''); $('bigNum').textContent = unitVal(gaugeShown, 1); if (Math.abs(gaugeTarget - gaugeShown) > 0.05) gaugeRaf = requestAnimationFrame(tick); else { gaugeRaf = null; gaugeShown = gaugeTarget; $('bigNum').textContent = unitVal(gaugeShown, 1); } }
-function unitVal(mbps, d) { if (settings.unit === 'mbs') return fmt(mbps / 8, d); return fmt(mbps, d); }
+function unitVal(mbps, d) { return settings.unit === 'mbs' ? fmt(mbps / 8, d) : fmt(mbps, d); }
 function unitLabel() { return settings.unit === 'mbs' ? 'MB/s' : 'Mbps'; }
 const livePts = [];
 function pushLive(v) { livePts.push(v); if (livePts.length > 120) livePts.shift(); const max = Math.max(1, ...livePts); $('livepoly').setAttribute('points', livePts.map((p, i) => `${i / 119 * 420},${54 - p / max * 50}`).join(' ')); }
@@ -307,48 +326,46 @@ function resetLive() { livePts.length = 0; $('livepoly').setAttribute('points', 
 function showLive(on) { $('livegraph').classList.toggle('hidden', !on); }
 
 /* ---------- network primitives ---------- */
+let useFallback = false;
+function pingUrl() { return useFallback ? `${FALLBACK.ping}?r=${Math.random()}` : `${CF}/__down?bytes=0&r=${Math.random()}`; }
 async function pingOnce(timeout = 3000) {
   const c = new AbortController(); const to = setTimeout(() => c.abort(), timeout);
   const t0 = performance.now();
   try {
-    const r = await fetch(`${CF}/__down?bytes=0&r=${Math.random()}`, { cache: 'no-store', signal: c.signal });
+    const r = await fetch(pingUrl(), { cache: 'no-store', signal: c.signal });
     await r.arrayBuffer();
     let t = performance.now() - t0;
     const st = r.headers.get('server-timing'); if (st) { const m = /dur=([\d.]+)/.exec(st); if (m) t = Math.max(0.2, t - parseFloat(m[1])); }
     return t;
   } catch (e) { return null; } finally { clearTimeout(to); }
 }
-async function idlePing(n, onEach) { const out = []; let fail = 0; for (let i = 0; i < n; i++) { const t = await pingOnce(); if (t == null) fail++; else { out.push(t); onEach && onEach(t, out); } } return { samples: out, loss: fail / n }; }
-function jitterOf(a) { if (a.length < 2) return 0; let s = 0; for (let i = 1; i < a.length; i++) s += Math.abs(a[i] - a[i - 1]); return s / (a.length - 1); }
-
+// n probes after `warm` warm-up probes (TLS/TCP setup) that are discarded
+async function idlePing(n, warm, onEach) {
+  const out = []; let fail = 0;
+  for (let i = 0; i < n + warm; i++) { const t = await pingOnce(); if (t == null) { if (i >= warm) fail++; } else if (i >= warm) { out.push(t); onEach && onEach(t, out); } }
+  return { samples: out, loss: fail / n };
+}
+// jitter: mean of consecutive differences, excluding the largest 20% (one bad probe shouldn't define it)
+function jitterOf(a) { if (a.length < 3) return 0; const d = []; for (let i = 1; i < a.length; i++) d.push(Math.abs(a[i] - a[i - 1])); d.sort((x, y) => x - y); return mean(d.slice(0, Math.max(2, Math.ceil(d.length * 0.8)))); }
 function makeRandomBlob(bytes) { const buf = new Uint8Array(bytes); const chunk = 65536; for (let i = 0; i < bytes; i += chunk) crypto.getRandomValues(buf.subarray(i, Math.min(i + chunk, bytes))); return new Blob([buf], { type: 'application/octet-stream' }); }
 
-/* throughput test: dir = 'down' | 'up' */
-let H1 = false; // set from connection info: HTTP/1.1 limits browsers to 6 connections per host
+let H1 = false; // HTTP/1.1 limits browsers to 6 connections per host: cap streams so ping probes never queue
 async function throughput(dir, durationMs, onProgress, stopSignal) {
-  const start = performance.now(); let total = 0; let active = true; const samples = [{ t: 0, b: 0 }]; const loaded = []; const ctrls = [];
+  const start = performance.now(); let total = 0; let active = true; const samples = [{ t: 0, b: 0 }]; const loaded = []; const ctrls = []; let errors = 0;
   let streams = 0; const maxStreams = H1 ? 4 : (dir === 'down' ? 8 : 6); const CHUNK = 20e6; const upBlob = dir === 'up' ? makeRandomBlob(6e6) : null;
   function addStream() {
     streams++;
-    if (dir === 'down') (function loop() {
-      // XHR progress events: fast in every browser (Safari handles streamed fetch poorly)
+    (function loop() {
       if (!active) return; const x = new XMLHttpRequest(); ctrls.push({ abort: () => x.abort() }); let last = 0;
-      x.open('GET', `${CF}/__down?bytes=${CHUNK}&r=${Math.random()}`); x.responseType = 'arraybuffer';
-      x.onprogress = e => { if (e.loaded > last) { total += e.loaded - last; last = e.loaded; } };
-      x.onload = () => { const n = x.response ? x.response.byteLength : 0; if (n > last) { total += n - last; last = n; } };
-      x.onloadend = () => { if (active) setTimeout(loop, 0); }; x.onerror = () => { if (active) setTimeout(loop, 200); };
-      try { x.send(); } catch (e) { if (active) setTimeout(loop, 200); }
-    })();
-    else (function loop() {
-      if (!active) return; const x = new XMLHttpRequest(); ctrls.push({ abort: () => x.abort() }); let last = 0;
-      x.open('POST', `${CF}/__up?r=${Math.random()}`); x.upload.onprogress = e => { total += e.loaded - last; last = e.loaded; };
-      x.onload = () => { if (x.status >= 200 && x.status < 300 && last < upBlob.size) { total += upBlob.size - last; last = upBlob.size; } };
-      x.onloadend = () => { if (active) setTimeout(loop, 0); }; x.onerror = () => { if (active) setTimeout(loop, 200); };
-      try { x.send(upBlob); } catch (e) { if (active) setTimeout(loop, 200); }
+      const url = dir === 'down' ? (useFallback ? `${FALLBACK.down}?r=${Math.random()}` : `${CF}/__down?bytes=${CHUNK}&r=${Math.random()}`) : `${CF}/__up?r=${Math.random()}`;
+      x.open(dir === 'down' ? 'GET' : 'POST', url); x.timeout = 25000;
+      if (dir === 'down') { x.responseType = 'arraybuffer'; x.onprogress = e => { if (e.loaded > last) { total += e.loaded - last; last = e.loaded; } }; x.onload = () => { const n = x.response ? x.response.byteLength : 0; if (n > last) { total += n - last; last = n; } }; }
+      else { x.upload.onprogress = e => { if (e.loaded > last) { total += e.loaded - last; last = e.loaded; } }; x.onload = () => { if (x.status >= 200 && x.status < 300 && last < upBlob.size) { total += upBlob.size - last; last = upBlob.size; } }; }
+      x.onloadend = () => { if (active) setTimeout(loop, 0); }; x.onerror = x.ontimeout = () => { errors++; if (active) setTimeout(loop, 300); };
+      try { x.send(dir === 'down' ? null : upBlob); } catch (e) { errors++; if (active) setTimeout(loop, 300); }
     })();
   }
   for (let i = 0; i < (H1 ? 3 : (dir === 'down' ? 5 : 3)); i++) addStream();
-  // loaded-latency pinger
   (async () => { await sleep(600); while (active) { const t = await pingOnce(2500); if (t != null && active) loaded.push(t); await sleep(250); } })();
   let lastSpeed = 0;
   while (active) {
@@ -358,96 +375,99 @@ async function throughput(dir, durationMs, onProgress, stopSignal) {
     if (t > 2000 && t < 2200 && sp > 150 && streams < maxStreams) { addStream(); addStream(); }
     if (t > 4000 && t < 4200 && sp > 500 && streams < maxStreams) { addStream(); }
     if (t >= durationMs || (stopSignal && stopSignal.stopped)) active = false;
+    if (t > 5000 && total === 0 && errors >= 3) active = false; // nothing is flowing: give up early
   }
   ctrls.forEach(c => { try { c.abort(); } catch (e) {} });
-  // compute: ignore warm-up, use steady-state average
+  if (total === 0) return { mbps: null, peak: null, consistency: NaN, loaded, bytes: 0 };
   const dur = samples[samples.length - 1].t; const warm = Math.min(2000, dur * 0.25);
   const first = samples.find(s => s.t >= warm) || samples[0]; const lastS = samples[samples.length - 1];
   const steady = (lastS.b - first.b) * 8 / ((lastS.t - first.t) / 1000) / 1e6;
-  // 500 ms window speeds for consistency + peak
   const wins = []; for (let i = 5; i < samples.length; i += 5) { const a = samples[i - 5], b = samples[i]; if (b.t > warm) wins.push((b.b - a.b) * 8 / ((b.t - a.t) / 1000) / 1e6); }
   const m = mean(wins); const sd = Math.sqrt(mean(wins.map(w => (w - m) ** 2))); const consistency = wins.length > 2 ? clamp(100 - (sd / m) * 100, 0, 100) : NaN;
   const peak = wins.length ? Math.max(...wins) : steady;
-  return { mbps: isFinite(steady) ? steady : lastSpeed, peak, consistency, loaded, bytes: total };
+  return { mbps: isFinite(steady) && steady > 0 ? steady : lastSpeed, peak, consistency, loaded, bytes: total };
 }
 
 async function connInfo() {
-  const out = {};
-  try { const r = await fetch(`${CF}/meta`, { cache: 'no-store' }); const j = await r.json(); const str = v => (v && typeof v === 'object') ? (v.code || v.name || v.iata || v.colo || Object.values(v).find(x => typeof x === 'string') || '') : (v || ''); out.ip = str(j.clientIp); out.isp = str(j.asOrganization); out.colo = str(j.colo); out.city = str(j.city); out.region = str(j.region); out.country = str(j.country); out.proto = str(j.httpProtocol); } catch (e) {}
-  if (!out.colo) { try { const r = await fetch(`${CF}/cdn-cgi/trace`, { cache: 'no-store' }); const t = await r.text(); const o = {}; t.trim().split('\n').forEach(l => { const [k, v] = l.split('='); o[k] = v; }); out.ip = out.ip || o.ip; out.colo = o.colo; out.proto = out.proto || o.http; out.country = out.country || o.loc; } catch (e) {} }
+  const out = {}; const str = v => (v && typeof v === 'object') ? (v.code || v.name || v.iata || v.colo || Object.values(v).find(x => typeof x === 'string') || '') : (v == null ? '' : String(v));
+  try { const r = await fetch(`${CF}/meta`, { cache: 'no-store' }); const j = await r.json(); out.ip = str(j.clientIp); out.isp = str(j.asOrganization); out.colo = str(j.colo); out.city = str(j.city); out.region = str(j.region); out.country = str(j.country); out.proto = str(j.httpProtocol); } catch (e) {}
+  if (!out.colo) { try { const r = await fetch(`${CF}/cdn-cgi/trace`, { cache: 'no-store' }); const t = await r.text(); const o = {}; t.trim().split('\n').forEach(l => { const [k, v] = l.split('='); o[k] = v; }); out.ip = out.ip || o.ip; out.colo = o.colo || ''; out.proto = out.proto || o.http || ''; out.country = out.country || o.loc || ''; } catch (e) {} }
+  out.relay = /cloudflare|apple|icloud/i.test(out.isp || '');
   return out;
 }
 
 /* ---------- grading ---------- */
-function bloatGrade(idle, loadedMed) { const d = loadedMed - idle; if (!isFinite(d)) return { g: '—', cls: '', note: '' }; if (d < 5) return { g: 'A+', cls: 'g-great', note: 'no lag when busy' }; if (d < 30) return { g: 'A', cls: 'g-great', note: `+${Math.round(d)} ms when busy` }; if (d < 60) return { g: 'B', cls: 'g-great', note: `+${Math.round(d)} ms when busy` }; if (d < 200) return { g: 'C', cls: 'g-ok', note: `+${Math.round(d)} ms – calls may stutter` }; if (d < 400) return { g: 'D', cls: 'g-poor', note: `+${Math.round(d)} ms – noticeable lag` }; return { g: 'F', cls: 'g-poor', note: `+${Math.round(d)} ms – severe lag` }; }
-function pingNote(p) { return p < 20 ? 'excellent' : p < 50 ? 'great for gaming' : p < 100 ? 'fine for most things' : 'sluggish'; }
-function speedNote(d) { return d >= 500 ? 'blazing fast' : d >= 200 ? 'very fast' : d >= 100 ? 'fast' : d >= 25 ? 'good' : d >= 10 ? 'basic' : 'slow'; }
+function bloatGrade(idle, loadedMed) { const d = loadedMed - idle; if (!isFinite(d)) return { g: '—', cls: '', note: '', d: NaN }; const k = d < 5 ? 0 : d < 30 ? 1 : d < 60 ? 2 : d < 200 ? 3 : d < 400 ? 4 : 5; const g = ['A+', 'A', 'B', 'C', 'D', 'F'][k]; const cls = ['g-great', 'g-great', 'g-great', 'g-ok', 'g-poor', 'g-poor'][k]; const note = k === 0 ? L.bloat_none : tpl(L.bloat_notes[k], { d: Math.round(d) }); return { g, cls, note, d }; }
+function pingNote(p) { return p < 20 ? L.ping_n[0] : p < 50 ? L.ping_n[1] : p < 100 ? L.ping_n[2] : L.ping_n[3]; }
+function speedNote(d) { return d >= 500 ? L.speed_n[0] : d >= 200 ? L.speed_n[1] : d >= 100 ? L.speed_n[2] : d >= 25 ? L.speed_n[3] : d >= 10 ? L.speed_n[4] : L.speed_n[5]; }
+function humanTime(s) { if (!isFinite(s) || s <= 0) return '—'; if (s < 1) return '<1 s'; if (s < 60) return Math.round(s) + ' s'; if (s < 3600) return Math.round(s / 60) + ' min'; const h = Math.floor(s / 3600), m = Math.round((s % 3600) / 60); return `${h} h ${m} min`; }
 function verdicts(r) {
-  const L = r.loadedMax, up = r.up ?? Infinity, hasUp = r.up != null;
-  const v = [];
-  const add = (t, status, n) => v.push({ t, status, n });
+  const up = r.up ?? Infinity, hasUp = r.up != null; const V = L.v; const v = [];
   const lvl = (great, ok) => great ? 'great' : ok ? 'ok' : 'poor';
-  add('4K streaming (Netflix, YouTube)', lvl(r.down >= 25, r.down >= 15), r.down >= 25 ? `About ${Math.floor(r.down / 25)} simultaneous 4K streams.` : 'May drop to HD or buffer.');
-  add('HD video calls (Zoom, FaceTime, Teams)', lvl(r.down >= 5 && up >= 4 && r.ping < 150 && r.jitter < 30 && r.bloatD < 200, r.down >= 2.5 && up >= 1.5 && r.ping < 300), !hasUp ? 'Upload not tested.' : up >= 4 && r.bloatD < 200 ? 'Sharp video, both ways.' : up < 4 ? 'Your video to others may look blocky.' : 'Calls may freeze when the line is busy.');
-  add('Online gaming (PS5, Xbox, PC)', lvl(r.ping < 50 && r.jitter < 15 && r.bloatD < 60 && r.loss === 0, r.ping < 100 && r.jitter < 40 && r.bloatD < 200), r.ping < 50 && r.bloatD < 60 ? 'Low lag, even while others download.' : r.bloatD >= 60 ? 'Lag spikes when someone else downloads.' : 'Playable, but not competitive-grade.');
-  add('Cloud gaming (GeForce Now, Xbox Cloud)', lvl(r.down >= 45 && r.ping < 40 && r.jitter < 10, r.down >= 20 && r.ping < 80), r.down >= 45 && r.ping < 40 ? '4K cloud gaming ready.' : '1080p should work; 4K may stutter.');
-  add('Working from home (VPN, screen share)', lvl(r.down >= 50 && up >= 10 && r.ping < 100, r.down >= 15 && up >= 3), !hasUp ? 'Upload not tested.' : up >= 10 ? 'Smooth screen sharing and file syncs.' : 'Screen sharing may look soft; big uploads are slow.');
-  add('Uploading videos / cloud backup', lvl(up >= 50, up >= 15), !hasUp ? 'Upload not tested.' : `A 5 GB video uploads in ~${humanTime(5e9 * 8 / (up * 1e6))}.`);
-  add('Busy household (10+ devices)', lvl(r.down >= 300 && up >= 20, r.down >= 100 && up >= 10), r.down >= 300 ? 'Everyone can stream, game and work at once.' : r.down >= 100 ? 'Fine unless several people download at once.' : 'Will feel crowded at peak times.');
-  add('Smart home & security cameras', lvl(up >= 20 && r.ping < 100, up >= 8), !hasUp ? 'Upload not tested.' : up >= 20 ? 'Several cameras can stream to the cloud.' : 'Limit cloud cameras or lower their quality.');
+  const add = (key, status, note) => v.push({ t: V[key].t, status, n: note });
+  add('stream', lvl(r.down >= 25, r.down >= 15), r.down >= 25 ? tpl(V.stream.a, { n: Math.floor(r.down / 25) }) : V.stream.b);
+  add('calls', lvl(r.down >= 5 && up >= 4 && r.ping < 150 && r.jitter < 30 && r.bloatD < 200, r.down >= 2.5 && up >= 1.5 && r.ping < 300), !hasUp ? L.up_not_tested : up >= 4 && r.bloatD < 200 ? V.calls.a : up < 4 ? V.calls.b : V.calls.c);
+  add('gaming', lvl(r.ping < 50 && r.jitter < 15 && r.bloatD < 60 && r.loss === 0, r.ping < 100 && r.jitter < 40 && r.bloatD < 200), r.ping < 50 && r.bloatD < 60 ? V.gaming.a : r.bloatD >= 60 ? V.gaming.b : V.gaming.c);
+  add('cloud', lvl(r.down >= 45 && r.ping < 40 && r.jitter < 10, r.down >= 20 && r.ping < 80), r.down >= 45 && r.ping < 40 ? V.cloud.a : V.cloud.b);
+  add('wfh', lvl(r.down >= 50 && up >= 10 && r.ping < 100, r.down >= 15 && up >= 3), !hasUp ? L.up_not_tested : up >= 10 ? V.wfh.a : V.wfh.b);
+  add('backup', lvl(up >= 50, up >= 15), !hasUp ? L.up_not_tested : tpl(V.backup.a, { t: humanTime(5e9 * 8 / (up * 1e6)) }));
+  add('house', lvl(r.down >= 300 && up >= 20, r.down >= 100 && up >= 10), r.down >= 300 ? V.house.a : r.down >= 100 ? V.house.b : V.house.c);
+  add('cams', lvl(up >= 20 && r.ping < 100, up >= 8), !hasUp ? L.up_not_tested : up >= 20 ? V.cams.a : V.cams.b);
   return v;
 }
-function humanTime(s) { if (!isFinite(s) || s <= 0) return '—'; if (s < 1) return '<1 s'; if (s < 60) return Math.round(s) + ' s'; if (s < 3600) return Math.round(s / 60) + ' min'; const h = Math.floor(s / 3600), m = Math.round((s % 3600) / 60); return `${h} h ${m} min`; }
 
 /* ---------- run test ---------- */
 let running = false, stopSig = null, lastResult = null, info = null;
 const startBtn = $('startBtn');
 function setPhase(t) { $('phase').textContent = t; }
-function resetTiles() { ['tDown', 'tUp', 'tPing', 'tJit', 'tLoad', 'tCons', 'tLoss'].forEach(id => { const el = $(id); const small = el.querySelector('small'); el.textContent = '—'; if (small) el.appendChild(small); }); $('tBloat').textContent = '—'; ['tDownS', 'tUpS', 'tPingS', 'tJitS', 'tLossS'].forEach(id => $(id).textContent = ''); ['verdictCard', 'planCard', 'dlCard', 'shareCard'].forEach(id => $(id).classList.add('hidden')); $('errBox').classList.add('hidden'); }
 function setTile(id, v, d, sub) { const el = $(id); const small = el.querySelector('small'); el.textContent = v == null ? '—' : fmt(v, d); if (small) el.appendChild(small); if (sub != null) $(id + 'S').textContent = sub; }
-function renderUnits() { $('bigUnit').textContent = unitLabel(); document.querySelectorAll('#tDown small,#tUp small').forEach(s => s.textContent = unitLabel()); if (lastResult) { setTile('tDown', lastResult.down / (settings.unit === 'mbs' ? 8 : 1), 1); if (lastResult.up != null) setTile('tUp', lastResult.up / (settings.unit === 'mbs' ? 8 : 1), 1); $('bigNum').textContent = unitVal(lastResult.down, 1); } }
+function resetTiles() { ['tDown', 'tUp', 'tPing', 'tJit', 'tLoad', 'tCons', 'tLoss'].forEach(id => setTile(id, null, 1)); $('tBloat').textContent = '—'; ['tDownS', 'tUpS', 'tPingS', 'tJitS', 'tLossS'].forEach(id => $(id).textContent = ''); ['verdictCard', 'planCard', 'dlCard', 'shareCard'].forEach(id => $(id).classList.add('hidden')); $('errBox').classList.add('hidden'); $('sharedBox').classList.add('hidden'); }
+function renderUnits() { $('bigUnit').textContent = unitLabel(); document.querySelectorAll('#tDown small,#tUp small').forEach(s => s.textContent = unitLabel()); if (lastResult) { const k = settings.unit === 'mbs' ? 8 : 1; setTile('tDown', lastResult.down / k, 1); if (lastResult.up != null) setTile('tUp', lastResult.up / k, 1); $('bigNum').textContent = unitVal(lastResult.down, 1); } }
 
 async function runTest(quick = false) {
   if (running) { stopSig.stopped = true; return; }
-  running = true; stopSig = { stopped: false }; lastResult = null; resetTiles(); resetLive(); setGauge(0);
-  startBtn.textContent = '■ Stop'; startBtn.classList.add('stop');
-  const dur = (quick ? 6 : settings.dur) * 1000;
+  running = true; stopSig = { stopped: false }; lastResult = null; useFallback = false; resetTiles(); resetLive(); setGauge(0);
+  startBtn.textContent = '■ ' + L.stop; startBtn.classList.add('stop');
+  const dur = (quick ? 6 : settings.dur) * 1000; const k = settings.unit === 'mbs' ? 8 : 1;
   const r = { when: Date.now() };
   try {
-    setPhase('Finding the nearest server…');
+    if (navigator.onLine === false) throw new Error(L.err_offline);
+    setPhase(L.ph_server);
     const infoP = connInfo();
-    setPhase('Measuring ping…');
-    const pr = await idlePing(12, (t, all) => { setTile('tPing', median(all), 0); setTile('tJit', jitterOf(all), 0); $('bigNum').textContent = fmt(median(all), 0); $('bigUnit').textContent = 'ms'; });
-    if (pr.samples.length < 3) throw new Error('Could not reach the test server. Check that you are online, then try again. (If this page is embedded in a sandbox or a strict corporate network, open it at its own address.)');
-    if (stopSig.stopped) throw new Error('Stopped.');
+    setPhase(L.ph_ping);
+    let pr = await idlePing(12, 2, (t, all) => { setTile('tPing', median(all), 0); setTile('tJit', jitterOf(all), 0); $('bigNum').textContent = fmt(median(all), 0); $('bigUnit').textContent = 'ms'; });
+    if (pr.samples.length < 3) { useFallback = true; pr = await idlePing(10, 2); if (pr.samples.length < 3) throw new Error(L.err_server); }
+    if (stopSig.stopped) throw new Error('__stop');
     r.ping = median(pr.samples); r.pingMin = Math.min(...pr.samples); r.jitter = jitterOf(pr.samples); r.loss = pr.loss;
-    setTile('tPing', r.ping, 0, pingNote(r.ping)); setTile('tJit', r.jitter, 0, r.jitter < 10 ? 'very stable' : r.jitter < 30 ? 'stable' : 'unstable'); setTile('tLoss', r.loss * 100, 0, r.loss === 0 ? 'no loss' : 'some packets lost');
+    setTile('tPing', r.ping, 0, pingNote(r.ping)); setTile('tJit', r.jitter, 0, r.jitter < 10 ? L.jit_n[0] : r.jitter < 30 ? L.jit_n[1] : L.jit_n[2]); setTile('tLoss', r.loss * 100, 0, r.loss === 0 ? L.loss_n[0] : L.loss_n[1]);
     info = await infoP; H1 = /1\.[01]/.test(info.proto || ''); renderMeta();
     $('bigUnit').textContent = unitLabel();
-    showLive(true); setPhase('Testing download…');
-    const d = await throughput('down', dur, (sp, p) => { setGauge(sp); pushLive(sp); setTile('tDown', sp / (settings.unit === 'mbs' ? 8 : 1), 1); setPhase(`Testing download… ${Math.round(p * 100)}%`); }, stopSig);
+    showLive(true); setPhase(L.ph_down);
+    const d = await throughput('down', dur, (sp, p) => { setGauge(sp); pushLive(sp); setTile('tDown', sp / k, 1); setPhase(`${L.ph_down} ${Math.round(p * 100)}%`); }, stopSig);
+    if (d.mbps == null) throw new Error(L.err_server);
     r.down = d.mbps; r.downPeak = d.peak; r.cons = d.consistency; r.loadedDown = median(d.loaded);
-    setGauge(r.down); setTile('tDown', r.down / (settings.unit === 'mbs' ? 8 : 1), 1, `${speedNote(r.down)} · peak ${unitVal(r.downPeak, 0)}`);
-    setTile('tCons', r.cons, 0, r.cons >= 90 ? 'rock steady' : r.cons >= 75 ? 'steady' : 'fluctuating');
-    if (stopSig.stopped) throw new Error('Stopped.');
-    if (settings.up) {
-      resetLive(); setPhase('Testing upload…');
-      const u = await throughput('up', dur, (sp, p) => { setGauge(sp); pushLive(sp); setTile('tUp', sp / (settings.unit === 'mbs' ? 8 : 1), 1); setPhase(`Testing upload… ${Math.round(p * 100)}%`); }, stopSig);
-      r.up = u.mbps; r.upPeak = u.peak; r.loadedUp = median(u.loaded);
-      setTile('tUp', r.up / (settings.unit === 'mbs' ? 8 : 1), 1, `${speedNote(r.up)} · peak ${unitVal(r.upPeak, 0)}`);
-    } else { r.up = null; setTile('tUp', null, 1, 'not tested'); }
+    setGauge(r.down); setTile('tDown', r.down / k, 1, `${speedNote(r.down)} · ${L.peak} ${unitVal(r.downPeak, 0)}`);
+    setTile('tCons', r.cons, 0, r.cons >= 90 ? L.cons_n[0] : r.cons >= 75 ? L.cons_n[1] : L.cons_n[2]);
+    if (stopSig.stopped) throw new Error('__stop');
+    if (settings.up && !useFallback) {
+      resetLive(); setPhase(L.ph_up);
+      const u = await throughput('up', dur, (sp, p) => { setGauge(sp); pushLive(sp); setTile('tUp', sp / k, 1); setPhase(`${L.ph_up} ${Math.round(p * 100)}%`); }, stopSig);
+      r.up = u.mbps; r.upPeak = u.peak; r.loadedUp = u.mbps == null ? null : median(u.loaded);
+      if (r.up == null) setTile('tUp', null, 1, L.not_tested); else setTile('tUp', r.up / k, 1, `${speedNote(r.up)} · ${L.peak} ${unitVal(r.upPeak, 0)}`);
+    } else { r.up = null; setTile('tUp', null, 1, L.not_tested); }
     r.loadedMax = Math.max(r.loadedDown || 0, r.loadedUp || 0) || r.loadedDown; r.bloatD = (r.loadedMax || r.ping) - r.ping;
-    const bg = bloatGrade(r.ping, r.loadedMax); r.bloat = bg.g;
+    const bg = bloatGrade(r.ping, r.loadedMax); r.bloat = bg.g; r.relay = !!(info && info.relay);
     $('tLoad').innerHTML = `${fmt(r.loadedDown, 0)} <small>/ ${r.loadedUp != null ? fmt(r.loadedUp, 0) : '—'} ms</small>`;
-    $('tBloat').innerHTML = `<span class="grade ${bg.cls}">${bg.g}</span>`; $('tBloatS').textContent = bg.note;
-    r.server = info && info.colo ? `${info.city ? info.city + ' ' : ''}(${info.colo})` : '—'; r.isp = info && info.isp || '';
+    $('tBloat').innerHTML = `<span class="grade ${bg.cls}">${bg.g}</span>`; $('tBloatS').textContent = r.relay ? L.bloat_relay : bg.note;
+    r.server = info && info.colo ? `${info.city ? info.city + ' ' : ''}(${info.colo})` : (useFallback ? L.fallback_server : '—'); r.isp = info && info.isp || '';
     lastResult = r; setGauge(r.down); $('bigUnit').textContent = unitLabel();
-    setPhase(`Done · ${speedNote(r.down)} connection`);
+    setPhase(tpl(L.ph_done, { note: speedNote(r.down) }) + (useFallback ? ` · ${L.fallback_note}` : ''));
     showResults(r); addHistory(r);
   } catch (e) {
-    setPhase(e.message === 'Stopped.' ? 'Test stopped' : 'Test failed');
-    if (e.message !== 'Stopped.') { $('errBox').textContent = e.message; $('errBox').classList.remove('hidden'); }
-  } finally { showLive(false); running = false; startBtn.textContent = '▶ Start test'; startBtn.classList.remove('stop'); }
+    const stopped = e.message === '__stop';
+    setPhase(stopped ? L.ph_stopped : L.ph_failed);
+    if (!stopped) { $('errBox').textContent = e.message; $('errBox').classList.remove('hidden'); }
+  } finally { showLive(false); running = false; startBtn.textContent = '▶ ' + L.start; startBtn.classList.remove('stop'); }
 }
 startBtn.onclick = () => runTest();
 $('againBtn').onclick = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); runTest(); };
@@ -455,99 +475,114 @@ document.addEventListener('keydown', e => { if (e.code === 'Space' && !/input|se
 
 function renderMeta() {
   if (!info) return; const parts = [];
-  const relay = /cloudflare|apple|icloud/i.test(info.isp || '');
-  if (info.isp) parts.push(`<span>${relay ? 'Network' : 'ISP'} <b>${esc(info.isp)}</b></span>`);
-  if (info.colo) parts.push(`<span>Server <b>${esc(info.city ? info.city + ' ' : '')}${esc(info.colo)}</b></span>`);
-  if (info.proto) parts.push(`<span>Protocol <b>${esc(info.proto)}</b></span>`);
-  if (info.ip) parts.push(`<span>IP <b>${settings.ip ? esc(info.ip) : '••••• (show in settings)'}</b></span>`);
-  const nc = navigator.connection; if (nc && nc.type && nc.type !== 'unknown') parts.push(`<span>Link <b>${esc(nc.type)}</b></span>`);
-  $('meta').innerHTML = parts.join('') + (relay ? `<div class="notice">Looks like <b>iCloud Private Relay</b> (or a VPN) is on. Your traffic is going through Apple's relay network, which caps speed and adds latency — this is true for <em>every</em> speed test in this browser, not just this one. For your real speed: System Settings → your name → iCloud → Private Relay → off, or test in a non-Safari browser.</div>` : '');
+  if (info.isp) parts.push(`<span>${info.relay ? L.network : 'ISP'} <b>${esc(info.isp)}</b></span>`);
+  if (info.colo) parts.push(`<span>${L.server} <b>${esc(info.city ? info.city + ' ' : '')}${esc(info.colo)}</b></span>`);
+  if (info.proto) parts.push(`<span>${L.protocol} <b>${esc(info.proto)}</b></span>`);
+  if (info.ip) parts.push(`<span>IP <b>${settings.ip ? esc(info.ip) : '••••• (' + L.show_in_settings + ')'}</b></span>`);
+  $('meta').innerHTML = parts.join('') + (info.relay ? `<div class="notice">${L.relay_notice}</div>` : '');
 }
-function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
 
 /* ---------- results ---------- */
 function showResults(r) {
-  const vs = verdicts(r); const col = { great: 'var(--good)', ok: 'var(--warn)', poor: 'var(--bad)' }; const lab = { great: 'Great', ok: 'OK', poor: 'Weak' };
+  const vs = verdicts(r); const col = { great: 'var(--good)', ok: 'var(--warn)', poor: 'var(--bad)' }; const lab = { great: L.great, ok: L.ok, poor: L.weak };
   $('verdicts').innerHTML = vs.map(v => `<div class="verdict"><div class="dot" style="background:${col[v.status]}"></div><div><div class="t">${esc(v.t)} <span class="grade g-${v.status}">${lab[v.status]}</span></div><div class="n">${esc(v.n)}</div></div></div>`).join('');
   $('verdictCard').classList.remove('hidden');
   renderPlan(); $('planCard').classList.remove('hidden');
-  const items = [['4K movie (15 GB)', 15e9], ['100 GB game', 100e9], ['Phone update (7 GB)', 7e9], ['1,000 photos (4 GB)', 4e9], ['Album (100 MB)', 100e6], ['HD movie (4 GB)', 4e9], ['Web page (3 MB)', 3e6], ['Backup 50 GB (upload)', -50e9]];
-  $('dlGrid').innerHTML = items.map(([k, b]) => { const sp = b < 0 ? r.up : r.down; const s = sp ? Math.abs(b) * 8 / (sp * 1e6) : NaN; return `<div class="dl"><div class="k">${k}</div><div class="v">${humanTime(s)}</div></div>`; }).join('');
+  const items = [[L.dl.movie4k, 15e9], [L.dl.game, 100e9], [L.dl.phone, 7e9], [L.dl.photos, 4e9], [L.dl.album, 100e6], [L.dl.moviehd, 4e9], [L.dl.page, 3e6], [L.dl.backup, -50e9]];
+  $('dlGrid').innerHTML = items.map(([k, b]) => { const sp = b < 0 ? r.up : r.down; const s = sp ? Math.abs(b) * 8 / (sp * 1e6) : NaN; return `<div class="dl"><div class="k">${esc(k)}</div><div class="v">${humanTime(s)}</div></div>`; }).join('');
   $('dlCard').classList.remove('hidden');
-  const txt = shareText(r); $('shareText').textContent = txt; $('shareCard').classList.remove('hidden');
+  $('shareText').textContent = shareText(r); $('shareCard').classList.remove('hidden');
   setTimeout(() => $('verdictCard').scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
 }
-function shareText(r) { return `My internet speed test (gbps.run)\n↓ ${fmt(r.down, 1)} Mbps  ↑ ${r.up != null ? fmt(r.up, 1) : '—'} Mbps\nPing ${fmt(r.ping, 0)} ms · Jitter ${fmt(r.jitter, 0)} ms · Bufferbloat ${r.bloat}\nServer: ${r.server}${r.isp ? ' · ISP: ' + r.isp : ''}\n${location.origin}${location.pathname}`; }
-$('copyBtn').onclick = async () => { try { await navigator.clipboard.writeText($('shareText').textContent); toast('Copied'); } catch (e) { toast('Select the text below to copy'); } };
-$('shareBtn').onclick = async () => { if (navigator.share) { try { await navigator.share({ title: 'My internet speed', text: $('shareText').textContent }); } catch (e) {} } else { $('copyBtn').click(); } };
+function shareUrl(r) { const p = [fmt(r.down, 1), r.up != null ? fmt(r.up, 1) : '', fmt(r.ping, 0), fmt(r.jitter, 0), r.bloat || ''].join(','); return `${location.origin}${location.pathname}#r=${encodeURIComponent(p)}`; }
+function shareText(r) { return tpl(L.share_text, { down: fmt(r.down, 1), up: r.up != null ? fmt(r.up, 1) : '—', ping: fmt(r.ping, 0), jitter: fmt(r.jitter, 0), bloat: r.bloat, server: r.server, net: r.isp ? ` · ${r.relay ? L.network : 'ISP'}: ${r.isp}` : '', url: shareUrl(r) }); }
+async function copy(s, okMsg) { try { await navigator.clipboard.writeText(s); toast(okMsg); } catch (e) { toast(L.copy_fail); } }
+$('copyBtn').onclick = () => lastResult && copy(shareUrl(lastResult), L.copied_link);
+$('copyTxtBtn').onclick = () => copy($('shareText').textContent, L.copied);
+$('shareBtn').onclick = async () => { if (navigator.share && lastResult) { try { await navigator.share({ title: L.share_title, text: shareText(lastResult) }); } catch (e) {} } else $('copyBtn').click(); };
 $('imgBtn').onclick = () => { if (!lastResult) return; const url = resultImage(lastResult); const a = document.createElement('a'); a.href = url; a.download = 'speedtest.png'; document.body.appendChild(a); a.click(); a.remove(); };
 function resultImage(r) {
   const c = document.createElement('canvas'); c.width = 1200; c.height = 630; const x = c.getContext('2d');
-  const dark = settings.theme === 'dark'; x.fillStyle = dark ? '#0b0f17' : '#f4f6fb'; x.fillRect(0, 0, 1200, 630);
-  x.fillStyle = dark ? '#e8edf5' : '#0d1522'; x.font = '800 40px Inter, system-ui, sans-serif'; x.fillText('gbps.run · Internet speed test', 60, 90);
-  x.font = '500 26px Inter, system-ui, sans-serif'; x.fillStyle = dark ? '#8d9ab0' : '#5b6778'; x.fillText(new Date(r.when).toLocaleString() + (r.isp ? ' · ' + r.isp : ''), 60, 135);
-  const big = (label, val, unit, px, col) => { x.fillStyle = dark ? '#8d9ab0' : '#5b6778'; x.font = '600 24px Inter, system-ui, sans-serif'; x.fillText(label, px, 220); x.fillStyle = col; x.font = '800 96px Inter, system-ui, sans-serif'; x.fillText(val, px, 320); x.fillStyle = dark ? '#8d9ab0' : '#5b6778'; x.font = '600 28px Inter, system-ui, sans-serif'; x.fillText(unit, px + x.measureText(val).width * 3.1 + 10, 320); };
-  big('DOWNLOAD', fmt(r.down, 1), 'Mbps', 60, '#3ee6a5'); big('UPLOAD', r.up != null ? fmt(r.up, 1) : '—', 'Mbps', 620, '#5aa9ff');
-  x.fillStyle = dark ? '#e8edf5' : '#0d1522'; x.font = '600 32px Inter, system-ui, sans-serif';
-  x.fillText(`Ping ${fmt(r.ping, 0)} ms    Jitter ${fmt(r.jitter, 0)} ms    Bufferbloat ${r.bloat}    Server ${r.server}`, 60, 440);
-  x.fillStyle = dark ? '#8d9ab0' : '#5b6778'; x.font = '500 26px Inter, system-ui, sans-serif'; x.fillText(`${speedNote(r.down)[0].toUpperCase() + speedNote(r.down).slice(1)} connection · ${location.host}`, 60, 560);
+  const dark = settings.theme === 'dark'; const fg = dark ? '#e8edf5' : '#0d1522', mu = dark ? '#8d9ab0' : '#5b6778';
+  x.fillStyle = dark ? '#0b0f17' : '#f4f6fb'; x.fillRect(0, 0, 1200, 630);
+  x.fillStyle = fg; x.font = '800 40px Inter, system-ui, sans-serif'; x.fillText('gbps.run · ' + L.img_title, 60, 90);
+  x.font = '500 26px Inter, system-ui, sans-serif'; x.fillStyle = mu; x.fillText(new Date(r.when).toLocaleString() + (r.isp ? ' · ' + r.isp : ''), 60, 135);
+  const big = (label, val, px, colr) => { x.fillStyle = mu; x.font = '600 24px Inter, system-ui, sans-serif'; x.fillText(label, px, 220); x.fillStyle = colr; x.font = '800 96px Inter, system-ui, sans-serif'; x.fillText(val, px, 320); const w = x.measureText(val).width; x.fillStyle = mu; x.font = '600 28px Inter, system-ui, sans-serif'; x.fillText('Mbps', px + w + 14, 320); };
+  big(L.download.toUpperCase(), fmt(r.down, 1), 60, '#3ee6a5'); big(L.upload.toUpperCase(), r.up != null ? fmt(r.up, 1) : '—', 620, '#5aa9ff');
+  x.fillStyle = fg; x.font = '600 30px Inter, system-ui, sans-serif';
+  x.fillText(`${L.ping} ${fmt(r.ping, 0)} ms    ${L.jitter} ${fmt(r.jitter, 0)} ms    ${L.bloat} ${r.bloat}    ${L.server} ${r.server}`, 60, 440);
+  x.fillStyle = mu; x.font = '500 26px Inter, system-ui, sans-serif'; x.fillText(`${speedNote(r.down)} · gbps.run`, 60, 560);
   return c.toDataURL('image/png');
+}
+// Shared result (#r=down,up,ping,jitter,bloat): show the sender's numbers and invite the visitor to run their own
+function showShared() {
+  const m = /[#&]r=([^&]+)/.exec(location.hash); if (!m) return;
+  const [down, up, ping, jitter, bloat] = decodeURIComponent(m[1]).split(',');
+  if (!down || isNaN(+down)) return;
+  $('sharedBox').innerHTML = `<b>${L.shared_h}</b> ↓ ${esc(down)} Mbps · ↑ ${esc(up || '—')} Mbps · ${L.ping} ${esc(ping)} ms · ${L.jitter} ${esc(jitter)} ms · ${L.bloat} ${esc(bloat || '—')}<br><span class="kbd">${L.shared_cta}</span>`;
+  $('sharedBox').classList.remove('hidden');
 }
 
 /* ---------- plan check ---------- */
 $('planIn').oninput = e => { settings.plan = e.target.value; saveSettings(); renderPlan(); };
 document.querySelectorAll('input[name=conn]').forEach(rd => rd.onchange = e => { settings.conn = e.target.value; saveSettings(); renderPlan(); });
 function renderPlan() {
-  const r = lastResult; if (!r) return; const plan = +settings.plan; const adv = [];
+  const r = lastResult; if (!r) return; const plan = +settings.plan; const adv = []; const P = L.plan;
   if (plan > 0) {
-    const pct = r.down / plan * 100; $('planFill').style.width = clamp(pct, 0, 100) + '%';
-    const wifi = settings.conn === 'wifi';
-    let t;
-    if (pct >= 90) t = `You're getting ${Math.round(pct)}% of your ${plan} Mbps plan. That's as good as it gets.`;
-    else if (pct >= 70) t = `You're getting ${Math.round(pct)}% of your ${plan} Mbps plan${wifi ? ' over Wi‑Fi, which is normal' : ''}.`;
-    else if (pct >= 40) t = `You're getting ${Math.round(pct)}% of your ${plan} Mbps plan. ${wifi ? 'Wi‑Fi is probably the bottleneck.' : 'Worth investigating.'}`;
-    else t = `You're only getting ${Math.round(pct)}% of your ${plan} Mbps plan. ${wifi ? 'Try a wired test before calling your provider.' : 'Contact your provider if this repeats.'}`;
-    $('planText').textContent = t;
-    if (pct < 90 && wifi) { adv.push('Test in the same room as the router; walls cut Wi‑Fi speed fast.'); adv.push('Make sure your device is on the 5 GHz or 6 GHz band, not 2.4 GHz.'); if (plan >= 500) adv.push('For 500 Mbps+, you need a Wi‑Fi 6/6E/7 router with 160 MHz channels and a device that supports them.'); }
-    if (pct < 70 && !wifi) { adv.push('Try a different Ethernet cable (Cat 5e or better) and port.'); adv.push('Restart the modem, then the router, and test again.'); adv.push('Test at a quiet time; if it is still low, ask your provider to check signal levels.'); }
-    if (plan >= 1000 && pct >= 85) adv.push('Gigabit plans are often provisioned around 1.1–1.2 Gbps; a single gigabit Ethernet port tops out near 940 Mbps.');
-  } else { $('planFill').style.width = '0%'; $('planText').textContent = 'Enter your plan speed to see whether you\'re getting it.'; }
-  if (/cloudflare|apple|icloud/i.test(r.isp || '')) adv.push('iCloud Private Relay / VPN detected: results reflect the relay, not your home connection. Turn it off to test the real line.');
-  if (r.bloatD >= 60) adv.push(`Bufferbloat grade ${r.bloat}: enable SQM / "Smart Queue" or QoS on your router to stop lag when the line is busy.`);
-  if (r.jitter > 30) adv.push('High jitter: move closer to the router, or check for interference from neighbours\' networks (change the channel).');
-  if (r.loss > 0) adv.push('Packet loss detected: check cables and the coax connection; repeat the test a few times.');
-  if (r.up != null && r.up < 10 && r.down > 100) adv.push('Upload is much lower than download. That\'s typical for cable plans; fibre plans give equal upload if you need it.');
-  if (!adv.length) adv.push('Nothing to fix. Enjoy.');
+    const pct = Math.round(r.down / plan * 100); $('planFill').style.width = clamp(pct, 0, 100) + '%';
+    const wifi = settings.conn === 'wifi'; const o = { pct, plan };
+    $('planText').textContent = tpl(pct >= 90 ? P.p90 : pct >= 70 ? (wifi ? P.p70w : P.p70) : pct >= 40 ? (wifi ? P.p40w : P.p40) : (wifi ? P.p0w : P.p0), o);
+    if (pct < 90 && wifi) { adv.push(P.a_room, P.a_band); if (plan >= 500) adv.push(P.a_wifi6); }
+    if (pct < 70 && !wifi) adv.push(P.a_cable, P.a_restart, P.a_quiet);
+    if (plan >= 1000 && pct >= 85) adv.push(P.a_gig);
+  } else { $('planFill').style.width = '0%'; $('planText').textContent = P.enter; }
+  if (r.relay) adv.push(L.relay_advice);
+  if (r.bloatD >= 60 && !r.relay) adv.push(tpl(P.a_bloat, { g: r.bloat }));
+  if (r.jitter > 30 && !r.relay) adv.push(P.a_jitter);
+  if (r.loss > 0) adv.push(P.a_loss);
+  if (r.up != null && r.up < 10 && r.down > 100) adv.push(P.a_upload);
+  if (!adv.length) adv.push(P.nothing);
   $('advice').innerHTML = adv.map(a => `<li>${esc(a)}</li>`).join('');
 }
 
 /* ---------- history ---------- */
-let history = store.get('ts_history', []);
+let history = (store.get('ts_history', []) || []).map(h => ({ ...h, server: String(h.server || '').replace(/\s*\(?\[object Object\]\)?/g, '').trim() }));
 function addHistory(r) { history.push({ when: r.when, down: +r.down.toFixed(1), up: r.up == null ? null : +r.up.toFixed(1), ping: +r.ping.toFixed(0), loaded: r.loadedMax ? +r.loadedMax.toFixed(0) : null, bloat: r.bloat, server: r.server }); if (history.length > 200) history = history.slice(-200); store.set('ts_history', history); renderHistory(); }
 function renderHistory() {
   const tb = $('histTable').querySelector('tbody'); const rows = [...history].reverse().slice(0, 30);
-  tb.innerHTML = rows.map(h => `<tr><td>${new Date(h.when).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</td><td class="num">${fmt(h.down, 1)}</td><td class="num">${h.up == null ? '—' : fmt(h.up, 1)}</td><td class="num">${h.ping}</td><td class="num">${h.loaded ?? '—'}</td><td>${h.bloat || '—'}</td><td>${esc(h.server || '')}</td></tr>`).join('') || '<tr><td colspan="7" style="color:var(--muted)">No tests yet. Your results will appear here.</td></tr>';
+  tb.innerHTML = rows.map(h => `<tr><td>${new Date(h.when).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</td><td class="num">${fmt(h.down, 1)}</td><td class="num">${h.up == null ? '—' : fmt(h.up, 1)}</td><td class="num">${h.ping}</td><td class="num">${h.loaded ?? '—'}</td><td>${h.bloat || '—'}</td><td>${esc(h.server || '')}</td></tr>`).join('') || `<tr><td colspan="7" style="color:var(--muted)">${L.no_tests}</td></tr>`;
   const c = $('chart'); const pts = history.slice(-40); if (!pts.length) { c.innerHTML = ''; return; }
   const max = Math.max(...pts.map(p => Math.max(p.down, p.up || 0))) * 1.1 || 1; const w = 600, h = 140, pad = 24; const bw = (w - pad * 2) / pts.length;
   let s = `<line x1="${pad}" y1="${h - 20}" x2="${w - pad}" y2="${h - 20}" stroke="var(--line)"/>`;
   pts.forEach((p, i) => { const x = pad + i * bw; const hd = (p.down / max) * (h - 30); const hu = ((p.up || 0) / max) * (h - 30); s += `<rect x="${x + bw * 0.1}" y="${h - 20 - hd}" width="${bw * 0.4}" height="${hd}" fill="var(--accent)" rx="2"><title>↓ ${p.down} Mbps · ${new Date(p.when).toLocaleString()}</title></rect><rect x="${x + bw * 0.5}" y="${h - 20 - hu}" width="${bw * 0.4}" height="${hu}" fill="var(--accent2)" rx="2"><title>↑ ${p.up ?? '—'} Mbps</title></rect>`; });
   const avg = mean(pts.map(p => p.down)); const ay = h - 20 - (avg / max) * (h - 30);
-  s += `<line x1="${pad}" y1="${ay}" x2="${w - pad}" y2="${ay}" stroke="var(--muted)" stroke-dasharray="4 4"/><text x="${w - pad}" y="${ay - 4}" text-anchor="end" font-size="11" fill="var(--muted)">avg ↓ ${fmt(avg, 0)} Mbps</text>`;
-  s += `<text x="${pad}" y="${h - 6}" font-size="11" fill="var(--muted)">■ download</text><text x="${pad + 90}" y="${h - 6}" font-size="11" fill="var(--accent2)">■ upload</text>`;
+  s += `<line x1="${pad}" y1="${ay}" x2="${w - pad}" y2="${ay}" stroke="var(--muted)" stroke-dasharray="4 4"/><text x="${w - pad}" y="${ay - 4}" text-anchor="end" font-size="11" fill="var(--muted)">${L.avg} ↓ ${fmt(avg, 0)} Mbps</text>`;
+  s += `<text x="${pad}" y="${h - 6}" font-size="11" fill="var(--muted)">■ ${L.download.toLowerCase()}</text><text x="${pad + 110}" y="${h - 6}" font-size="11" fill="var(--accent2)">■ ${L.upload.toLowerCase()}</text>`;
   c.innerHTML = s;
 }
 renderHistory();
-$('clearBtn').onclick = () => { history = []; store.set('ts_history', history); renderHistory(); toast('History cleared'); };
-$('csvBtn').onclick = async () => { const csv = 'time,download_mbps,upload_mbps,ping_ms,loaded_ping_ms,bufferbloat,server\n' + history.map(h => [new Date(h.when).toISOString(), h.down, h.up ?? '', h.ping, h.loaded ?? '', h.bloat, '"' + (h.server || '') + '"'].join(',')).join('\n'); try { await navigator.clipboard.writeText(csv); toast('CSV copied'); } catch (e) { toast('Copy not allowed here'); } };
+$('clearBtn').onclick = () => { history = []; store.set('ts_history', history); renderHistory(); toast(L.cleared); };
+$('csvBtn').onclick = () => copy('time,download_mbps,upload_mbps,ping_ms,loaded_ping_ms,bufferbloat,server\n' + history.map(h => [new Date(h.when).toISOString(), h.down, h.up ?? '', h.ping, h.loaded ?? '', h.bloat, '"' + (h.server || '') + '"'].join(',')).join('\n'), L.csv_copied);
 
 /* ---------- monitor mode ---------- */
 let monTimer = null;
-function setMonitor(min) { clearInterval(monTimer); monTimer = null; if (min > 0) { monTimer = setInterval(() => { if (!running && !document.hidden) runTest(true); }, min * 60000); $('monStatus').textContent = `Running a quick test every ${min} min while this tab stays open.`; } else $('monStatus').textContent = ''; }
+function setMonitor(min) { clearInterval(monTimer); monTimer = null; if (min > 0) { monTimer = setInterval(() => { if (!running && !document.hidden) runTest(true); }, min * 60000); $('monStatus').textContent = tpl(L.mon_status, { min }); } else $('monStatus').textContent = ''; }
 $('monSel').onchange = e => { settings.mon = +e.target.value; saveSettings(); setMonitor(settings.mon); };
 setMonitor(settings.mon);
 
+/* ---------- outage mode: quick connectivity check on load ---------- */
+async function outageCheck() {
+  const box = $('outageStatus'); if (!box) return;
+  box.textContent = L.out_checking; box.className = 'status';
+  const pr = await idlePing(5, 1); const ok = pr.samples.length >= 3;
+  if (!ok) { box.className = 'status notice bad'; box.textContent = L.out_down; return; }
+  const p = median(pr.samples);
+  box.className = 'status notice ' + (p < 150 ? 'good' : ''); box.textContent = tpl(p < 150 ? L.out_up : L.out_slow, { ping: Math.round(p) });
+}
+
 /* ---------- boot ---------- */
-renderUnits();
+renderUnits(); showShared();
+if (MODE === 'outage') outageCheck();
 if (settings.auto || /[?&]auto=1/.test(location.search)) setTimeout(() => runTest(), 400);
 })();
 </script>
