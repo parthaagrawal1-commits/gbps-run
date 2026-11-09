@@ -275,7 +275,7 @@ RewriteRule ^ https://gbps.run%{REQUEST_URI} [L,R=301]
 ErrorDocument 404 /404.html
 # Source files live in _src/ (git) – never serve them
 RedirectMatch 404 ^/_src(/|$)
-RedirectMatch 404 ^/\.git(/|$)
+RedirectMatch 404 ^/[.]git(/|$)
 # Compression
 <IfModule mod_deflate.c>
 AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml
