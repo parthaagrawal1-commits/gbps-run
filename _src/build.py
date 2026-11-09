@@ -26,7 +26,7 @@ STR["en"] = dict(
     when="When", down_s="Down", up_s="Up", loaded_s="Loaded", bloat_s="Bloat", server="Server",
     duration="Duration", quick="Quick", standard="Standard", thorough="Thorough", units="Units", test_upload="Test upload", autostart="Auto-start on open", show_ip="Show my IP",
     settings_note="Test data is exchanged with Cloudflare's global network (speed.cloudflare.com), so the server is usually within a few hundred miles of you. Nothing about your test is uploaded anywhere except the random test bytes themselves.",
-    more_h="More tests", embed_h="Put this test on your site", embed_p="Free to embed. Paste this where you want the test to appear:",
+    more_h="More tests", embed_h="Put this test on your site", embed_p="Free to embed. Paste this where you want the test to appear:", embed_credit="Speed test by", embed_badge="Or add a badge that links to the test:",
     footer="free · no ads, no tracking · results stay on your device", about="about", privacy="privacy",
     # JS
     ph_server="Finding the nearest server…", ph_ping="Measuring ping…", ph_down="Testing download…", ph_up="Testing upload…", ph_done="Done · {note} connection", ph_stopped="Test stopped", ph_failed="Test failed",
@@ -85,7 +85,7 @@ STR["es"] = dict(
     when="Cuándo", down_s="Bajada", up_s="Subida", loaded_s="Con carga", bloat_s="Bloat", server="Servidor",
     duration="Duración", quick="Rápida", standard="Estándar", thorough="Completa", units="Unidades", test_upload="Probar subida", autostart="Iniciar al abrir", show_ip="Mostrar mi IP",
     settings_note="Los datos de prueba se intercambian con la red global de Cloudflare (speed.cloudflare.com), así que el servidor suele estar a pocos cientos de kilómetros. No se envía nada de tu prueba a ningún sitio, salvo los bytes aleatorios de la propia prueba.",
-    more_h="Más pruebas", embed_h="Pon esta prueba en tu web", embed_p="Gratis para insertar. Pega esto donde quieras que aparezca la prueba:",
+    more_h="Más pruebas", embed_h="Pon esta prueba en tu web", embed_p="Gratis para insertar. Pega esto donde quieras que aparezca la prueba:", embed_credit="Test de velocidad de", embed_badge="O añade una insignia que enlace a la prueba:",
     footer="gratis · sin anuncios ni rastreo · los resultados se quedan en tu dispositivo", about="acerca de", privacy="privacidad",
     ph_server="Buscando el servidor más cercano…", ph_ping="Midiendo ping…", ph_down="Probando descarga…", ph_up="Probando subida…", ph_done="Listo · conexión {note}", ph_stopped="Prueba detenida", ph_failed="La prueba falló",
     err_offline="Parece que no tienes conexión. Revisa tu red e inténtalo de nuevo.",
@@ -143,7 +143,7 @@ STR["pt"] = dict(
     when="Quando", down_s="Down", up_s="Up", loaded_s="Sob carga", bloat_s="Bloat", server="Servidor",
     duration="Duração", quick="Rápido", standard="Padrão", thorough="Completo", units="Unidades", test_upload="Testar upload", autostart="Iniciar ao abrir", show_ip="Mostrar meu IP",
     settings_note="Os dados do teste são trocados com a rede global da Cloudflare (speed.cloudflare.com), então o servidor costuma estar a poucas centenas de quilômetros. Nada do seu teste é enviado a lugar nenhum, além dos bytes aleatórios do próprio teste.",
-    more_h="Mais testes", embed_h="Coloque este teste no seu site", embed_p="Grátis para incorporar. Cole isto onde quiser que o teste apareça:",
+    more_h="Mais testes", embed_h="Coloque este teste no seu site", embed_p="Grátis para incorporar. Cole isto onde quiser que o teste apareça:", embed_credit="Teste de velocidade de", embed_badge="Ou adicione um selo que leve ao teste:",
     footer="grátis · sem anúncios nem rastreamento · os resultados ficam no seu dispositivo", about="sobre", privacy="privacidade",
     ph_server="Procurando o servidor mais próximo…", ph_ping="Medindo ping…", ph_down="Testando download…", ph_up="Testando upload…", ph_done="Pronto · conexão {note}", ph_stopped="Teste interrompido", ph_failed="O teste falhou",
     err_offline="Parece que você está offline. Verifique sua conexão e tente de novo.",
@@ -202,7 +202,7 @@ STR["hi"] = dict(
     when="कब", down_s="डाउन", up_s="अप", loaded_s="लोड पर", bloat_s="ब्लोट", server="सर्वर",
     duration="अवधि", quick="तेज़", standard="सामान्य", thorough="पूरा", units="इकाई", test_upload="अपलोड टेस्ट करें", autostart="खोलते ही शुरू करें", show_ip="मेरा IP दिखाएँ",
     settings_note="टेस्ट डेटा Cloudflare के ग्लोबल नेटवर्क (speed.cloudflare.com) से आदान-प्रदान होता है, इसलिए सर्वर आमतौर पर आपसे कुछ सौ किलोमीटर के भीतर होता है। टेस्ट के रैंडम बाइट्स के अलावा आपका कोई डेटा कहीं नहीं भेजा जाता।",
-    more_h="और टेस्ट", embed_h="यह टेस्ट अपनी वेबसाइट पर लगाएँ", embed_p="मुफ़्त में एम्बेड करें। जहाँ टेस्ट दिखाना हो वहाँ यह पेस्ट करें:",
+    more_h="और टेस्ट", embed_h="यह टेस्ट अपनी वेबसाइट पर लगाएँ", embed_p="मुफ़्त में एम्बेड करें। जहाँ टेस्ट दिखाना हो वहाँ यह पेस्ट करें:", embed_credit="स्पीड टेस्ट:", embed_badge="या एक बैज जोड़ें जो टेस्ट से लिंक हो:",
     footer="मुफ़्त · कोई विज्ञापन या ट्रैकिंग नहीं · रिज़ल्ट आपके डिवाइस पर ही रहते हैं", about="परिचय", privacy="प्राइवेसी",
     ph_server="नज़दीकी सर्वर खोजा जा रहा है…", ph_ping="पिंग मापा जा रहा है…", ph_down="डाउनलोड टेस्ट हो रहा है…", ph_up="अपलोड टेस्ट हो रहा है…", ph_done="पूरा · {note} कनेक्शन", ph_stopped="टेस्ट रोका गया", ph_failed="टेस्ट फेल हो गया",
     err_offline="लगता है आप ऑफ़लाइन हैं। कनेक्शन जाँचें और फिर कोशिश करें।",
@@ -813,6 +813,8 @@ def build_live(out="site-live"):
     open(os.path.join(out, "5e7b003d7a8edabb44f639805da74ce8.txt"), "w").write("5e7b003d7a8edabb44f639805da74ce8")
     print(f"built gbps.live → {out}/")
 
+BADGE_SVG = """<svg xmlns="http://www.w3.org/2000/svg" width="180" height="36" viewBox="0 0 180 36" role="img" aria-label="Test your speed on gbps.run"><rect width="180" height="36" rx="8" fill="#0b1220"/><rect x="0.5" y="0.5" width="179" height="35" rx="7.5" fill="none" stroke="#22d3ee" stroke-opacity=".5"/><circle cx="18" cy="18" r="6" fill="#22d3ee"/><text x="32" y="15" font-family="system-ui,Segoe UI,Roboto,sans-serif" font-size="10" fill="#94a3b8">SPEED TEST</text><text x="32" y="28" font-family="system-ui,Segoe UI,Roboto,sans-serif" font-size="13" font-weight="700" fill="#f8fafc">gbps.run</text><text x="170" y="23" text-anchor="end" font-family="system-ui,Segoe UI,Roboto,sans-serif" font-size="11" fill="#22d3ee">test →</text></svg>"""
+
 def main():
     if os.path.exists(OUT): shutil.rmtree(OUT)
     os.makedirs(OUT); urls = []
@@ -820,6 +822,7 @@ def main():
         d = os.path.join(OUT, path_of(p).strip("/")); os.makedirs(d, exist_ok=True)
         open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(render(p))
         urls.append((url_of(p), "1.0" if not p["slug"] else ("0.8" if p["mode"] == "test" else "0.7")))
+    open(os.path.join(OUT, "badge.svg"), "w", encoding="utf-8").write(BADGE_SVG)
     os.makedirs(os.path.join(OUT, "embed"), exist_ok=True)
     home = EN_BY_SLUG[""]; emb = dict(home); emb.update(title="gbps.run speed test (embed)", intro="Powered by <a href='https://gbps.run' target='_blank' rel='noopener'>gbps.run</a>")
     open(os.path.join(OUT, "embed", "index.html"), "w", encoding="utf-8").write(render(emb, embed=True))
