@@ -553,6 +553,114 @@ page("hi", "airtel-speed-test", "Airtel", "Airtel स्पीड टेस्�
       ("मेरा Airtel 5G Plus टेस्ट कम क्यों है?", "Airtel 5G Plus तेज़ स्पीड के लिए n78 बैंड इस्तेमाल करता है; फ़ोन 4G या लो-बैंड 5G पर चला जाए तो स्पीड तेज़ी से गिरती है। Wi‑Fi बंद करके, खिड़की के पास, और दिन के अलग समय पर टेस्ट करें।"),
       ("क्या यह Airtel का आधिकारिक टेस्ट है?", "नहीं। gbps.run स्वतंत्र है और किसी प्रोवाइडर से जुड़ा नहीं है।")], alt="airtel-speed-test")
 
+
+# ---- India build: ISPs, 5G, gaming, problems (English = where most Indian search volume is)
+page("en", "bsnl-speed-test", "BSNL", "BSNL Speed Test – Bharat Fibre & BSNL 4G | gbps.run",
+     "Independent speed test for BSNL Bharat Fibre (FTTH) and BSNL 4G/5G. Check download, upload, ping and bufferbloat and compare with your plan.",
+     "BSNL speed test", "For BSNL Bharat Fibre and BSNL mobile users. Run the test, enter your plan and see the percentage you actually receive.",
+     [("What speeds should BSNL Bharat Fibre give?", "Bharat Fibre plans commonly range from 30 Mbps to 300 Mbps, with some 1 Gbps tiers in select circles. A wired test at 80–95% of the plan is normal; many BSNL FTTH plans have lower upload than download, so don't be alarmed if upload is smaller."),
+      ("Why is BSNL fibre slow in the evening?", "Local exchange congestion is common on BSNL at peak hours. Use monitor mode on this page to log a day of results — a clear evening dip is useful evidence when you raise a complaint."),
+      ("Is this the official BSNL speed test?", NOT_AFFIL)])
+page("en", "vi-speed-test", "Vi", "Vi Speed Test – Vodafone Idea 4G & Vi 5G | gbps.run",
+     "Speed test for Vi (Vodafone Idea) 4G and Vi 5G. Measure download, upload, ping and jitter on your phone's mobile data — no app required.",
+     "Vi speed test", "Switch off Wi‑Fi, then run the test to measure your Vi 4G or 5G connection. No app, no permissions.",
+     [("What Vi speeds are normal?", "Vi 4G typically delivers 10–60 Mbps depending on the city and time of day; Vi 5G, where available, is often 100–500 Mbps. Ping of 30–60 ms is typical on mobile."),
+      ("Why is my Vi speed low?", "Signal strength, indoor location and tower congestion matter most. Test near a window, compare times of day, and check whether your phone is on 4G or 5G in the status bar."),
+      ("Is this affiliated with Vi?", NOT_AFFIL)])
+page("en", "act-fibernet-speed-test", "ACT Fibernet", "ACT Fibernet Speed Test – Check Your Real Speed | gbps.run",
+     "Independent speed test for ACT Fibernet. Check download, upload, ping and bufferbloat, and compare with your 100 Mbps, 300 Mbps or 1 Gbps plan.",
+     "ACT Fibernet speed test", "For ACT Fibernet users in Bengaluru, Hyderabad, Chennai, Delhi and other cities. Enter your plan after the test to see what you're really getting.",
+     [("What speeds should ACT Fibernet deliver?", "ACT plans run from around 50 Mbps to 1 Gbps and are symmetrical on most tiers, so upload should be close to download. A wired test at 85–95% of the plan is normal; Wi‑Fi on the ACT router is often lower in far rooms."),
+      ("ACT is slow on Wi‑Fi but fine on cable — why?", "The router, not the line. Use the 5 GHz band, move the router into the open, or replace the ISP router with a Wi‑Fi 6 model."),
+      ("Is this the official ACT speed test?", NOT_AFFIL)])
+page("en", "hathway-speed-test", "Hathway", "Hathway Speed Test – Cable Broadband Check | gbps.run",
+     "Independent speed test for Hathway broadband. Download, upload, ping and bufferbloat with plan comparison.",
+     "Hathway speed test", "For Hathway broadband users. Run the test, enter your plan and check whether the shortfall is your Wi‑Fi or the line.",
+     [("What speeds should Hathway give?", "Hathway plans typically range from 50 Mbps to 300 Mbps, with upload usually lower than download on cable. Wired tests at 80–95% of plan are normal."),
+      ("Is this affiliated with Hathway?", NOT_AFFIL)])
+page("en", "tata-play-fiber-speed-test", "Tata Play Fiber", "Tata Play Fiber Speed Test – Symmetrical Fibre Check | gbps.run",
+     "Speed test for Tata Play Fiber. Check symmetrical download and upload, ping, jitter and bufferbloat.",
+     "Tata Play Fiber speed test", "Tata Play Fiber is symmetrical fibre, so your upload should be close to your download. If it isn't, the limit is on your side of the ONT.",
+     [("What speeds should Tata Play Fiber show?", "Plans typically range from 100 Mbps to 1 Gbps, symmetrical. A 1 Gbps plan shows about 900–940 Mbps on a gigabit Ethernet port; over Wi‑Fi expect 300–800 Mbps depending on the router."),
+      ("Is this affiliated with Tata Play?", NOT_AFFIL)])
+page("en", "excitel-speed-test", "Excitel", "Excitel Speed Test – 200/300/400 Mbps Plan Check | gbps.run",
+     "Independent speed test for Excitel broadband. Check download, upload, ping and bufferbloat and compare with your 200, 300 or 400 Mbps plan.",
+     "Excitel speed test", "For Excitel users in Delhi NCR, Hyderabad, Bengaluru and other cities. Enter your plan after the test to see the percentage delivered.",
+     [("What speeds should Excitel deliver?", "Excitel's popular plans are 200, 300 and 400 Mbps, generally symmetrical. Wired tests at 85–95% are normal; Excitel's shared local networks can dip at peak hours."),
+      ("Is this affiliated with Excitel?", NOT_AFFIL)])
+page("en", "jio-5g-speed-test", "Jio 5G", "Jio 5G Speed Test – True 5G Speed on Your Phone | gbps.run",
+     "Test your Jio True 5G speed in the browser. Download, upload, ping and jitter — and why 5G speed changes so much from place to place.",
+     "Jio 5G speed test", "Turn off Wi‑Fi and make sure the status bar shows 5G, then run the test. Jio True 5G on the n78 band can be very fast; low-band 5G is not.",
+     [("What Jio 5G speeds are normal?", "On the n78 (3.5 GHz) band, 200–800 Mbps download is common, with uploads of 20–80 Mbps. On n28 low-band or in weak signal, speeds fall to 4G-like levels. Ping is usually 20–40 ms."),
+      ("Why does my Jio 5G speed vary so much?", "Band, signal strength and tower load. Indoors you often drop to low-band; near a window or outdoors you get n78. Test both and you'll see the difference."),
+      ("Is this the official Jio speed test?", NOT_AFFIL)])
+page("en", "airtel-5g-speed-test", "Airtel 5G", "Airtel 5G Plus Speed Test | gbps.run",
+     "Test your Airtel 5G Plus speed in the browser — download, upload, ping and jitter, with tips on why 5G speed varies.",
+     "Airtel 5G speed test", "Turn off Wi‑Fi and check the status bar shows 5G, then run the test. Airtel 5G Plus uses the n78 band for its highest speeds.",
+     [("What Airtel 5G speeds are normal?", "Commonly 150–600 Mbps download on n78 with 20–60 Mbps upload; much lower on low-band or weak signal. Ping of 20–40 ms is typical."),
+      ("Airtel 5G shows but speed is like 4G — why?", "Your phone may be on NSA 5G with the data actually flowing over 4G, or on a congested tower. Try a different location and time; compare with the Jio 5G test if you have both."),
+      ("Is this affiliated with Airtel?", NOT_AFFIL)])
+page("en", "jiofiber-slow", "JioFiber slow?", "JioFiber Slow? Test It and Fix It in 5 Minutes | gbps.run",
+     "JioFiber slower than your plan? Run the test, see whether it's Wi‑Fi, the ONT/router or the line, and follow the fixes that actually work.",
+     "Is your JioFiber slow? Test and fix", "Run the test on Wi‑Fi, then on a LAN cable if you can. If the cable test is near your plan, the fix is on your side — and it's usually one of the three things below.",
+     [("JioFiber is slow on Wi‑Fi but fast on cable", "The Jio router's Wi‑Fi is the limit. Put devices on the 5 GHz network (not 2.4), move the router into the open, and for plans above 300 Mbps use your own Wi‑Fi 6 router behind the Jio ONT."),
+      ("JioFiber is slow on cable too", "Restart the ONT (unplug 30 s). Check the fibre light is solid green, not red (LOS). Test at a quiet time; if it stays low, raise a ticket in the MyJio app with your results — Copy as CSV on this page gives you the evidence."),
+      ("JioFiber slow only in the evening", "Peak-hour congestion. Use monitor mode here to log a full day; a consistent 7–11 pm drop is worth escalating."),
+      ("Is this affiliated with Jio?", NOT_AFFIL)])
+page("en", "bgmi-ping-test", "BGMI ping", "BGMI Ping Test – Check Your Lag Before You Play | gbps.run",
+     "Free BGMI ping test. Measure ping, jitter, packet loss and ping under load in your browser, and learn what ping you need for BGMI and how to lower it.",
+     "BGMI ping test", "Lag in BGMI is about ping, jitter and packet loss — not download speed. This test measures all three, plus what happens to your ping when someone else in the house starts a download.",
+     [("What ping is good for BGMI?", "Under 40 ms is excellent, 40–80 ms is fine, 80–150 ms is playable with some delay, over 150 ms is laggy. Jitter under 15 ms keeps gunfights fair."),
+      ("How do I lower my BGMI ping?", "Use 5 GHz Wi‑Fi or a LAN cable to the phone (USB‑C adapter), sit near the router, close background downloads, and pick the nearest game server (Asia/India). If the bufferbloat grade here is C or worse, enable QoS on the router."),
+      ("Is this ping to BGMI's servers?", "No — it's to the nearest Cloudflare data centre in India (Mumbai, Delhi, Chennai, Bengaluru, Hyderabad, Kolkata). BGMI's own servers add a little on top, so treat this as your baseline.")])
+page("en", "free-fire-ping-test", "Free Fire ping", "Free Fire Ping Test – Fix Lag on Mobile | gbps.run",
+     "Free Fire ping test in your browser: ping, jitter, packet loss and ping under load, with tips to reduce lag on Jio, Airtel and Vi.",
+     "Free Fire ping test", "Free Fire feels laggy on high ping and jitter. Test your connection here on Wi‑Fi and on mobile data, and use the lower one.",
+     [("What ping is good for Free Fire?", "Under 50 ms is great, 50–100 ms is fine, over 150 ms is noticeable lag. Jitter under 15 ms matters as much as the ping itself."),
+      ("Mobile data or Wi‑Fi for Free Fire?", "Whichever gives lower jitter here. 5G often has lower ping than a congested home Wi‑Fi; a good 5 GHz Wi‑Fi near the router usually beats 4G."),
+      ("How do I reduce Free Fire lag?", "Close background apps and downloads, switch to 5 GHz Wi‑Fi, select the India server in game, and if your router's bufferbloat grade is poor, enable QoS.")])
+
+# Outage pages for India
+for slug, isp, st in [("is-jio-down", "Jio", "MyJio app / jio.com"), ("is-airtel-down", "Airtel", "Airtel Thanks app")]:
+    page("en", slug, f"Is {isp} down?", f"Is {isp} Down Right Now? Live Check | gbps.run",
+         f"Check in seconds whether {isp} is down for you or everyone. Live connectivity test, then a full speed test to tell an outage from slow Wi‑Fi or congestion.",
+         f"Is {isp} down right now?", f"This page checks your connection automatically. Then run the full test to tell an outage from slow Wi‑Fi. Official status: {st}.", OUT_FAQ(isp, st), mode="outage")
+
+# Hindi versions of the key India pages
+page("hi", "bsnl-speed-test", "BSNL", "BSNL स्पीड टेस्ट – Bharat Fibre और BSNL 4G | gbps.run",
+     "BSNL Bharat Fibre (FTTH) और BSNL 4G/5G के लिए स्वतंत्र स्पीड टेस्ट। डाउनलोड, अपलोड, पिंग और बफरब्लोट जाँचें और अपने प्लान से तुलना करें।",
+     "BSNL स्पीड टेस्ट", "BSNL Bharat Fibre और BSNL मोबाइल यूज़र्स के लिए। टेस्ट करें, अपना प्लान डालें और देखें कि असल में कितना प्रतिशत मिल रहा है।",
+     [("BSNL Bharat Fibre में कितनी स्पीड मिलनी चाहिए?", "Bharat Fibre प्लान आमतौर पर 30 Mbps से 300 Mbps तक होते हैं, कुछ सर्किल में 1 Gbps भी। LAN पर प्लान का 80–95% सामान्य है; कई BSNL FTTH प्लान में अपलोड, डाउनलोड से कम होता है।"),
+      ("शाम को BSNL फ़ाइबर धीमा क्यों?", "पीक समय पर लोकल एक्सचेंज में भीड़ आम है। इस पेज पर मॉनिटर मोड से पूरे दिन का लॉग रखें — शाम की साफ़ गिरावट शिकायत में काम आती है।"),
+      ("क्या यह BSNL का आधिकारिक टेस्ट है?", "नहीं। gbps.run स्वतंत्र है और किसी प्रोवाइडर से जुड़ा नहीं है।")], alt="bsnl-speed-test")
+page("hi", "vi-speed-test", "Vi", "Vi स्पीड टेस्ट – Vodafone Idea 4G और Vi 5G | gbps.run",
+     "Vi (Vodafone Idea) 4G और Vi 5G के लिए स्पीड टेस्ट। फ़ोन के मोबाइल डेटा पर डाउनलोड, अपलोड, पिंग और जिटर मापें — कोई ऐप नहीं।",
+     "Vi स्पीड टेस्ट", "Wi‑Fi बंद करें और Vi 4G या 5G कनेक्शन मापने के लिए टेस्ट चलाएँ। कोई ऐप नहीं, कोई परमिशन नहीं।",
+     [("Vi की सामान्य स्पीड कितनी है?", "Vi 4G आमतौर पर शहर और समय के हिसाब से 10–60 Mbps देता है; जहाँ Vi 5G है वहाँ अक्सर 100–500 Mbps। मोबाइल पर 30–60 ms पिंग सामान्य है।"),
+      ("मेरी Vi स्पीड कम क्यों है?", "सिग्नल, इनडोर लोकेशन और टावर पर भीड़ सबसे ज़्यादा मायने रखते हैं। खिड़की के पास टेस्ट करें, अलग समय पर तुलना करें, और स्टेटस बार में देखें कि फ़ोन 4G पर है या 5G पर।")], alt="vi-speed-test")
+page("hi", "jio-5g-speed-test", "Jio 5G", "Jio 5G स्पीड टेस्ट – अपने फ़ोन पर True 5G स्पीड | gbps.run",
+     "ब्राउज़र में Jio True 5G स्पीड टेस्ट करें। डाउनलोड, अपलोड, पिंग और जिटर — और 5G स्पीड जगह-जगह इतनी क्यों बदलती है।",
+     "Jio 5G स्पीड टेस्ट", "Wi‑Fi बंद करें, स्टेटस बार में 5G दिखे यह पक्का करें, फिर टेस्ट चलाएँ। n78 बैंड पर Jio True 5G बहुत तेज़ हो सकता है; लो-बैंड 5G नहीं।",
+     [("Jio 5G की सामान्य स्पीड कितनी है?", "n78 (3.5 GHz) बैंड पर 200–800 Mbps डाउनलोड आम है, अपलोड 20–80 Mbps। n28 लो-बैंड या कमज़ोर सिग्नल में स्पीड 4G जैसी हो जाती है। पिंग आमतौर पर 20–40 ms।"),
+      ("मेरी Jio 5G स्पीड इतनी क्यों बदलती है?", "बैंड, सिग्नल और टावर लोड। घर के अंदर अक्सर लो-बैंड मिलता है; खिड़की के पास या बाहर n78। दोनों जगह टेस्ट करें, फ़र्क दिखेगा।")], alt="jio-5g-speed-test")
+page("hi", "airtel-5g-speed-test", "Airtel 5G", "Airtel 5G Plus स्पीड टेस्ट | gbps.run",
+     "ब्राउज़र में Airtel 5G Plus स्पीड टेस्ट — डाउनलोड, अपलोड, पिंग और जिटर, साथ में 5G स्पीड बदलने की वजहें।",
+     "Airtel 5G स्पीड टेस्ट", "Wi‑Fi बंद करें और स्टेटस बार में 5G देखें, फिर टेस्ट चलाएँ। Airtel 5G Plus सबसे तेज़ स्पीड के लिए n78 बैंड इस्तेमाल करता है।",
+     [("Airtel 5G की सामान्य स्पीड कितनी है?", "n78 पर आमतौर पर 150–600 Mbps डाउनलोड और 20–60 Mbps अपलोड; लो-बैंड या कमज़ोर सिग्नल में काफ़ी कम। 20–40 ms पिंग सामान्य है।"),
+      ("5G दिखता है पर स्पीड 4G जैसी — क्यों?", "फ़ोन NSA 5G पर हो सकता है जहाँ डेटा असल में 4G से जाता है, या टावर व्यस्त है। दूसरी जगह और समय पर आज़माएँ।")], alt="airtel-5g-speed-test")
+page("hi", "bgmi-ping-test", "BGMI पिंग", "BGMI पिंग टेस्ट – खेलने से पहले लैग जाँचें | gbps.run",
+     "मुफ़्त BGMI पिंग टेस्ट। ब्राउज़र में पिंग, जिटर, पैकेट लॉस और लोड के साथ पिंग मापें, और जानें BGMI के लिए कितना पिंग चाहिए और उसे कैसे घटाएँ।",
+     "BGMI पिंग टेस्ट", "BGMI में लैग पिंग, जिटर और पैकेट लॉस से होता है — डाउनलोड स्पीड से नहीं। यह टेस्ट तीनों मापता है, और यह भी कि घर में कोई डाउनलोड शुरू करे तो आपके पिंग का क्या होता है।",
+     [("BGMI के लिए अच्छा पिंग कितना है?", "40 ms से कम बेहतरीन, 40–80 ms ठीक, 80–150 ms थोड़ी देरी के साथ खेलने लायक, 150 ms से ऊपर लैग। 15 ms से कम जिटर गनफ़ाइट को फ़ेयर रखता है।"),
+      ("BGMI का पिंग कैसे घटाएँ?", "5 GHz Wi‑Fi या फ़ोन में LAN केबल (USB‑C अडैप्टर) इस्तेमाल करें, राउटर के पास बैठें, बैकग्राउंड डाउनलोड बंद करें, और गेम में नज़दीकी सर्वर (Asia/India) चुनें। बफरब्लोट ग्रेड C या खराब हो तो राउटर में QoS चालू करें।"),
+      ("क्या यह BGMI सर्वर तक का पिंग है?", "नहीं — यह भारत में नज़दीकी Cloudflare डेटा सेंटर (मुंबई, दिल्ली, चेन्नई, बेंगलुरु, हैदराबाद, कोलकाता) तक है। BGMI के सर्वर थोड़ा और जोड़ते हैं, इसलिए इसे बेसलाइन मानें।")], alt="bgmi-ping-test")
+page("hi", "jiofiber-slow", "JioFiber धीमा?", "JioFiber धीमा चल रहा है? 5 मिनट में टेस्ट और फ़िक्स करें | gbps.run",
+     "JioFiber प्लान से धीमा? टेस्ट करें, जानें कि समस्या Wi‑Fi है, ONT/राउटर है या लाइन, और वो फ़िक्स अपनाएँ जो सच में काम करते हैं।",
+     "क्या आपका JioFiber धीमा है? टेस्ट करें और ठीक करें", "पहले Wi‑Fi पर टेस्ट करें, फिर हो सके तो LAN केबल पर। अगर केबल पर स्पीड प्लान के पास है, तो समस्या आपकी तरफ़ है — और आमतौर पर नीचे की तीन चीज़ों में से एक।",
+     [("JioFiber Wi‑Fi पर धीमा, केबल पर तेज़", "Jio राउटर का Wi‑Fi ही सीमा है। डिवाइस 5 GHz नेटवर्क पर रखें (2.4 नहीं), राउटर खुली जगह रखें, और 300 Mbps से ऊपर के प्लान में Jio ONT के पीछे अपना Wi‑Fi 6 राउटर लगाएँ।"),
+      ("केबल पर भी धीमा", "ONT रीस्टार्ट करें (30 सेकंड अनप्लग)। फ़ाइबर लाइट हरी (solid) हो, लाल (LOS) नहीं। शांत समय पर टेस्ट करें; फिर भी कम हो तो MyJio ऐप में टिकट डालें — इस पेज का \"CSV कॉपी करें\" आपका सबूत है।"),
+      ("सिर्फ़ शाम को धीमा", "पीक-ऑवर भीड़। यहाँ मॉनिटर मोड से पूरे दिन का लॉग रखें; हर दिन 7–11 बजे की गिरावट शिकायत लायक है।")], alt="jiofiber-slow")
+
 # ----------------------------------------------------------------------------- Rendering helpers
 def url_of(p):
     base = ROOT if p["lang"] == "en" else f"{ROOT}/{p['lang']}"
