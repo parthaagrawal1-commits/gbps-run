@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^gbps[.]live$ [NC]
+RewriteRule ^ https://gbps.live%{REQUEST_URI} [L,R=301]
+# Only the monitor lives here; everything else is on gbps.run
+RewriteCond %{REQUEST_URI} !^/(index\.html)?$
+RewriteCond %{REQUEST_URI} !^/(og[.]png|robots[.]txt|sitemap[.]xml)$
+RewriteRule ^(.*)$ https://gbps.run/$1 [L,R=301]
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml
+</IfModule>
+<IfModule mod_headers.c>
+Header set X-Content-Type-Options "nosniff"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
