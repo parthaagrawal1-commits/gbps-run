@@ -9,7 +9,12 @@
 
 const CHUNK_BYTES = 64 * 1024;
 const MAX_DOWN = 200e6;
-const CHUNK = (() => { const b = new Uint8Array(CHUNK_BYTES); crypto.getRandomValues(b); return b; })();
+// Random bytes may only be generated inside a handler, so the chunk is built on the first request and reused.
+let CHUNK = null;
+function chunk() {
+  if (!CHUNK) { CHUNK = new Uint8Array(CHUNK_BYTES); crypto.getRandomValues(CHUNK); }
+  return CHUNK;
+}
 
 const CORS = {
   "access-control-allow-origin": "*",
@@ -43,11 +48,12 @@ export default {
         return new Response(null, { status: 200, headers: noStore({ "server-timing": `cfRequestDuration;dur=${Date.now() - t0}`, "cf-meta-colo": colo, "content-length": "0" }) });
       }
       let sent = 0;
+      const data = chunk();
       const body = new ReadableStream({
         pull(controller) {
           if (sent >= n) { controller.close(); return; }
           const take = Math.min(CHUNK_BYTES, n - sent);
-          controller.enqueue(take === CHUNK_BYTES ? CHUNK : CHUNK.subarray(0, take));
+          controller.enqueue(take === CHUNK_BYTES ? data : data.subarray(0, take));
           sent += take;
         },
       });
