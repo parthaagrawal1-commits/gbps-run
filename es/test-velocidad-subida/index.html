@@ -26,7 +26,7 @@
 <meta name="twitter:image" content="https://gbps.run/og.png">
 <link rel="manifest" href='data:application/manifest+json,{"name":"gbps.run speed test","short_name":"gbps.run","start_url":"/","display":"standalone","background_color":"%230b0f17","theme_color":"%230b0f17","icons":[]}'>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230b0f17'/%3E%3Cpath d='M14 40a20 20 0 0 1 36 0' stroke='%233ee6a5' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3Cpath d='M32 40 44 24' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://speed.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://speed.gbps.run" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
@@ -270,10 +270,13 @@ footer{color:var(--muted);font-size:12px;text-align:center;padding:24px 0 40px}
 <script>
 (() => {
 'use strict';
-const L = {"offline": "sin conexión", "live_empty": "El monitoreo empieza con el primer test. Deja esta pestaña abierta y la gráfica se irá llenando durante el día.", "live_summary": "<b>Últimas 24 h:</b> {uptime}% disponible · {n} comprobaciones · {drops} caídas · descarga mín {min} / media {avg} / máx {max} Mbps · última {last}", "settings": "Ajustes", "theme": "Cambiar tema claro u oscuro", "gauge_label": "Medidor de velocidad", "phase_idle": "Pulsa Iniciar para hacer la prueba", "start": "Iniciar prueba", "stop": "Detener", "kbd": "Pulsa Espacio para iniciar · ~25 segundos · sin anuncios, sin registro", "download": "Descarga", "upload": "Subida", "ping": "Ping", "jitter": "Jitter", "loaded": "Ping con carga", "loaded_sub": "descarga / subida", "bloat": "Bufferbloat", "bloat_sub": "retraso cuando hay tráfico", "consistency": "Estabilidad", "cons_sub": "qué tan constante es la velocidad", "loss": "Pérdida de paquetes", "verdicts_h": "Qué puede hacer tu conexión", "verdicts_sub": "según esta prueba", "plan_h": "¿Recibes lo que pagas?", "plan_label": "Mi plan es de", "plan_unit": "Mbps de descarga", "wired": "Cable", "dl_h": "Cuánto tardan las cosas a esta velocidad", "share_h": "Compartir resultado", "copy_link": "Copiar enlace del resultado", "copy_summary": "Copiar resumen", "dl_image": "Descargar imagen", "share_btn": "Compartir…", "again": "Repetir prueba", "hist_h": "Tu historial", "hist_sub": "guardado solo en este dispositivo", "monitor": "Monitorear cada", "off": "no", "csv": "Copiar como CSV", "clear": "Borrar historial", "when": "Cuándo", "down_s": "Bajada", "up_s": "Subida", "loaded_s": "Con carga", "bloat_s": "Bloat", "server": "Servidor", "duration": "Duración", "quick": "Rápida", "standard": "Estándar", "thorough": "Completa", "units": "Unidades", "test_upload": "Probar subida", "autostart": "Iniciar al abrir", "show_ip": "Mostrar mi IP", "settings_note": "Los datos de prueba se intercambian con la red global de Cloudflare (speed.cloudflare.com), así que el servidor suele estar a pocos cientos de kilómetros. No se envía nada de tu prueba a ningún sitio, salvo los bytes aleatorios de la propia prueba.", "more_h": "Más pruebas", "embed_h": "Pon esta prueba en tu web", "embed_p": "Gratis para insertar. Pega esto donde quieras que aparezca la prueba:", "embed_credit": "Test de velocidad de", "embed_badge": "O añade una insignia que enlace a la prueba:", "footer": "gratis · sin anuncios ni rastreo · los resultados se quedan en tu dispositivo", "about": "acerca de", "privacy": "privacidad", "ph_server": "Buscando el servidor más cercano…", "ph_ping": "Midiendo ping…", "ph_down": "Probando descarga…", "ph_up": "Probando subida…", "ph_done": "Listo · conexión {note}", "ph_stopped": "Prueba detenida", "ph_failed": "La prueba falló", "err_offline": "Parece que no tienes conexión. Revisa tu red e inténtalo de nuevo.", "err_server": "No se pudo conectar con los servidores de prueba. Comprueba que tienes internet e inténtalo de nuevo.", "ping_n": ["excelente", "ideal para juegos", "bien para casi todo", "lento"], "speed_n": ["ultrarrápida", "muy rápida", "rápida", "buena", "básica", "lenta"], "jit_n": ["muy estable", "estable", "inestable"], "loss_n": ["sin pérdida", "algunos paquetes perdidos"], "cons_n": ["muy constante", "constante", "fluctuante"], "not_tested": "no probada", "up_not_tested": "Subida no probada.", "peak": "pico", "bloat_none": "sin retraso con tráfico", "bloat_notes": ["", "+{d} ms con tráfico", "+{d} ms con tráfico", "+{d} ms – las llamadas pueden cortarse", "+{d} ms – retraso notable", "+{d} ms – retraso grave"], "bloat_relay": "medido a través de un relay/VPN — no es tu router", "great": "Excelente", "ok": "Aceptable", "weak": "Flojo", "v": {"stream": {"t": "Streaming 4K (Netflix, YouTube)", "a": "Unas {n} transmisiones 4K a la vez.", "b": "Puede bajar a HD o cargar."}, "calls": {"t": "Videollamadas HD (Zoom, FaceTime, Teams)", "a": "Vídeo nítido en ambos sentidos.", "b": "Tu vídeo puede verse pixelado.", "c": "Las llamadas pueden congelarse cuando hay tráfico."}, "gaming": {"t": "Juegos online (PS5, Xbox, PC)", "a": "Poco lag, incluso mientras otros descargan.", "b": "Picos de lag cuando alguien descarga.", "c": "Jugable, pero no a nivel competitivo."}, "cloud": {"t": "Juegos en la nube (GeForce Now, Xbox Cloud)", "a": "Listo para juegos en la nube en 4K.", "b": "1080p debería ir bien; 4K puede trabarse."}, "wfh": {"t": "Teletrabajo (VPN, compartir pantalla)", "a": "Pantalla compartida y sincronización fluidas.", "b": "La pantalla compartida puede verse borrosa; las subidas grandes son lentas."}, "backup": {"t": "Subir vídeos / copias en la nube", "a": "Un vídeo de 5 GB se sube en ~{t}."}, "house": {"t": "Casa con muchos dispositivos (10+)", "a": "Todos pueden ver, jugar y trabajar a la vez.", "b": "Bien, salvo que varios descarguen a la vez.", "c": "Se notará saturada en horas punta."}, "cams": {"t": "Domótica y cámaras de seguridad", "a": "Varias cámaras pueden transmitir a la nube.", "b": "Limita las cámaras en la nube o baja su calidad."}}, "dl": {"movie4k": "Película 4K (15 GB)", "game": "Juego de 100 GB", "phone": "Actualización del móvil (7 GB)", "photos": "1.000 fotos (4 GB)", "album": "Álbum (100 MB)", "moviehd": "Película HD (4 GB)", "page": "Página web (3 MB)", "backup": "Copia de 50 GB (subida)"}, "plan": {"p90": "Recibes el {pct}% de tu plan de {plan} Mbps. No se puede pedir más.", "p70": "Recibes el {pct}% de tu plan de {plan} Mbps.", "p70w": "Recibes el {pct}% de tu plan de {plan} Mbps por Wi‑Fi, lo cual es normal.", "p40": "Recibes el {pct}% de tu plan de {plan} Mbps. Conviene investigar.", "p40w": "Recibes el {pct}% de tu plan de {plan} Mbps. El Wi‑Fi es probablemente el cuello de botella.", "p0": "Solo recibes el {pct}% de tu plan de {plan} Mbps. Contacta con tu operador si se repite.", "p0w": "Solo recibes el {pct}% de tu plan de {plan} Mbps. Prueba por cable antes de llamar a tu operador.", "enter": "Introduce la velocidad de tu plan para ver si la recibes.", "a_room": "Prueba en la misma habitación que el router; las paredes reducen mucho el Wi‑Fi.", "a_band": "Asegúrate de usar la banda de 5 GHz o 6 GHz, no la de 2,4 GHz.", "a_wifi6": "Para más de 500 Mbps necesitas un router Wi‑Fi 6/6E/7 con canales de 160 MHz y un dispositivo compatible.", "a_cable": "Prueba otro cable Ethernet (Cat 5e o mejor) y otro puerto.", "a_restart": "Reinicia el módem y luego el router, y vuelve a probar.", "a_quiet": "Prueba en una hora tranquila; si sigue bajo, pide a tu operador que revise la señal.", "a_gig": "Los planes gigabit suelen entregar 1,1–1,2 Gbps; un puerto Ethernet gigabit llega como máximo a unos 940 Mbps.", "a_bloat": "Bufferbloat grado {g}: activa SQM / \"Smart Queue\" o QoS en tu router para evitar el lag cuando hay tráfico.", "a_jitter": "Jitter alto: acércate al router o revisa interferencias de redes vecinas (cambia el canal).", "a_loss": "Se detectó pérdida de paquetes: revisa cables y conexiones; repite la prueba varias veces.", "a_upload": "La subida es mucho menor que la bajada. Es normal en cable; la fibra ofrece subida simétrica si la necesitas.", "nothing": "Nada que arreglar. Disfruta."}, "network": "Red", "protocol": "Protocolo", "show_in_settings": "ver en ajustes", "relay_notice": "Parece que <b>iCloud Private Relay</b> (o una VPN) está activo. Tu tráfico pasa por una red intermedia que limita la velocidad y añade latencia — afecta a <em>todas</em> las pruebas en este navegador. Para tu velocidad real: Ajustes → tu nombre → iCloud → Private Relay → desactivar, o prueba en otro navegador.", "relay_advice": "iCloud Private Relay / VPN detectado: los resultados reflejan el relay, no tu conexión. Desactívalo para probar la línea real.", "share_text": "Mi prueba de velocidad (gbps.run)\n↓ {down} Mbps  ↑ {up} Mbps\nPing {ping} ms · Jitter {jitter} ms · Bufferbloat {bloat}\nServidor: {server}{net}\n{url}", "share_title": "Mi velocidad de internet", "copied": "Copiado", "copied_link": "Enlace copiado — muestra tu resultado a quien lo abra", "copy_fail": "No se pudo copiar — selecciona el texto", "cleared": "Historial borrado", "csv_copied": "CSV copiado", "img_title": "Prueba de velocidad", "shared_h": "Alguien compartió su resultado contigo:", "shared_cta": "Haz la prueba para comparar el tuyo.", "no_tests": "Aún no hay pruebas. Tus resultados aparecerán aquí.", "avg": "media", "mon_status": "Prueba rápida cada {min} min mientras esta pestaña siga abierta.", "fallback_server": "servidor alternativo", "fallback_note": "se usó un servidor alternativo (solo descarga)", "out_checking": "Comprobando tu conexión…", "out_down": "Tu conexión no llega a internet ahora mismo. Si otros dispositivos de tu casa tampoco tienen conexión, probablemente es una caída de tu operador.", "out_up": "Tu conexión funciona: {ping} ms al servidor más cercano. Si un servicio concreto falla, el problema está probablemente en su lado.", "out_slow": "Tienes conexión pero responde lento ({ping} ms). Haz la prueba completa para ver qué pasa."};
+const L = {"offline": "sin conexión", "live_empty": "El monitoreo empieza con el primer test. Deja esta pestaña abierta y la gráfica se irá llenando durante el día.", "live_summary": "<b>Últimas 24 h:</b> {uptime}% disponible · {n} comprobaciones · {drops} caídas · descarga mín {min} / media {avg} / máx {max} Mbps · última {last}", "settings": "Ajustes", "theme": "Cambiar tema claro u oscuro", "gauge_label": "Medidor de velocidad", "phase_idle": "Pulsa Iniciar para hacer la prueba", "start": "Iniciar prueba", "stop": "Detener", "kbd": "Pulsa Espacio para iniciar · ~25 segundos · sin anuncios, sin registro", "download": "Descarga", "upload": "Subida", "ping": "Ping", "jitter": "Jitter", "loaded": "Ping con carga", "loaded_sub": "descarga / subida", "bloat": "Bufferbloat", "bloat_sub": "retraso cuando hay tráfico", "consistency": "Estabilidad", "cons_sub": "qué tan constante es la velocidad", "loss": "Pérdida de paquetes", "verdicts_h": "Qué puede hacer tu conexión", "verdicts_sub": "según esta prueba", "plan_h": "¿Recibes lo que pagas?", "plan_label": "Mi plan es de", "plan_unit": "Mbps de descarga", "wired": "Cable", "dl_h": "Cuánto tardan las cosas a esta velocidad", "share_h": "Compartir resultado", "copy_link": "Copiar enlace del resultado", "copy_summary": "Copiar resumen", "dl_image": "Descargar imagen", "share_btn": "Compartir…", "again": "Repetir prueba", "hist_h": "Tu historial", "hist_sub": "guardado solo en este dispositivo", "monitor": "Monitorear cada", "off": "no", "csv": "Copiar como CSV", "clear": "Borrar historial", "when": "Cuándo", "down_s": "Bajada", "up_s": "Subida", "loaded_s": "Con carga", "bloat_s": "Bloat", "server": "Servidor", "duration": "Duración", "quick": "Rápida", "standard": "Estándar", "thorough": "Completa", "units": "Unidades", "test_upload": "Probar subida", "autostart": "Iniciar al abrir", "show_ip": "Mostrar mi IP", "settings_note": "Los datos de prueba se intercambian con la red global de Cloudflare (speed.cloudflare.com), así que el servidor suele estar a pocos cientos de kilómetros. No se envía nada de tu prueba a ningún sitio, salvo los bytes aleatorios de la propia prueba.", "more_h": "Más pruebas", "embed_h": "Pon esta prueba en tu web", "embed_p": "Gratis para insertar. Pega esto donde quieras que aparezca la prueba:", "embed_credit": "Test de velocidad de", "embed_badge": "O añade una insignia que enlace a la prueba:", "footer": "gratis · sin anuncios ni rastreo · los resultados se quedan en tu dispositivo", "about": "acerca de", "privacy": "privacidad", "ph_server": "Buscando el servidor más cercano…", "ph_ping": "Midiendo ping…", "ph_down": "Probando descarga…", "ph_up": "Probando subida…", "ph_done": "Listo · conexión {note}", "ph_stopped": "Prueba detenida", "ph_failed": "La prueba falló", "err_offline": "Parece que no tienes conexión. Revisa tu red e inténtalo de nuevo.", "err_server": "No se pudo conectar con los servidores de prueba. Comprueba que tienes internet e inténtalo de nuevo.", "err_limited": "El servidor de prueba está limitando esta conexión ahora mismo, así que no fue posible medir con fiabilidad. Espera un minuto e inténtalo de nuevo.", "ping_n": ["excelente", "ideal para juegos", "bien para casi todo", "lento"], "speed_n": ["ultrarrápida", "muy rápida", "rápida", "buena", "básica", "lenta"], "jit_n": ["muy estable", "estable", "inestable"], "loss_n": ["sin pérdida", "algunos paquetes perdidos"], "cons_n": ["muy constante", "constante", "fluctuante"], "not_tested": "no probada", "up_not_tested": "Subida no probada.", "peak": "pico", "bloat_none": "sin retraso con tráfico", "bloat_notes": ["", "+{d} ms con tráfico", "+{d} ms con tráfico", "+{d} ms – las llamadas pueden cortarse", "+{d} ms – retraso notable", "+{d} ms – retraso grave"], "bloat_relay": "medido a través de un relay/VPN — no es tu router", "great": "Excelente", "ok": "Aceptable", "weak": "Flojo", "v": {"stream": {"t": "Streaming 4K (Netflix, YouTube)", "a": "Unas {n} transmisiones 4K a la vez.", "b": "Puede bajar a HD o cargar."}, "calls": {"t": "Videollamadas HD (Zoom, FaceTime, Teams)", "a": "Vídeo nítido en ambos sentidos.", "b": "Tu vídeo puede verse pixelado.", "c": "Las llamadas pueden congelarse cuando hay tráfico."}, "gaming": {"t": "Juegos online (PS5, Xbox, PC)", "a": "Poco lag, incluso mientras otros descargan.", "b": "Picos de lag cuando alguien descarga.", "c": "Jugable, pero no a nivel competitivo."}, "cloud": {"t": "Juegos en la nube (GeForce Now, Xbox Cloud)", "a": "Listo para juegos en la nube en 4K.", "b": "1080p debería ir bien; 4K puede trabarse."}, "wfh": {"t": "Teletrabajo (VPN, compartir pantalla)", "a": "Pantalla compartida y sincronización fluidas.", "b": "La pantalla compartida puede verse borrosa; las subidas grandes son lentas."}, "backup": {"t": "Subir vídeos / copias en la nube", "a": "Un vídeo de 5 GB se sube en ~{t}."}, "house": {"t": "Casa con muchos dispositivos (10+)", "a": "Todos pueden ver, jugar y trabajar a la vez.", "b": "Bien, salvo que varios descarguen a la vez.", "c": "Se notará saturada en horas punta."}, "cams": {"t": "Domótica y cámaras de seguridad", "a": "Varias cámaras pueden transmitir a la nube.", "b": "Limita las cámaras en la nube o baja su calidad."}}, "dl": {"movie4k": "Película 4K (15 GB)", "game": "Juego de 100 GB", "phone": "Actualización del móvil (7 GB)", "photos": "1.000 fotos (4 GB)", "album": "Álbum (100 MB)", "moviehd": "Película HD (4 GB)", "page": "Página web (3 MB)", "backup": "Copia de 50 GB (subida)"}, "plan": {"p90": "Recibes el {pct}% de tu plan de {plan} Mbps. No se puede pedir más.", "p70": "Recibes el {pct}% de tu plan de {plan} Mbps.", "p70w": "Recibes el {pct}% de tu plan de {plan} Mbps por Wi‑Fi, lo cual es normal.", "p40": "Recibes el {pct}% de tu plan de {plan} Mbps. Conviene investigar.", "p40w": "Recibes el {pct}% de tu plan de {plan} Mbps. El Wi‑Fi es probablemente el cuello de botella.", "p0": "Solo recibes el {pct}% de tu plan de {plan} Mbps. Contacta con tu operador si se repite.", "p0w": "Solo recibes el {pct}% de tu plan de {plan} Mbps. Prueba por cable antes de llamar a tu operador.", "enter": "Introduce la velocidad de tu plan para ver si la recibes.", "a_room": "Prueba en la misma habitación que el router; las paredes reducen mucho el Wi‑Fi.", "a_band": "Asegúrate de usar la banda de 5 GHz o 6 GHz, no la de 2,4 GHz.", "a_wifi6": "Para más de 500 Mbps necesitas un router Wi‑Fi 6/6E/7 con canales de 160 MHz y un dispositivo compatible.", "a_cable": "Prueba otro cable Ethernet (Cat 5e o mejor) y otro puerto.", "a_restart": "Reinicia el módem y luego el router, y vuelve a probar.", "a_quiet": "Prueba en una hora tranquila; si sigue bajo, pide a tu operador que revise la señal.", "a_gig": "Los planes gigabit suelen entregar 1,1–1,2 Gbps; un puerto Ethernet gigabit llega como máximo a unos 940 Mbps.", "a_bloat": "Bufferbloat grado {g}: activa SQM / \"Smart Queue\" o QoS en tu router para evitar el lag cuando hay tráfico.", "a_jitter": "Jitter alto: acércate al router o revisa interferencias de redes vecinas (cambia el canal).", "a_loss": "Se detectó pérdida de paquetes: revisa cables y conexiones; repite la prueba varias veces.", "a_upload": "La subida es mucho menor que la bajada. Es normal en cable; la fibra ofrece subida simétrica si la necesitas.", "nothing": "Nada que arreglar. Disfruta."}, "network": "Red", "protocol": "Protocolo", "show_in_settings": "ver en ajustes", "relay_notice": "Parece que <b>iCloud Private Relay</b> (o una VPN) está activo. Tu tráfico pasa por una red intermedia que limita la velocidad y añade latencia — afecta a <em>todas</em> las pruebas en este navegador. Para tu velocidad real: Ajustes → tu nombre → iCloud → Private Relay → desactivar, o prueba en otro navegador.", "relay_advice": "iCloud Private Relay / VPN detectado: los resultados reflejan el relay, no tu conexión. Desactívalo para probar la línea real.", "share_text": "Mi prueba de velocidad (gbps.run)\n↓ {down} Mbps  ↑ {up} Mbps\nPing {ping} ms · Jitter {jitter} ms · Bufferbloat {bloat}\nServidor: {server}{net}\n{url}", "share_title": "Mi velocidad de internet", "copied": "Copiado", "copied_link": "Enlace copiado — muestra tu resultado a quien lo abra", "copy_fail": "No se pudo copiar — selecciona el texto", "cleared": "Historial borrado", "csv_copied": "CSV copiado", "img_title": "Prueba de velocidad", "shared_h": "Alguien compartió su resultado contigo:", "shared_cta": "Haz la prueba para comparar el tuyo.", "no_tests": "Aún no hay pruebas. Tus resultados aparecerán aquí.", "avg": "media", "mon_status": "Prueba rápida cada {min} min mientras esta pestaña siga abierta.", "fallback_server": "servidor alternativo", "fallback_note": "se usó un servidor alternativo (solo descarga)", "limited_note": "el servidor de prueba limitó esta conexión, así que el resultado puede ser bajo — inténtalo de nuevo en un minuto", "out_checking": "Comprobando tu conexión…", "out_down": "Tu conexión no llega a internet ahora mismo. Si otros dispositivos de tu casa tampoco tienen conexión, probablemente es una caída de tu operador.", "out_up": "Tu conexión funciona: {ping} ms al servidor más cercano. Si un servicio concreto falla, el problema está probablemente en su lado.", "out_slow": "Tienes conexión pero responde lento ({ping} ms). Haz la prueba completa para ver qué pasa."};
 const MODE = 'test';
 const PLAN_PRESET = 0;
-const CF = 'https://speed.cloudflare.com';
+// Test backends, tried in order. The first is gbps.run's own Worker (see _src/worker/); the second is Cloudflare's shared
+// speed-test endpoint, which rate-limits busy clients. Both speak the same protocol: /__down?bytes=N, /__up, /meta.
+const BACKENDS = ["https://speed.gbps.run", "https://speed.cloudflare.com"];
+let CF = BACKENDS[0];
 // Fallback download/ping source if Cloudflare's endpoint is unreachable (CORS-enabled CDN, ~10 MB file). Upload has no fallback.
 const FALLBACK = { ping: 'https://cdn.jsdelivr.net/pyodide/v0.25.1/full/package.json', down: 'https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.asm.wasm' };
 const $ = id => document.getElementById(id);
@@ -356,42 +359,79 @@ function jitterOf(a) { if (a.length < 3) return 0; const d = []; for (let i = 1;
 function makeRandomBlob(bytes) { const buf = new Uint8Array(bytes); const chunk = 65536; for (let i = 0; i < bytes; i += chunk) crypto.getRandomValues(buf.subarray(i, Math.min(i + chunk, bytes))); return new Blob([buf], { type: 'application/octet-stream' }); }
 
 let H1 = false; // HTTP/1.1 limits browsers to 6 connections per host: cap streams so ping probes never queue
+// Throughput engine. Few, large requests (streamed, so nothing is buffered in memory) keep the request count low:
+// speed.cloudflare.com rate-limits chatty clients with HTTP 429, and a 429 storm is what makes a test "collapse to zero".
+// A 429/403 is treated as a back-off signal (pause that stream, shed streams), never as a 300 ms retry loop.
+const DOWN_BYTES = 50e6, UP_BYTES = 25e6;
 async function throughput(dir, durationMs, onProgress, stopSignal) {
-  const start = performance.now(); let total = 0; let active = true; const samples = [{ t: 0, b: 0 }]; const loaded = []; const ctrls = []; let errors = 0;
-  let streams = 0; const maxStreams = H1 ? 4 : (dir === 'down' ? 8 : 6); const CHUNK = 20e6; const upBlob = dir === 'up' ? makeRandomBlob(6e6) : null;
+  const start = performance.now(); let total = 0; let active = true; const samples = [{ t: 0, b: 0 }]; const loaded = []; const ctrls = []; let errors = 0, limited = 0;
+  let streams = 0; const maxStreams = H1 ? 4 : (dir === 'down' ? 6 : 4); const upBlob = dir === 'up' ? makeRandomBlob(UP_BYTES) : null;
+  const canStream = dir === 'down' && typeof ReadableStream !== 'undefined' && !useFallback;
+  const stall = () => { const t = performance.now() - start; stalls.push(t); };
+  const stalls = []; // moments a 429/403 came back — windows around them are excluded from the average
+  function onLimited(sid) { limited++; stall(); if (streams > 2) { streams--; return false; } return true; } // false = let this stream die
   function addStream() {
     streams++;
     (function loop() {
-      if (!active) return; const x = new XMLHttpRequest(); ctrls.push({ abort: () => x.abort() }); let last = 0;
-      const url = dir === 'down' ? (useFallback ? `${FALLBACK.down}?r=${Math.random()}` : `${CF}/__down?bytes=${CHUNK}&r=${Math.random()}`) : `${CF}/__up?r=${Math.random()}`;
-      x.open(dir === 'down' ? 'GET' : 'POST', url); x.timeout = 25000;
+      if (!active) return;
+      const url = dir === 'down' ? (useFallback ? `${FALLBACK.down}?r=${Math.random()}` : `${CF}/__down?bytes=${DOWN_BYTES}&r=${Math.random()}`) : `${CF}/__up?r=${Math.random()}`;
+      if (canStream) {
+        const c = new AbortController(); ctrls.push({ abort: () => c.abort() });
+        fetch(url, { cache: 'no-store', signal: c.signal }).then(async r => {
+          if (r.status === 429 || r.status === 403) { try { await r.arrayBuffer(); } catch (e) {} if (onLimited()) { await sleep(1500); if (active) loop(); } return; }
+          if (!r.ok || !r.body) { errors++; if (active) setTimeout(loop, 500); return; }
+          const rd = r.body.getReader();
+          while (active) { const { done, value } = await rd.read(); if (done) break; total += value.byteLength; }
+          if (active) loop();
+        }).catch(() => { errors++; if (active) setTimeout(loop, 500); });
+        return;
+      }
+      const x = new XMLHttpRequest(); ctrls.push({ abort: () => x.abort() }); let last = 0;
+      x.open(dir === 'down' ? 'GET' : 'POST', url); x.timeout = 60000;
       if (dir === 'down') { x.responseType = 'arraybuffer'; x.onprogress = e => { if (e.loaded > last) { total += e.loaded - last; last = e.loaded; } }; x.onload = () => { const n = x.response ? x.response.byteLength : 0; if (n > last) { total += n - last; last = n; } }; }
       else { x.upload.onprogress = e => { if (e.loaded > last) { total += e.loaded - last; last = e.loaded; } }; x.onload = () => { if (x.status >= 200 && x.status < 300 && last < upBlob.size) { total += upBlob.size - last; last = upBlob.size; } }; }
-      x.onloadend = () => { if (active) setTimeout(loop, 0); }; x.onerror = x.ontimeout = () => { errors++; if (active) setTimeout(loop, 300); };
-      try { x.send(dir === 'down' ? null : upBlob); } catch (e) { errors++; if (active) setTimeout(loop, 300); }
+      x.onloadend = () => {
+        if (!active) return;
+        if (x.status === 429 || x.status === 403) { if (dir === 'up' && last > 0) { total -= last; } if (onLimited()) setTimeout(loop, 1500); return; }
+        if (x.status === 0 || x.status >= 400) { errors++; setTimeout(loop, 500); return; }
+        setTimeout(loop, 0);
+      };
+      try { x.send(dir === 'down' ? null : upBlob); } catch (e) { errors++; if (active) setTimeout(loop, 500); }
     })();
   }
-  for (let i = 0; i < (H1 ? 3 : (dir === 'down' ? 5 : 3)); i++) addStream();
-  (async () => { await sleep(600); while (active) { const t = await pingOnce(2500); if (t != null && active) loaded.push(t); await sleep(250); } })();
+  for (let i = 0; i < (H1 ? 3 : (dir === 'down' ? 4 : 2)); i++) addStream();
+  // ping under load: one probe a second is enough to grade bufferbloat and keeps the request count down
+  (async () => { await sleep(800); while (active) { const t = await pingOnce(2500); if (t != null && active) loaded.push(t); await sleep(1000); } })();
   let lastSpeed = 0;
   while (active) {
     await sleep(100); const t = performance.now() - start; samples.push({ t, b: total });
-    const win = samples.filter(s => s.t >= t - 1000); const dt = (t - win[0].t) / 1000; const sp = dt > 0.2 ? (total - win[0].b) * 8 / dt / 1e6 : 0; lastSpeed = sp;
+    let i = samples.length - 1; while (i > 0 && samples[i - 1].t >= t - 1000) i--; const w0 = samples[i];
+    const dt = (t - w0.t) / 1000; const sp = dt > 0.2 ? (total - w0.b) * 8 / dt / 1e6 : 0; lastSpeed = sp;
     onProgress(sp, clamp(t / durationMs, 0, 1));
-    if (t > 2000 && t < 2200 && sp > 150 && streams < maxStreams) { addStream(); addStream(); }
-    if (t > 4000 && t < 4200 && sp > 500 && streams < maxStreams) { addStream(); }
+    if (t > 1500 && t < 1700 && sp > 100 && streams < maxStreams) { addStream(); addStream(); }
+    if (t > 3500 && t < 3700 && sp > 400 && streams < maxStreams) { addStream(); }
     if (t >= durationMs || (stopSignal && stopSignal.stopped)) active = false;
-    if (t > 5000 && total === 0 && errors >= 3) active = false; // nothing is flowing: give up early
+    if (t > 5000 && total === 0 && (errors >= 3 || limited >= 2)) active = false; // nothing is flowing: give up early
   }
   ctrls.forEach(c => { try { c.abort(); } catch (e) {} });
-  if (total === 0) return { mbps: null, peak: null, consistency: NaN, loaded, bytes: 0 };
+  if (total === 0) return { mbps: null, peak: null, consistency: NaN, loaded, bytes: 0, limited };
   const dur = samples[samples.length - 1].t; const warm = Math.min(2000, dur * 0.25);
+  // 500 ms windows after warm-up. Windows touched by a rate-limit response are not the network's speed and are excluded.
+  const wins = [], kept = [];
+  for (let i = 5; i < samples.length; i += 5) {
+    const a = samples[i - 5], b = samples[i]; if (b.t <= warm) continue;
+    const v = (b.b - a.b) * 8 / ((b.t - a.t) / 1000) / 1e6; wins.push(v);
+    const hit = stalls.some(st => st >= a.t - 1500 && st <= b.t + 300);
+    if (!hit) kept.push(v);
+  }
+  const good = kept.length >= 3 ? kept : wins;
   const first = samples.find(s => s.t >= warm) || samples[0]; const lastS = samples[samples.length - 1];
-  const steady = (lastS.b - first.b) * 8 / ((lastS.t - first.t) / 1000) / 1e6;
-  const wins = []; for (let i = 5; i < samples.length; i += 5) { const a = samples[i - 5], b = samples[i]; if (b.t > warm) wins.push((b.b - a.b) * 8 / ((b.t - a.t) / 1000) / 1e6); }
-  const m = mean(wins); const sd = Math.sqrt(mean(wins.map(w => (w - m) ** 2))); const consistency = wins.length > 2 ? clamp(100 - (sd / m) * 100, 0, 100) : NaN;
+  const steadyAll = (lastS.b - first.b) * 8 / ((lastS.t - first.t) / 1000) / 1e6;
+  const steady = limited ? mean(good) : steadyAll;
+  const m = mean(good); const sd = Math.sqrt(mean(good.map(w => (w - m) ** 2))); const consistency = good.length > 2 ? clamp(100 - (sd / m) * 100, 0, 100) : NaN;
   const peak = wins.length ? Math.max(...wins) : steady;
-  return { mbps: isFinite(steady) && steady > 0 ? steady : lastSpeed, peak, consistency, loaded, bytes: total };
+  const unreliable = limited > 0 && kept.length < Math.max(3, wins.length / 2);
+  return { mbps: isFinite(steady) && steady > 0 ? steady : lastSpeed, peak, consistency, loaded, bytes: total, limited, unreliable };
 }
 
 async function connInfo() {
@@ -439,10 +479,14 @@ async function runTest(quick = false) {
   try {
     if (navigator.onLine === false) throw new Error(L.err_offline);
     setPhase(L.ph_server);
+    // pick the first backend that answers ping probes; a backend that is down, over quota or rate-limiting is skipped
+    let pr = null; CF = BACKENDS[0];
+    for (const b of BACKENDS) { CF = b; const p = await idlePing(2, 1); if (p.samples.length >= 1) break; CF = null; }
+    if (!CF) { useFallback = true; CF = BACKENDS[BACKENDS.length - 1]; }
     const infoP = connInfo();
     setPhase(L.ph_ping);
-    let pr = await idlePing(12, 2, (t, all) => { setTile('tPing', median(all), 0); setTile('tJit', jitterOf(all), 0); $('bigNum').textContent = fmt(median(all), 0); $('bigUnit').textContent = 'ms'; });
-    if (pr.samples.length < 3) { useFallback = true; pr = await idlePing(10, 2); if (pr.samples.length < 3) throw new Error(L.err_server); }
+    pr = await idlePing(12, 1, (t, all) => { setTile('tPing', median(all), 0); setTile('tJit', jitterOf(all), 0); $('bigNum').textContent = fmt(median(all), 0); $('bigUnit').textContent = 'ms'; });
+    if (pr.samples.length < 3) throw new Error(L.err_server);
     if (stopSig.stopped) throw new Error('__stop');
     r.ping = median(pr.samples); r.pingMin = Math.min(...pr.samples); r.jitter = jitterOf(pr.samples); r.loss = pr.loss;
     setTile('tPing', r.ping, 0, pingNote(r.ping)); setTile('tJit', r.jitter, 0, r.jitter < 10 ? L.jit_n[0] : r.jitter < 30 ? L.jit_n[1] : L.jit_n[2]); setTile('tLoss', r.loss * 100, 0, r.loss === 0 ? L.loss_n[0] : L.loss_n[1]);
@@ -450,14 +494,15 @@ async function runTest(quick = false) {
     $('bigUnit').textContent = unitLabel();
     showLive(true); setPhase(L.ph_down);
     const d = await throughput('down', dur, (sp, p) => { setGauge(sp); pushLive(sp); setTile('tDown', sp / k, 1); setPhase(`${L.ph_down} ${Math.round(p * 100)}%`); }, stopSig);
-    if (d.mbps == null) throw new Error(L.err_server);
+    if (d.mbps == null) throw new Error(d.limited ? (L.err_limited || L.err_server) : L.err_server);
     r.down = d.mbps; r.downPeak = d.peak; r.cons = d.consistency; r.loadedDown = median(d.loaded);
     setGauge(r.down); setTile('tDown', r.down / k, 1, `${speedNote(r.down)} · ${L.peak} ${unitVal(r.downPeak, 0)}`);
     setTile('tCons', r.cons, 0, r.cons >= 90 ? L.cons_n[0] : r.cons >= 75 ? L.cons_n[1] : L.cons_n[2]);
     if (stopSig.stopped) throw new Error('__stop');
+    let u = null;
     if (settings.up && !useFallback) {
       resetLive(); setPhase(L.ph_up);
-      const u = await throughput('up', dur, (sp, p) => { setGauge(sp); pushLive(sp); setTile('tUp', sp / k, 1); setPhase(`${L.ph_up} ${Math.round(p * 100)}%`); }, stopSig);
+      u = await throughput('up', dur, (sp, p) => { setGauge(sp); pushLive(sp); setTile('tUp', sp / k, 1); setPhase(`${L.ph_up} ${Math.round(p * 100)}%`); }, stopSig);
       r.up = u.mbps; r.upPeak = u.peak; r.loadedUp = u.mbps == null ? null : median(u.loaded);
       if (r.up == null) setTile('tUp', null, 1, L.not_tested); else setTile('tUp', r.up / k, 1, `${speedNote(r.up)} · ${L.peak} ${unitVal(r.upPeak, 0)}`);
     } else { r.up = null; setTile('tUp', null, 1, L.not_tested); }
@@ -467,7 +512,8 @@ async function runTest(quick = false) {
     $('tBloat').innerHTML = `<span class="grade ${bg.cls}">${bg.g}</span>`; $('tBloatS').textContent = r.relay ? L.bloat_relay : bg.note;
     r.server = info && info.colo ? `${info.city ? info.city + ' ' : ''}(${info.colo})` : (useFallback ? L.fallback_server : '—'); r.isp = info && info.isp || '';
     lastResult = r; setGauge(r.down); $('bigUnit').textContent = unitLabel();
-    setPhase(tpl(L.ph_done, { note: speedNote(r.down) }) + (useFallback ? ` · ${L.fallback_note}` : ''));
+    r.limited = !!(d.limited || (u && u.limited)); r.unreliable = !!(d.unreliable || (u && u.unreliable));
+    setPhase(tpl(L.ph_done, { note: speedNote(r.down) }) + (useFallback ? ` · ${L.fallback_note}` : '') + (r.unreliable ? ` · ${L.limited_note || 'test server was rate-limiting — result may read low, try again in a minute'}` : ''));
     showResults(r); addHistory(r);
   } catch (e) {
     const stopped = e.message === '__stop';

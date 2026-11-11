@@ -1,0 +1,8 @@
+name = "gbps-speed"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+# After the first deploy, point the page at it: either add speed.gbps.run as a Custom Domain for this Worker
+# (Workers & Pages → gbps-speed → Settings → Domains & Routes; requires the gbps.run DNS zone to be on Cloudflare),
+# or set BACKENDS[0] in _src/build.py to the workers.dev URL printed by the deploy and rebuild.

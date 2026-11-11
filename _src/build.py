@@ -6,6 +6,9 @@ import json, os, re, shutil, html, datetime
 ROOT = "https://gbps.run"
 OUT = "site"
 TEMPLATE = open("template.html", encoding="utf-8").read()
+# Speed-test backends, tried in order by the page. The first is our own Worker (deploy from _src/worker/, see its README);
+# the second is Cloudflare's shared endpoint, used automatically if ours is unreachable or over its free-tier quota.
+BACKENDS = ["https://speed.gbps.run", "https://speed.cloudflare.com"]
 ANALYTICS = {
     "gbps.run": """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0968f4ef414b4594b164ff29299ca51e"}'></script>""",
     "gbps.live": """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8f2b49e14d4d460abb7c3d0258179561"}'></script>""",
@@ -31,7 +34,7 @@ STR["en"] = dict(
     # JS
     ph_server="Finding the nearest server…", ph_ping="Measuring ping…", ph_down="Testing download…", ph_up="Testing upload…", ph_done="Done · {note} connection", ph_stopped="Test stopped", ph_failed="Test failed",
     err_offline="You appear to be offline. Check your connection and try again.",
-    err_server="Could not reach the test servers. Check that you are online, then try again. (If this page is embedded in a sandbox or a strict corporate network, open it at its own address.)",
+    err_server="Could not reach the test servers. Check that you are online, then try again. (If this page is embedded in a sandbox or a strict corporate network, open it at its own address.)", err_limited="The test server is rate-limiting this connection right now, so no reliable measurement was possible. Wait a minute and try again.",
     ping_n=["excellent", "great for gaming", "fine for most things", "sluggish"],
     speed_n=["blazing fast", "very fast", "fast", "good", "basic", "slow"],
     jit_n=["very stable", "stable", "unstable"], loss_n=["no loss", "some packets lost"], cons_n=["rock steady", "steady", "fluctuating"],
@@ -67,7 +70,7 @@ STR["en"] = dict(
     share_title="My internet speed", copied="Copied", copied_link="Link copied — it shows your result to whoever opens it", copy_fail="Copy not allowed here — select the text instead", cleared="History cleared", csv_copied="CSV copied",
     img_title="Internet speed test", shared_h="Someone shared their result with you:", shared_cta="Run the test to compare yours.",
     no_tests="No tests yet. Your results will appear here.", avg="avg", mon_status="Running a quick test every {min} min while this tab stays open.",
-    fallback_server="fallback server", fallback_note="download-only fallback server used",
+    fallback_server="fallback server", fallback_note="download-only fallback server used", limited_note="the test server was rate-limiting this connection, so the result may read low — try again in a minute",
     out_checking="Checking your connection…", out_down="Your connection can't reach the internet right now. If other devices in your home are also offline, it's likely an outage on your provider's side.",
     out_up="Your connection is up: {ping} ms to the nearest server. If a specific service is failing, the problem is probably on their side.", out_slow="You're online but slow to respond ({ping} ms). Run the full test below to see what's going on.",
 )
@@ -89,7 +92,7 @@ STR["es"] = dict(
     footer="gratis · sin anuncios ni rastreo · los resultados se quedan en tu dispositivo", about="acerca de", privacy="privacidad",
     ph_server="Buscando el servidor más cercano…", ph_ping="Midiendo ping…", ph_down="Probando descarga…", ph_up="Probando subida…", ph_done="Listo · conexión {note}", ph_stopped="Prueba detenida", ph_failed="La prueba falló",
     err_offline="Parece que no tienes conexión. Revisa tu red e inténtalo de nuevo.",
-    err_server="No se pudo conectar con los servidores de prueba. Comprueba que tienes internet e inténtalo de nuevo.",
+    err_server="No se pudo conectar con los servidores de prueba. Comprueba que tienes internet e inténtalo de nuevo.", err_limited="El servidor de prueba está limitando esta conexión ahora mismo, así que no fue posible medir con fiabilidad. Espera un minuto e inténtalo de nuevo.",
     ping_n=["excelente", "ideal para juegos", "bien para casi todo", "lento"],
     speed_n=["ultrarrápida", "muy rápida", "rápida", "buena", "básica", "lenta"],
     jit_n=["muy estable", "estable", "inestable"], loss_n=["sin pérdida", "algunos paquetes perdidos"], cons_n=["muy constante", "constante", "fluctuante"],
@@ -125,7 +128,7 @@ STR["es"] = dict(
     share_title="Mi velocidad de internet", copied="Copiado", copied_link="Enlace copiado — muestra tu resultado a quien lo abra", copy_fail="No se pudo copiar — selecciona el texto", cleared="Historial borrado", csv_copied="CSV copiado",
     img_title="Prueba de velocidad", shared_h="Alguien compartió su resultado contigo:", shared_cta="Haz la prueba para comparar el tuyo.",
     no_tests="Aún no hay pruebas. Tus resultados aparecerán aquí.", avg="media", mon_status="Prueba rápida cada {min} min mientras esta pestaña siga abierta.",
-    fallback_server="servidor alternativo", fallback_note="se usó un servidor alternativo (solo descarga)",
+    fallback_server="servidor alternativo", fallback_note="se usó un servidor alternativo (solo descarga)", limited_note="el servidor de prueba limitó esta conexión, así que el resultado puede ser bajo — inténtalo de nuevo en un minuto",
     out_checking="Comprobando tu conexión…", out_down="Tu conexión no llega a internet ahora mismo. Si otros dispositivos de tu casa tampoco tienen conexión, probablemente es una caída de tu operador.",
     out_up="Tu conexión funciona: {ping} ms al servidor más cercano. Si un servicio concreto falla, el problema está probablemente en su lado.", out_slow="Tienes conexión pero responde lento ({ping} ms). Haz la prueba completa para ver qué pasa.",
 )
@@ -147,7 +150,7 @@ STR["pt"] = dict(
     footer="grátis · sem anúncios nem rastreamento · os resultados ficam no seu dispositivo", about="sobre", privacy="privacidade",
     ph_server="Procurando o servidor mais próximo…", ph_ping="Medindo ping…", ph_down="Testando download…", ph_up="Testando upload…", ph_done="Pronto · conexão {note}", ph_stopped="Teste interrompido", ph_failed="O teste falhou",
     err_offline="Parece que você está offline. Verifique sua conexão e tente de novo.",
-    err_server="Não foi possível alcançar os servidores de teste. Verifique se você está online e tente de novo.",
+    err_server="Não foi possível alcançar os servidores de teste. Verifique se você está online e tente de novo.", err_limited="O servidor de teste está limitando esta conexão agora, então não foi possível medir com confiança. Espere um minuto e tente de novo.",
     ping_n=["excelente", "ótimo para jogos", "bom para quase tudo", "lento"],
     speed_n=["ultrarrápida", "muito rápida", "rápida", "boa", "básica", "lenta"],
     jit_n=["muito estável", "estável", "instável"], loss_n=["sem perda", "alguns pacotes perdidos"], cons_n=["muito constante", "constante", "oscilando"],
@@ -183,7 +186,7 @@ STR["pt"] = dict(
     share_title="Minha velocidade de internet", copied="Copiado", copied_link="Link copiado — mostra seu resultado a quem abrir", copy_fail="Não foi possível copiar — selecione o texto", cleared="Histórico limpo", csv_copied="CSV copiado",
     img_title="Teste de velocidade", shared_h="Alguém compartilhou o resultado com você:", shared_cta="Faça o teste para comparar o seu.",
     no_tests="Nenhum teste ainda. Seus resultados aparecerão aqui.", avg="média", mon_status="Teste rápido a cada {min} min enquanto esta aba estiver aberta.",
-    fallback_server="servidor alternativo", fallback_note="servidor alternativo usado (só download)",
+    fallback_server="servidor alternativo", fallback_note="servidor alternativo usado (só download)", limited_note="o servidor de teste limitou esta conexão, então o resultado pode estar baixo — tente de novo em um minuto",
     out_checking="Verificando sua conexão…", out_down="Sua conexão não alcança a internet agora. Se outros aparelhos da casa também estão offline, provavelmente é uma queda da operadora.",
     out_up="Sua conexão está no ar: {ping} ms até o servidor mais próximo. Se um serviço específico está falhando, o problema provavelmente é do lado deles.", out_slow="Você está online, mas respondendo devagar ({ping} ms). Faça o teste completo abaixo para entender.",
 )
@@ -206,7 +209,7 @@ STR["hi"] = dict(
     footer="मुफ़्त · कोई विज्ञापन या ट्रैकिंग नहीं · रिज़ल्ट आपके डिवाइस पर ही रहते हैं", about="परिचय", privacy="प्राइवेसी",
     ph_server="नज़दीकी सर्वर खोजा जा रहा है…", ph_ping="पिंग मापा जा रहा है…", ph_down="डाउनलोड टेस्ट हो रहा है…", ph_up="अपलोड टेस्ट हो रहा है…", ph_done="पूरा · {note} कनेक्शन", ph_stopped="टेस्ट रोका गया", ph_failed="टेस्ट फेल हो गया",
     err_offline="लगता है आप ऑफ़लाइन हैं। कनेक्शन जाँचें और फिर कोशिश करें।",
-    err_server="टेस्ट सर्वर तक पहुँच नहीं हो पाई। जाँचें कि इंटरनेट चल रहा है और फिर कोशिश करें।",
+    err_server="टेस्ट सर्वर तक पहुँच नहीं हो पाई। जाँचें कि इंटरनेट चल रहा है और फिर कोशिश करें।", err_limited="टेस्ट सर्वर अभी इस कनेक्शन को सीमित कर रहा है, इसलिए भरोसेमंद माप नहीं हो पाया। एक मिनट रुककर फिर कोशिश करें।",
     ping_n=["बेहतरीन", "गेमिंग के लिए शानदार", "ज़्यादातर कामों के लिए ठीक", "धीमा"],
     speed_n=["बहुत ही तेज़", "बहुत तेज़", "तेज़", "अच्छा", "बेसिक", "धीमा"],
     jit_n=["बहुत स्थिर", "स्थिर", "अस्थिर"], loss_n=["कोई लॉस नहीं", "कुछ पैकेट खोए"], cons_n=["एकदम स्थिर", "स्थिर", "उतार-चढ़ाव"],
@@ -242,7 +245,7 @@ STR["hi"] = dict(
     share_title="मेरी इंटरनेट स्पीड", copied="कॉपी हो गया", copied_link="लिंक कॉपी हो गया — जो खोलेगा उसे आपका रिज़ल्ट दिखेगा", copy_fail="कॉपी नहीं हो सका — टेक्स्ट सिलेक्ट करें", cleared="इतिहास मिटा दिया", csv_copied="CSV कॉपी हो गया",
     img_title="इंटरनेट स्पीड टेस्ट", shared_h="किसी ने आपके साथ अपना रिज़ल्ट शेयर किया:", shared_cta="अपना रिज़ल्ट तुलना के लिए टेस्ट करें।",
     no_tests="अभी कोई टेस्ट नहीं। आपके रिज़ल्ट यहाँ दिखेंगे।", avg="औसत", mon_status="जब तक यह टैब खुला है, हर {min} मिनट पर एक क्विक टेस्ट चलेगा।",
-    fallback_server="वैकल्पिक सर्वर", fallback_note="वैकल्पिक सर्वर (सिर्फ़ डाउनलोड) इस्तेमाल हुआ",
+    fallback_server="वैकल्पिक सर्वर", fallback_note="वैकल्पिक सर्वर (सिर्फ़ डाउनलोड) इस्तेमाल हुआ", limited_note="टेस्ट सर्वर ने इस कनेक्शन को सीमित किया, इसलिए नतीजा कम दिख सकता है — एक मिनट बाद फिर कोशिश करें",
     out_checking="आपका कनेक्शन जाँचा जा रहा है…", out_down="आपका कनेक्शन अभी इंटरनेट तक नहीं पहुँच पा रहा। अगर घर के दूसरे डिवाइस भी ऑफ़लाइन हैं, तो शायद प्रोवाइडर की तरफ़ से आउटेज है।",
     out_up="आपका कनेक्शन चालू है: नज़दीकी सर्वर तक {ping} ms। अगर कोई खास ऐप/सर्विस नहीं चल रही, तो समस्या शायद उनकी तरफ़ है।", out_slow="आप ऑनलाइन हैं पर रिस्पॉन्स धीमा है ({ping} ms)। नीचे पूरा टेस्ट चलाकर देखें।",
 )
@@ -777,7 +780,7 @@ def render(p, embed=False):
         "{{LANG_SWITCH}}": lang_switch(p), "{{H1}}": p["h1"], "{{INTRO}}": p["intro"], "{{EXTRA}}": OUTAGE_EXTRA if p["mode"] == "outage" else (LIVE_EXTRA if p["mode"] == "live" else ""),
         "{{FAQ_HEADING}}": {"en": "Understanding your results", "es": "Entiende tus resultados", "pt": "Entenda seus resultados", "hi": "अपने रिज़ल्ट समझें"}[p["lang"]] if not p["slug"] else {"en": "Questions about this test", "es": "Preguntas sobre este test", "pt": "Perguntas sobre este teste", "hi": "इस टेस्ट के बारे में सवाल"}[p["lang"]],
         "{{FAQ_HTML}}": faq_html(p["faqs"]), "{{FAQ_JSON}}": faq_json(p["faqs"]), "{{NAV}}": nav_for(p["lang"]),
-        "{{PLAN_PRESET}}": str(p["plan"] or 0), "{{MODE}}": p["mode"], "{{L_JSON}}": json.dumps(S, ensure_ascii=False), "{{ANALYTICS}}": ANALYTICS["gbps.run"],
+        "{{PLAN_PRESET}}": str(p["plan"] or 0), "{{MODE}}": p["mode"], "{{L_JSON}}": json.dumps(S, ensure_ascii=False), "{{ANALYTICS}}": ANALYTICS["gbps.run"], "{{BACKENDS}}": json.dumps(BACKENDS), "{{BACKEND0}}": BACKENDS[0],
     }
     for k, v in subs.items(): out = out.replace(k, v)
     out = re.sub(r"\{\{t:(\w+)\}\}", lambda m: html.escape(str(S[m.group(1)])), out)
