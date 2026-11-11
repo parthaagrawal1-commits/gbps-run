@@ -27,7 +27,7 @@
 <meta name="twitter:image" content="https://gbps.run/og.png">
 <link rel="manifest" href='data:application/manifest+json,{"name":"gbps.run speed test","short_name":"gbps.run","start_url":"/","display":"standalone","background_color":"%230b0f17","theme_color":"%230b0f17","icons":[]}'>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230b0f17'/%3E%3Cpath d='M14 40a20 20 0 0 1 36 0' stroke='%233ee6a5' stroke-width='6' fill='none' stroke-linecap='round'/%3E%3Cpath d='M32 40 44 24' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://speed.gbps.run" crossorigin>
+<link rel="preconnect" href="https://gbps-speed.parthaagrawal1.workers.dev" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
@@ -279,7 +279,7 @@ const MODE = 'live';
 const PLAN_PRESET = 0;
 // Test backends, tried in order. The first is gbps.run's own Worker (see _src/worker/); the second is Cloudflare's shared
 // speed-test endpoint, which rate-limits busy clients. Both speak the same protocol: /__down?bytes=N, /__up, /meta.
-const BACKENDS = ["https://speed.gbps.run", "https://speed.cloudflare.com"];
+const BACKENDS = ["https://gbps-speed.parthaagrawal1.workers.dev", "https://speed.cloudflare.com"];
 let CF = BACKENDS[0];
 // Fallback download/ping source if Cloudflare's endpoint is unreachable (CORS-enabled CDN, ~10 MB file). Upload has no fallback.
 const FALLBACK = { ping: 'https://cdn.jsdelivr.net/pyodide/v0.25.1/full/package.json', down: 'https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.asm.wasm' };

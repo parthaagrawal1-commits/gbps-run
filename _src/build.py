@@ -8,7 +8,7 @@ OUT = "site"
 TEMPLATE = open("template.html", encoding="utf-8").read()
 # Speed-test backends, tried in order by the page. The first is our own Worker (deploy from _src/worker/, see its README);
 # the second is Cloudflare's shared endpoint, used automatically if ours is unreachable or over its free-tier quota.
-BACKENDS = ["https://speed.gbps.run", "https://speed.cloudflare.com"]
+BACKENDS = ["https://gbps-speed.parthaagrawal1.workers.dev", "https://speed.cloudflare.com"]
 ANALYTICS = {
     "gbps.run": """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0968f4ef414b4594b164ff29299ca51e"}'></script>""",
     "gbps.live": """<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "8f2b49e14d4d460abb7c3d0258179561"}'></script>""",
